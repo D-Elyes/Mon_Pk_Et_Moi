@@ -1,4 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Acitivite" representedClassName="Acitivite" syncable="YES" codeGenerationType="class">
+        <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectif" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class"/>
+    <entity name="JourActivite" representedClassName="JourActivite" syncable="YES" codeGenerationType="class">
+        <attribute name="heureActivite" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
+        <attribute name="delai" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="JourSemaine" representedClassName="JourSemaine" syncable="YES" codeGenerationType="class"/>
+    <entity name="Medecin" representedClassName="Medecin" syncable="YES" codeGenerationType="class">
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specialite" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
+        <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duree" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nbParJour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Rappel" representedClassName="Rappel" syncable="YES" codeGenerationType="class">
+        <attribute name="heure" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="RappelActivite" representedClassName="RappelActivite" syncable="YES" codeGenerationType="class"/>
+    <entity name="RappelEvaluation" representedClassName="RappelEvaluation" syncable="YES" codeGenerationType="class"/>
+    <entity name="RappelRdv" representedClassName="RappelRdv" syncable="YES" codeGenerationType="class"/>
+    <entity name="RappelTraitement" representedClassName="RappelTraitement" syncable="YES" codeGenerationType="class"/>
+    <entity name="Rdv" representedClassName="Rdv" syncable="YES" codeGenerationType="class">
+        <attribute name="heure" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lieu" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Medecin" positionX="-90" positionY="18" width="128" height="75"/>
+        <element name="Acitivite" positionX="90" positionY="-108" width="128" height="105"/>
+        <element name="JourActivite" positionX="286" positionY="-90" width="128" height="58"/>
+        <element name="JourSemaine" positionX="495" positionY="-81" width="128" height="43"/>
+        <element name="Traitement" positionX="621" positionY="207" width="128" height="45"/>
+        <element name="Rappel" positionX="369" positionY="57" width="128" height="60"/>
+        <element name="Rdv" positionX="-90" positionY="144" width="128" height="75"/>
+        <element name="Medicament" positionX="612" positionY="342" width="128" height="105"/>
+        <element name="JourEvaluation" positionX="88" positionY="435" width="128" height="60"/>
+        <element name="RappelActivite" positionX="117" positionY="99" width="128" height="43"/>
+        <element name="RappelEvaluation" positionX="396" positionY="218" width="128" height="43"/>
+        <element name="Evaluation" positionX="205" positionY="335" width="128" height="43"/>
+        <element name="RappelRdv" positionX="198" positionY="216" width="128" height="43"/>
+        <element name="RappelTraitement" positionX="601" positionY="108" width="128" height="43"/>
+    </elements>
 </model>
