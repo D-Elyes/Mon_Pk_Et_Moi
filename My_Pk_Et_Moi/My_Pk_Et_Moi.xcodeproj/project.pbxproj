@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B010982204DA29C00D785EA /* calendar-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010981204DA29C00D785EA /* calendar-3.png */; };
+		0B010984204DA3F700D785EA /* medical-notes-symbol-of-a-list-paper-on-a-clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010983204DA3F600D785EA /* medical-notes-symbol-of-a-list-paper-on-a-clipboard.png */; };
+		0B010986204DA49300D785EA /* medication-capsule.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010985204DA49300D785EA /* medication-capsule.png */; };
+		0B010988204DA4F200D785EA /* weightlifting.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010987204DA4F200D785EA /* weightlifting.png */; };
+		0B01098A204DA56E00D785EA /* evaluation.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010989204DA56E00D785EA /* evaluation.png */; };
 		BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222072045B57000B247D1 /* AppDelegate.swift */; };
 		BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222092045B57000B247D1 /* ViewController.swift */; };
 		BDD2220D2045B57100B247D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD2220B2045B57100B247D1 /* Main.storyboard */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B010981204DA29C00D785EA /* calendar-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-3.png"; sourceTree = "<group>"; };
+		0B010983204DA3F600D785EA /* medical-notes-symbol-of-a-list-paper-on-a-clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medical-notes-symbol-of-a-list-paper-on-a-clipboard.png"; sourceTree = "<group>"; };
+		0B010985204DA49300D785EA /* medication-capsule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medication-capsule.png"; sourceTree = "<group>"; };
+		0B010987204DA4F200D785EA /* weightlifting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weightlifting.png; sourceTree = "<group>"; };
+		0B010989204DA56E00D785EA /* evaluation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evaluation.png; sourceTree = "<group>"; };
 		BDD222042045B57000B247D1 /* My_Pk_Et_Moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Pk_Et_Moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD222072045B57000B247D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD222092045B57000B247D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B01097C204DA14100D785EA /* image */ = {
+			isa = PBXGroup;
+			children = (
+				0B010989204DA56E00D785EA /* evaluation.png */,
+				0B010987204DA4F200D785EA /* weightlifting.png */,
+				0B010985204DA49300D785EA /* medication-capsule.png */,
+				0B010983204DA3F600D785EA /* medical-notes-symbol-of-a-list-paper-on-a-clipboard.png */,
+				0B010981204DA29C00D785EA /* calendar-3.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		BDD221FB2045B57000B247D1 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +121,7 @@
 		BDD222062045B57000B247D1 /* My_Pk_Et_Moi */ = {
 			isa = PBXGroup;
 			children = (
+				0B01097C204DA14100D785EA /* image */,
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
@@ -235,9 +258,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B010986204DA49300D785EA /* medication-capsule.png in Resources */,
+				0B01098A204DA56E00D785EA /* evaluation.png in Resources */,
 				BDD222152045B57100B247D1 /* LaunchScreen.storyboard in Resources */,
 				BDD222122045B57100B247D1 /* Assets.xcassets in Resources */,
 				BDD2220D2045B57100B247D1 /* Main.storyboard in Resources */,
+				0B010982204DA29C00D785EA /* calendar-3.png in Resources */,
+				0B010988204DA4F200D785EA /* weightlifting.png in Resources */,
+				0B010984204DA3F700D785EA /* medical-notes-symbol-of-a-list-paper-on-a-clipboard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +539,7 @@
 				BDD222312045B57100B247D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDD222322045B57100B247D1 /* Build configuration list for PBXNativeTarget "My_Pk_Et_MoiTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +548,7 @@
 				BDD222342045B57100B247D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDD222352045B57100B247D1 /* Build configuration list for PBXNativeTarget "My_Pk_Et_MoiUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +557,7 @@
 				BDD222372045B57100B247D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
