@@ -64,7 +64,7 @@
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="avoirRdv" inverseEntity="Medecin" syncable="YES"/>
     </entity>
     <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">
-        <attribute name="num_traitement" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="num_Traitement" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="contenirMedicament" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicament" syncable="YES"/>
     </entity>
     <elements>
@@ -75,7 +75,7 @@
         <element name="JourSemaine" positionX="709" positionY="-90" width="128" height="58"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
         <element name="Medicament" positionX="711" positionY="473" width="128" height="103"/>
-        <element name="Rappel" positionX="288" positionY="194" width="128" height="58"/>
+        <element name="Rappel" positionX="295" positionY="194" width="128" height="58"/>
         <element name="RappelActivite" positionX="333" positionY="63" width="128" height="58"/>
         <element name="RappelEvaluation" positionX="88" positionY="270" width="128" height="58"/>
         <element name="RappelRdv" positionX="81" positionY="137" width="128" height="58"/>
