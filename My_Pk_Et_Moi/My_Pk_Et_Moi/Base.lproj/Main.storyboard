@@ -160,7 +160,7 @@
         <!--Sport-->
         <scene sceneID="lP9-lz-eDt">
             <objects>
-                <viewController id="pCk-Va-RHu" sceneMemberID="viewController">
+                <viewController id="pCk-Va-RHu" customClass="SportViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GeZ-g5-8lL"/>
                         <viewControllerLayoutGuide type="bottom" id="6Ux-xi-tGf"/>
@@ -176,45 +176,65 @@
                                     <segue destination="5e9-69-D9o" kind="show" id="17B-oh-kMZ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="87A-3i-Qx0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="595"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ZR-9Z-BxR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sports" id="vHs-nS-GWr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sportCell" id="ayx-dl-muq" customClass="SportTableViewCell" customModule="My_Pk_Et_Moi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHs-nS-GWr" id="4rP-Oe-DVP">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ayx-dl-muq" id="Afg-db-Pjh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom sport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-nB-5dD">
-                                                    <rect key="frame" x="8" y="8" width="82" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m59-ar-zah">
+                                                    <rect key="frame" x="70" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFd-Mi-hSD">
+                                                    <rect key="frame" x="8" y="8" width="0.0" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ors-nB-5dD" firstAttribute="bottom" secondItem="4rP-Oe-DVP" secondAttribute="bottomMargin" id="Jup-Bh-Dlk"/>
-                                                <constraint firstItem="Ors-nB-5dD" firstAttribute="top" secondItem="4rP-Oe-DVP" secondAttribute="topMargin" id="LXj-Jv-bck"/>
-                                                <constraint firstItem="Ors-nB-5dD" firstAttribute="leading" secondItem="4rP-Oe-DVP" secondAttribute="leadingMargin" id="qAh-kf-x5C"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rFd-Mi-hSD" secondAttribute="bottom" id="2cQ-zr-cQA"/>
+                                                <constraint firstItem="m59-ar-zah" firstAttribute="top" secondItem="Afg-db-Pjh" secondAttribute="topMargin" id="95T-e3-wqe"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="m59-ar-zah" secondAttribute="bottom" id="Lk2-eO-N5n"/>
+                                                <constraint firstItem="m59-ar-zah" firstAttribute="leading" secondItem="rFd-Mi-hSD" secondAttribute="trailing" constant="20" id="M0h-jc-1tg"/>
+                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="leading" secondItem="Afg-db-Pjh" secondAttribute="leadingMargin" id="x88-9e-5yL"/>
+                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="top" secondItem="Afg-db-Pjh" secondAttribute="topMargin" id="xC2-TA-fdR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nomlabel" destination="rFd-Mi-hSD" id="DBl-YR-591"/>
+                                            <outlet property="typeLabel" destination="m59-ar-zah" id="87R-gJ-4Ws"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pCk-Va-RHu" id="PDg-4z-wo8"/>
+                                    <outlet property="delegate" destination="pCk-Va-RHu" id="Eib-is-xCM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96960848569869995" blue="0.90675193071365356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mRM-MG-6um" firstAttribute="top" secondItem="87A-3i-Qx0" secondAttribute="bottom" constant="10" id="5iZ-cw-IEj"/>
-                            <constraint firstItem="87A-3i-Qx0" firstAttribute="leading" secondItem="1ZI-rj-iMS" secondAttribute="leading" id="Ibr-PF-bXW"/>
+                            <constraint firstItem="mRM-MG-6um" firstAttribute="top" secondItem="3ZR-9Z-BxR" secondAttribute="bottom" constant="10" id="1cQ-Xe-EpC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mRM-MG-6um" secondAttribute="trailing" constant="20" id="JRd-mt-kVZ"/>
+                            <constraint firstItem="3ZR-9Z-BxR" firstAttribute="leading" secondItem="1ZI-rj-iMS" secondAttribute="leading" id="MLq-8H-SYe"/>
                             <constraint firstItem="6Ux-xi-tGf" firstAttribute="top" secondItem="mRM-MG-6um" secondAttribute="bottom" constant="20" id="cvD-tv-dZL"/>
-                            <constraint firstItem="87A-3i-Qx0" firstAttribute="top" secondItem="GeZ-g5-8lL" secondAttribute="bottom" id="nkG-i8-IOi"/>
-                            <constraint firstAttribute="trailing" secondItem="87A-3i-Qx0" secondAttribute="trailing" id="p27-9u-zVz"/>
+                            <constraint firstItem="3ZR-9Z-BxR" firstAttribute="top" secondItem="GeZ-g5-8lL" secondAttribute="bottom" id="eMI-D0-w7I"/>
+                            <constraint firstAttribute="trailing" secondItem="3ZR-9Z-BxR" secondAttribute="trailing" id="ybf-ss-Wz5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sport" id="2F7-V5-Q5b" colorLabel="IBBuiltInLabel-Blue"/>
+                    <connections>
+                        <outlet property="sportsTable" destination="3ZR-9Z-BxR" id="bXg-GI-tcO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKr-l9-rMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

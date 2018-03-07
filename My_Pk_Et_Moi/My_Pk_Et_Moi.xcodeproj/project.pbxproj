@@ -12,6 +12,8 @@
 		0B010986204DA49300D785EA /* medication-capsule.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010985204DA49300D785EA /* medication-capsule.png */; };
 		0B010988204DA4F200D785EA /* weightlifting.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010987204DA4F200D785EA /* weightlifting.png */; };
 		0B01098A204DA56E00D785EA /* evaluation.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010989204DA56E00D785EA /* evaluation.png */; };
+		3F06E7E62050563800644A17 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E52050563800644A17 /* SportViewController.swift */; };
+		3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E72050582A00644A17 /* SportTableViewCell.swift */; };
 		BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222072045B57000B247D1 /* AppDelegate.swift */; };
 		BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222092045B57000B247D1 /* ViewController.swift */; };
 		BDD2220D2045B57100B247D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD2220B2045B57100B247D1 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		0B010985204DA49300D785EA /* medication-capsule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medication-capsule.png"; sourceTree = "<group>"; };
 		0B010987204DA4F200D785EA /* weightlifting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weightlifting.png; sourceTree = "<group>"; };
 		0B010989204DA56E00D785EA /* evaluation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evaluation.png; sourceTree = "<group>"; };
+		3F06E7E52050563800644A17 /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
+		3F06E7E72050582A00644A17 /* SportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		BDD222042045B57000B247D1 /* My_Pk_Et_Moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Pk_Et_Moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD222072045B57000B247D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD222092045B57000B247D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
+				3F06E7E72050582A00644A17 /* SportTableViewCell.swift */,
+				3F06E7E52050563800644A17 /* SportViewController.swift */,
 				BDD222112045B57100B247D1 /* Assets.xcassets */,
 				BDD222132045B57100B247D1 /* LaunchScreen.storyboard */,
 				BDD222162045B57100B247D1 /* Info.plist */,
@@ -293,6 +299,8 @@
 				BDD222102045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
+				3F06E7E62050563800644A17 /* SportViewController.swift in Sources */,
+				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
