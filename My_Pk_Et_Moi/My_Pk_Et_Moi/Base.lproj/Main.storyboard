@@ -154,34 +154,6 @@
             </objects>
             <point key="canvasLocation" x="492" y="-43"/>
         </scene>
-        <!--Sport-->
-        <scene sceneID="kkG-p8-O6T">
-            <objects>
-                <viewController id="At2-u8-Xlj" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RKp-dy-TWU"/>
-                        <viewControllerLayoutGuide type="bottom" id="o1B-fe-YZy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Ti-K4-gsP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hdhdgh" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="prF-ms-7Tt">
-                                <rect key="frame" x="177" y="377" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.96960848569869995" blue="0.90675193071365356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sport" id="2F7-V5-Q5b" colorLabel="IBBuiltInLabel-Blue"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="liS-aI-7r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1234" y="-169"/>
-        </scene>
     </scenes>
     <resources>
         <image name="evaluation.png" width="64" height="64"/>
