@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1212" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Acitivite" representedClassName="Acitivite" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectif" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,7 +23,7 @@
     </entity>
     <entity name="JourActivite" representedClassName="JourActivite" syncable="YES" codeGenerationType="class">
         <attribute name="heureActivite" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="apprtient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Acitivite" inverseName="contenirJourActivite" inverseEntity="Acitivite" syncable="YES"/>
+        <relationship name="apprtient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activite" inverseName="contenirJourActivite" inverseEntity="Activite" syncable="YES"/>
         <relationship name="contenirJour" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JourSemaine" inverseName="appartientAJourActivite" inverseEntity="JourSemaine" syncable="YES"/>
     </entity>
     <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
@@ -51,7 +51,7 @@
         <attribute name="heure" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="RappelActivite" representedClassName="RappelActivite" parentEntity="Rappel" syncable="YES" codeGenerationType="class">
-        <relationship name="contenirActivite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Acitivite" inverseName="possedRappel" inverseEntity="Acitivite" syncable="YES"/>
+        <relationship name="contenirActivite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activite" inverseName="possedRappel" inverseEntity="Activite" syncable="YES"/>
     </entity>
     <entity name="RappelEvaluation" representedClassName="RappelEvaluation" parentEntity="Rappel" syncable="YES" codeGenerationType="class">
         <relationship name="contenirEvaluation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="possedRappel" inverseEntity="Evaluation" syncable="YES"/>
@@ -75,7 +75,7 @@
         <relationship name="possedeRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelTraitement" inverseName="contenirTraitement" inverseEntity="RappelTraitement" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Acitivite" positionX="153" positionY="-90" width="128" height="133"/>
+        <element name="Activite" positionX="153" positionY="-90" width="128" height="135"/>
         <element name="Evaluation" positionX="90" positionY="401" width="128" height="88"/>
         <element name="Evenement" positionX="-171" positionY="387" width="128" height="73"/>
         <element name="Heure" positionX="-99" positionY="536" width="128" height="73"/>

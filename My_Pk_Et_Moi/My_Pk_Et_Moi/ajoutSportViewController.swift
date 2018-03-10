@@ -11,11 +11,11 @@ import CoreData
 
 class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
-    
+    var pickerView = UIPickerView()
     
     @IBOutlet weak var nomSport: UITextField!
-    @IBOutlet weak var typeSport: UIPickerView!
     @IBOutlet weak var objectif: UITextField!
+    @IBOutlet weak var typeTextF: UITextField!
     
     @IBOutlet weak var lundi: UISwitch!
     @IBOutlet weak var mardi: UISwitch!
@@ -30,17 +30,25 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
     let typeSports = ["Sport équipe", "Course", "Yoga", "Musculation"]
     
     @IBAction func ajouter(_ sender: UIButton) {
-        let nom = nomSport.text
+        //let jour = "lundi" // à modifier !!!!!!
+        //let heur = "10h00" // à modifier !!!!!!
         
-        let obj = objectif.text
-        
+        guard let nomField = nomSport.text, let typeField = typeTextF.text, let objField = objectif.text else { //a modifier !
+            // afficher pop erreur formulaire
+            return
+        }
+        self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        typeSport.delegate = self
-        typeSport.dataSource = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        typeTextF.inputView = pickerView
+        typeTextF.textAlignment = .center
+        typeTextF.placeholder = "Selection Type"
         
         // Do any additional setup after loading the view.
     }
@@ -64,8 +72,21 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
         return typeSports[row]
     }
     
-    /*func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    }*/
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        typeTextF.text = typeSports[row]
+        typeTextF.resignFirstResponder()
+    }
+    
+    func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
+        // get context into application delegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            // faire le message d'erreur
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        //create a sport
+        let sport = Activite(context: context)
+    }
     
     /*func alertError(errorMsg error: String, userInfo user: String = ""){
         let alert = UIAlertController(title: error, message: user, preferredStyle: .alert)
