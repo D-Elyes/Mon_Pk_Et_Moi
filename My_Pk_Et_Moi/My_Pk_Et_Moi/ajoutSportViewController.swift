@@ -86,6 +86,16 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
         let context = appDelegate.persistentContainer.viewContext
         //create a sport
         let sport = Activite(context: context)
+        sport.nom = nom
+        sport.type = type
+        sport.objectif = obj
+        do{
+            try context.save()
+        }
+        catch let error as NSError{
+            // completer l'erreur
+            return
+        }
     }
     
     /*func alertError(errorMsg error: String, userInfo user: String = ""){
