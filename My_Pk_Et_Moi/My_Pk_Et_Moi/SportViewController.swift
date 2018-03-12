@@ -42,15 +42,24 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
+    let segueShowSportId = "showSportSegue"
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == self.segueShowSportId{
+            if let indexPath = self.sportsTable.indexPathForSelectedRow{
+                let ShowSportViewController = segue.destination as! ShowSportViewController
+                ShowSportViewController.sport = self.sports[indexPath.row]
+                self.sportsTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
-    */
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //return self.sports.count
