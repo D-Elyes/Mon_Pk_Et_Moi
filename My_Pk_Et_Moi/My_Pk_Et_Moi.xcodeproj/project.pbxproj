@@ -15,6 +15,8 @@
 		3F06E7E62050563800644A17 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E52050563800644A17 /* SportViewController.swift */; };
 		3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E72050582A00644A17 /* SportTableViewCell.swift */; };
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
+		3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE16082056C88300DFC11F /* CoreDataManager.swift */; };
+		3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE160A2056CC5600DFC11F /* SportPresenter.swift */; };
 		BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222072045B57000B247D1 /* AppDelegate.swift */; };
 		BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222092045B57000B247D1 /* ViewController.swift */; };
 		BDD2220D2045B57100B247D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD2220B2045B57100B247D1 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		3F06E7E52050563800644A17 /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		3F06E7E72050582A00644A17 /* SportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
+		3FDE16082056C88300DFC11F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3FDE160A2056CC5600DFC11F /* SportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPresenter.swift; sourceTree = "<group>"; };
 		BDD222042045B57000B247D1 /* My_Pk_Et_Moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Pk_Et_Moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD222072045B57000B247D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD222092045B57000B247D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,14 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		3FDE16072056C83000DFC11F /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE16082056C88300DFC11F /* CoreDataManager.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		BDD221FB2045B57000B247D1 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +139,10 @@
 		BDD222062045B57000B247D1 /* My_Pk_Et_Moi */ = {
 			isa = PBXGroup;
 			children = (
+				3FDE16072056C83000DFC11F /* helpers */,
 				0B01097C204DA14100D785EA /* image */,
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
+				3FDE160A2056CC5600DFC11F /* SportPresenter.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
 				3F06E7E72050582A00644A17 /* SportTableViewCell.swift */,
@@ -304,7 +318,9 @@
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
 				3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */,
 				3F06E7E62050563800644A17 /* SportViewController.swift in Sources */,
+				3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */,
 				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,
+				3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

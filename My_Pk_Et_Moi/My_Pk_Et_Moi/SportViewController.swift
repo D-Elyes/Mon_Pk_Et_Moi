@@ -9,25 +9,25 @@
 import UIKit
 import CoreData
 
-class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
-    //var nomSport : [String] = ["Amin"]
     var sports : [Activite] = []
-
+    
+    fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
+        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
+    
+    @IBOutlet var sportPresenter: SportPresenter!
     @IBOutlet weak var sportsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // get context into application delegate
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            // faire le message d'erreur
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        //create a request associate to Sport
-        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         do{
-            try self.sports = context.fetch(request)
+            try self.sportsFetched.performFetch()
         }
         catch let error as NSError{
             // traiter l'erreur
@@ -53,12 +53,17 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return self.sports.count
+        //return self.sports.count
+        guard let section = self.sportsFetched.sections?[section] else {
+            fatalError("unexpected section number")
+        }
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.sportsTable.dequeueReusableCell(withIdentifier: "sportCell", for: indexPath) as! SportTableViewCell
-        cell.nomlabel.text = self.sports[indexPath.row].nom
+        let person = self.sportsFetched.object(at: indexPath)
+        self.sportPresenter.configure(theCell: cell, forSport: person)
         return cell
     }
 

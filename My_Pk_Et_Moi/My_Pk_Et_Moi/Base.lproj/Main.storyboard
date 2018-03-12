@@ -187,30 +187,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m59-ar-zah">
-                                                    <rect key="frame" x="70" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFd-Mi-hSD">
+                                                    <rect key="frame" x="15" y="11.5" width="36.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFd-Mi-hSD">
-                                                    <rect key="frame" x="15" y="11" width="0.0" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objectif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-Ha-BV5">
+                                                    <rect key="frame" x="105" y="12" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m59-ar-zah">
+                                                    <rect key="frame" x="59.5" y="11" width="37.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rFd-Mi-hSD" secondAttribute="bottom" id="2cQ-zr-cQA"/>
-                                                <constraint firstItem="m59-ar-zah" firstAttribute="top" secondItem="Afg-db-Pjh" secondAttribute="topMargin" id="95T-e3-wqe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="m59-ar-zah" secondAttribute="bottom" id="Lk2-eO-N5n"/>
-                                                <constraint firstItem="m59-ar-zah" firstAttribute="leading" secondItem="rFd-Mi-hSD" secondAttribute="trailing" constant="20" id="M0h-jc-1tg"/>
-                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="leading" secondItem="Afg-db-Pjh" secondAttribute="leadingMargin" id="x88-9e-5yL"/>
-                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="top" secondItem="Afg-db-Pjh" secondAttribute="topMargin" id="xC2-TA-fdR"/>
+                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="leading" secondItem="Afg-db-Pjh" secondAttribute="leadingMargin" id="5Z9-c1-Lqn"/>
+                                                <constraint firstItem="rFd-Mi-hSD" firstAttribute="centerY" secondItem="Afg-db-Pjh" secondAttribute="centerY" id="9ez-p2-OHV"/>
+                                                <constraint firstItem="m59-ar-zah" firstAttribute="leading" secondItem="rFd-Mi-hSD" secondAttribute="trailing" constant="8" id="CPT-Qr-Fig"/>
+                                                <constraint firstItem="TFb-Ha-BV5" firstAttribute="leading" secondItem="m59-ar-zah" secondAttribute="trailing" constant="8" id="FfJ-S2-qO0"/>
+                                                <constraint firstItem="TFb-Ha-BV5" firstAttribute="centerY" secondItem="Afg-db-Pjh" secondAttribute="centerY" id="Uij-um-qol"/>
+                                                <constraint firstItem="m59-ar-zah" firstAttribute="centerY" secondItem="Afg-db-Pjh" secondAttribute="centerY" id="sDO-p3-WdZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nomlabel" destination="rFd-Mi-hSD" id="DBl-YR-591"/>
+                                            <outlet property="objLabel" destination="TFb-Ha-BV5" id="fXm-jX-QAI"/>
                                             <outlet property="typeLabel" destination="m59-ar-zah" id="87R-gJ-4Ws"/>
                                         </connections>
                                     </tableViewCell>
@@ -233,10 +240,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sport" id="2F7-V5-Q5b" colorLabel="IBBuiltInLabel-Blue"/>
                     <connections>
+                        <outlet property="sportPresenter" destination="51X-4s-PTx" id="Dhs-XQ-xsN"/>
                         <outlet property="sportsTable" destination="3ZR-9Z-BxR" id="bXg-GI-tcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKr-l9-rMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="51X-4s-PTx" customClass="SportPresenter" customModule="My_Pk_Et_Moi" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1312.8" y="-44.527736131934034"/>
         </scene>

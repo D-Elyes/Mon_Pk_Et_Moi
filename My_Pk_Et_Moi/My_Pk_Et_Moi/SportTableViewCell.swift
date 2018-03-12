@@ -10,8 +10,10 @@ import UIKit
 
 class SportTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var objLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var nomlabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
