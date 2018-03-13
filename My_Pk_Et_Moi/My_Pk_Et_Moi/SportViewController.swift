@@ -11,7 +11,7 @@ import CoreData
 
 class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
-    var sports : [Activite] = []
+    //var sports : [Activite] = []
     
     fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
@@ -28,6 +28,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         do{
             try self.sportsFetched.performFetch()
+            print("amin")
         }
         catch let error as NSError{
             // traiter l'erreur
@@ -54,7 +55,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         if segue.identifier == self.segueShowSportId{
             if let indexPath = self.sportsTable.indexPathForSelectedRow{
                 let ShowSportViewController = segue.destination as! ShowSportViewController
-                ShowSportViewController.sport = self.sports[indexPath.row]
+                ShowSportViewController.sport = self.sportsFetched.object(at: indexPath)
                 self.sportsTable.deselectRow(at: indexPath, animated: true)
             }
         }
@@ -71,8 +72,8 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.sportsTable.dequeueReusableCell(withIdentifier: "sportCell", for: indexPath) as! SportTableViewCell
-        let person = self.sportsFetched.object(at: indexPath)
-        self.sportPresenter.configure(theCell: cell, forSport: person)
+        let sport = self.sportsFetched.object(at: indexPath)
+        self.sportPresenter.configure(theCell: cell, forSport: sport)
         return cell
     }
 

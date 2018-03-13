@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class ajoutSportViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     var pickerView = UIPickerView()
     
@@ -27,9 +27,14 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBOutlet weak var heure: UIDatePicker!
     
+    // Mark : - Formulaire ajout sport : cancel/save
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     let typeSports = ["Sport équipe", "Course", "Yoga", "Musculation"]
     
-    @IBAction func ajouter(_ sender: UIButton) {
+    /*@IBAction func ajouter(_ sender: UIButton) {
         //let jour = "lundi" // à modifier !!!!!!
         //let heur = "10h00" // à modifier !!!!!!
         
@@ -38,10 +43,13 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
             return
         }
         self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nomSport.delegate = self
+        self.objectif.delegate = self
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -64,6 +72,14 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     
+    
+    // MARK: - TextField Delegate
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool { // a modifier clavier ne s'affiche pas !!!!!!!!!!!!!!!
+        textField.resignFirstResponder()
+        return true
+    }
+    
+     // MARK: - PickerView Delegate
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         return typeSports.count
     }
@@ -76,6 +92,20 @@ class ajoutSportViewController: UIViewController, UIPickerViewDataSource, UIPick
         typeTextF.text = typeSports[row]
         typeTextF.resignFirstResponder()
     }
+    
+    @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
+        print("I'm back")
+        //let jour = "lundi" // à modifier !!!!!!
+        //let heur = "10h00" // à modifier !!!!!!
+        
+        guard let nomField = nomSport.text, let typeField = typeTextF.text, let objField = objectif.text else { //a modifier !
+            // afficher pop erreur formulaire
+            return
+        }
+        self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!
+        
+    }
+    
     
     func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
         // get context into application delegate
