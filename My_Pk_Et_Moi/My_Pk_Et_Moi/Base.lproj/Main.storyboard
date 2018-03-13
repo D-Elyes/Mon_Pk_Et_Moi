@@ -243,6 +243,7 @@
                     <connections>
                         <outlet property="sportPresenter" destination="51X-4s-PTx" id="Dhs-XQ-xsN"/>
                         <outlet property="sportsTable" destination="3ZR-9Z-BxR" id="bXg-GI-tcO"/>
+                        <segue destination="Gcz-bI-t8P" kind="show" identifier="editSportSegue" id="DMv-32-uT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKr-l9-rMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,6 +380,40 @@
             </objects>
             <point key="canvasLocation" x="2100" y="-267"/>
         </scene>
+        <!--Edit Sport View Controller-->
+        <scene sceneID="nZU-eg-Bbc">
+            <objects>
+                <viewController id="Gcz-bI-t8P" customClass="EditSportViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YdO-Lw-A55"/>
+                        <viewControllerLayoutGuide type="bottom" id="3s7-p8-pvF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h3d-4a-8Ub">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xxn-Tf-sKc">
+                                <rect key="frame" x="12" y="56" width="352" height="556"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352" id="7nS-IE-MfF"/>
+                                    <constraint firstAttribute="height" constant="556" id="ruV-CN-6Mx"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="X4c-q1-f4X" kind="embed" id="sf9-e9-Xbb"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xxn-Tf-sKc" firstAttribute="centerY" secondItem="h3d-4a-8Ub" secondAttribute="centerY" id="9xJ-XC-kWg"/>
+                            <constraint firstItem="Xxn-Tf-sKc" firstAttribute="centerX" secondItem="h3d-4a-8Ub" secondAttribute="centerX" id="avs-3J-EDp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILJ-A0-I1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="772"/>
+        </scene>
         <!--Ajout d'un sport-->
         <scene sceneID="a2U-qK-B0H">
             <objects>
@@ -404,28 +439,34 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Oev-zw-CIf"/>
                                     <barButtonItem systemItem="save" id="4jo-Ru-SA9">
                                         <connections>
-                                            <segue destination="OKD-VJ-hek" kind="unwind" unwindAction="unwindToSportsListAfterSavingNewSportWithSegue:" id="WKp-WH-jri"/>
+                                            <action selector="saveAction:" destination="5e9-69-D9o" id="dfH-9n-cvc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6Jb-6u-HqV"/>
                                 </items>
                             </toolbar>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mEx-HU-uPp">
-                                <rect key="frame" x="11" y="20" width="352" height="556"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEx-HU-uPp">
+                                <rect key="frame" x="11" y="56" width="352" height="556"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352" id="eAV-34-Srv"/>
+                                    <constraint firstAttribute="height" constant="556" id="syj-OP-HK2"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="X4c-q1-f4X" kind="embed" id="BuO-0M-mTx"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96960848570000002" blue="0.90675193070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mEx-HU-uPp" firstAttribute="centerY" secondItem="zmf-57-YXS" secondAttribute="centerY" id="Y5h-ne-PoU"/>
+                            <constraint firstItem="mEx-HU-uPp" firstAttribute="centerX" secondItem="zmf-57-YXS" secondAttribute="centerX" id="qxt-G1-0IZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ajout d'un sport" id="DxQ-9s-g8a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMF-Me-2ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="OKD-VJ-hek" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="417.8410794602699"/>
+            <point key="canvasLocation" x="2100" y="418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CFJ-BD-VXV">
@@ -443,10 +484,10 @@
             </objects>
             <point key="canvasLocation" x="492" y="-845"/>
         </scene>
-        <!--View Controller-->
+        <!--Embed Sport View Controller-->
         <scene sceneID="TML-sk-XQM">
             <objects>
-                <viewController id="X4c-q1-f4X" sceneMemberID="viewController">
+                <viewController id="X4c-q1-f4X" customClass="EmbedSportViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6cg-Ko-kLn">
                         <rect key="frame" x="0.0" y="0.0" width="352" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,6 +512,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X4c-q1-f4X" id="9Er-L0-184"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOUR(S)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-DY-skT">
                                 <rect key="frame" x="148" y="219" width="67.5" height="20.5"/>
@@ -586,6 +630,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X4c-q1-f4X" id="rCn-ot-tpx"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OBJECTIF :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrv-Hx-Obe">
                                 <rect key="frame" x="138" y="151" width="86.5" height="20.5"/>
@@ -601,9 +648,12 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X4c-q1-f4X" id="XA8-9H-VZG"/>
+                                </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.96976155042648315" blue="0.90580379962921143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qrv-Hx-Obe" firstAttribute="top" secondItem="v6h-N9-S0k" secondAttribute="bottom" constant="20" id="1O1-bG-UXx"/>
                             <constraint firstItem="axo-aZ-r5K" firstAttribute="leading" secondItem="6cg-Ko-kLn" secondAttribute="leadingMargin" constant="-6" id="2AZ-za-2gp"/>
@@ -655,10 +705,23 @@
                             <constraint firstItem="BeM-fM-om2" firstAttribute="top" secondItem="6cg-Ko-kLn" secondAttribute="top" constant="20" id="zOr-ox-ATS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dimanche" destination="ckm-cN-lmx" id="rbU-sE-kg3"/>
+                        <outlet property="heure" destination="5gM-cs-791" id="WU1-IP-bFL"/>
+                        <outlet property="jeudi" destination="hDf-ji-oBp" id="Gu3-Bu-htP"/>
+                        <outlet property="lundi" destination="aNH-5P-lCb" id="NUc-4C-kAI"/>
+                        <outlet property="mardi" destination="0N1-A0-wfh" id="qJL-B5-5Fn"/>
+                        <outlet property="mercredi" destination="UPS-FT-gwm" id="atl-sN-Dxz"/>
+                        <outlet property="nomSport" destination="BeM-fM-om2" id="HRI-ME-pWm"/>
+                        <outlet property="objectif" destination="Tqh-et-35z" id="h2g-6b-ajo"/>
+                        <outlet property="samedi" destination="EoT-wE-gfS" id="OXu-y2-8aT"/>
+                        <outlet property="typeTextF" destination="v6h-N9-S0k" id="TWg-06-zmz"/>
+                        <outlet property="vendredi" destination="leD-FP-NrE" id="GvC-K9-Ic5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qX-To-PxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="417"/>
+            <point key="canvasLocation" x="2099" y="1126"/>
         </scene>
     </scenes>
     <resources>
@@ -667,5 +730,8 @@
         <image name="medication-capsule.png" width="64" height="64"/>
         <image name="weightlifting.png" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BuO-0M-mTx"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.30008404906148589" blue="0.46895669645503513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

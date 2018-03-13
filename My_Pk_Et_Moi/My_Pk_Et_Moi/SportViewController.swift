@@ -21,6 +21,8 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         return fetchResultController
     }()
     
+    var indexPathForShow: IndexPath? = nil
+    
     @IBOutlet var sportPresenter: SportPresenter!
     @IBOutlet weak var sportsTable: UITableView!
     
@@ -42,18 +44,34 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    // MARK: - NSDetchResultController delegate protocol
+    // MARK: - NSFetchResultController delegate protocol
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.sportsTable.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.sportsTable.endUpdates()
+        CoreDataManager.save()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.sportsTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.sportsTable.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
+        }
     }
     
     
     // MARK: - Navigation
 
     let segueShowSportId = "showSportSegue"
+    let segueEditSportId = "editSportSegue"
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,6 +82,12 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let ShowSportViewController = segue.destination as! ShowSportViewController
                 ShowSportViewController.sport = self.sportsFetched.object(at: indexPath)
                 self.sportsTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        if segue.identifier == self.segueEditSportId{
+            if let indexPath = self.indexPathForShow{
+                let editSportViewController = segue.destination as! EditSportViewController
+                editSportViewController.sport = self.sportsFetched.object(at: indexPath)
             }
         }
     }
@@ -84,16 +108,52 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
+        // get context into application delegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            // faire le message d'erreur
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        //create a sport
+        let sport = Activite(context: context)
+        sport.nom = nom
+        sport.type = type
+        sport.objectif = obj
+        do{
+            try context.save()
+        }
+        catch let error as NSError{
+            // completer l'erreur
+            return
+        }
+    }
+    
+
+    // MARK: - Action Handler
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        let sport = self.sportsFetched.object(at: indexPath)
+        CoreDataManager.context.delete(sport)
+    }
+    
+    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueEditSportId, sender: self)
+        self.sportsTable.setEditing(false, animated: true)
+    }
+    
     @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
         //let jour = "lundi" // à modifier !!!!!!
         //let heur = "10h00" // à modifier !!!!!!
         
-        /*guard let nomField = nomSport.text, let typeField = typeTextF.text, let objField = objectif.text else { //a modifier !
-         // afficher pop erreur formulaire
-         return
-         }
-         self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!*/
-        
+        let ajoutSportController = segue.source as! ajoutSportViewController
+        let embedSportController = ajoutSportController.childViewControllers[0] as! EmbedSportViewController
+        let nomSport = embedSportController.nomSport.text ?? ""
+        let typeSport = embedSportController.typeTextF.text ?? ""
+        let objSport = embedSportController.objectif.text ?? ""
+        self.saveNewSport(nomSport: nomSport, typeSport: typeSport, objSport: objSport) //à compléter !!!!!!!!!
+        self.sportsTable.reloadData()
     }
 
 
