@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1212" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Acitivite" representedClassName="Acitivite" syncable="YES" codeGenerationType="class">
         <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,7 +46,7 @@
         <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nbJourParSemaine" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nbParJour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomMedicament" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contientRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelTraitement" inverseName="contientMedicament" inverseEntity="RappelTraitement" syncable="YES"/>
     </entity>
     <entity name="Rappel" representedClassName="Rappel" syncable="YES" codeGenerationType="class">
@@ -80,12 +80,12 @@
         <element name="JourEvaluation" positionX="108" positionY="530" width="128" height="88"/>
         <element name="JourSemaine" positionX="709" positionY="-90" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
+        <element name="Medicament" positionX="709" positionY="387" width="128" height="150"/>
         <element name="Rappel" positionX="295" positionY="194" width="128" height="58"/>
         <element name="RappelActivite" positionX="333" positionY="63" width="128" height="58"/>
         <element name="RappelEvaluation" positionX="88" positionY="270" width="128" height="58"/>
         <element name="RappelRdv" positionX="81" positionY="137" width="128" height="58"/>
         <element name="RappelTraitement" positionX="486" positionY="254" width="128" height="58"/>
         <element name="Rdv" positionX="-162" positionY="126" width="128" height="118"/>
-        <element name="Medicament" positionX="709" positionY="387" width="128" height="148"/>
     </elements>
 </model>

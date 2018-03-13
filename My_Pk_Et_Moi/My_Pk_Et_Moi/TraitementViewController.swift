@@ -7,12 +7,43 @@
 //
 
 import UIKit
+import CoreData
 
 class TraitementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var traitementTableView: UITableView!
     
     var names : [String] = ["Panadol","Grippex"]
+   // var medicaments : [Medicament] = []
+    
+    /*@IBAction func addTraitement(_ sender: Any) {
+        let alert = UIAlertController(title: "Nouveau Traitement",
+                                      message: "Ajouter un traitement",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Ajouter",
+                                       style: .default)
+        {
+            [unowned self ] action in
+            guard let textField = alert.textFields?.first,
+                let nameToSave = textField.text else
+            {
+                return
+            }
+            self.names.append(nameToSave)
+            self.traitementTableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Annuler",
+                                         style: .default)
+        
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+        
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +66,14 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     {
         let cell = self.traitementTableView.dequeueReusableCell(withIdentifier: "medicCell",for: indexPath) as! MedicamentTableViewCell
         
-        cell.medicNameLabel.text = self.names[indexPath.row]
         
+        cell.medicNameLabel.text = self.names[indexPath.row]
+        /*cell.medicNameLabel.text = self.medicaments[indexPath.row].nomMedicament
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
+        cell.startDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateDebut)
+        cell.endDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateFIn)
+        */
         return cell
         
     }
