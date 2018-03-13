@@ -93,18 +93,6 @@ class ajoutSportViewController: UIViewController, UITextFieldDelegate, UIPickerV
         typeTextF.resignFirstResponder()
     }
     
-    @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
-        print("I'm back")
-        //let jour = "lundi" // à modifier !!!!!!
-        //let heur = "10h00" // à modifier !!!!!!
-        
-        guard let nomField = nomSport.text, let typeField = typeTextF.text, let objField = objectif.text else { //a modifier !
-            // afficher pop erreur formulaire
-            return
-        }
-        self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!
-        
-    }
     
     
     func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!

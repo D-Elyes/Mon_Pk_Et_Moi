@@ -28,7 +28,6 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         do{
             try self.sportsFetched.performFetch()
-            print("amin")
         }
         catch let error as NSError{
             // traiter l'erreur
@@ -42,7 +41,15 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // MARK: - NSDetchResultController delegate protocol
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.sportsTable.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.sportsTable.endUpdates()
+    }
+    
     
     // MARK: - Navigation
 
@@ -76,5 +83,18 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.sportPresenter.configure(theCell: cell, forSport: sport)
         return cell
     }
+    
+    @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
+        //let jour = "lundi" // à modifier !!!!!!
+        //let heur = "10h00" // à modifier !!!!!!
+        
+        /*guard let nomField = nomSport.text, let typeField = typeTextF.text, let objField = objectif.text else { //a modifier !
+         // afficher pop erreur formulaire
+         return
+         }
+         self.saveNewSport(nomSport: nomField, typeSport: typeField, objSport: objField) //à compléter !!!!!!!!!*/
+        
+    }
+
 
 }
