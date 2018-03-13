@@ -20,6 +20,9 @@
 		BDD222152045B57100B247D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD222132045B57100B247D1 /* LaunchScreen.storyboard */; };
 		BDD222202045B57100B247D1 /* My_Pk_Et_MoiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2221F2045B57100B247D1 /* My_Pk_Et_MoiTests.swift */; };
 		BDD2222B2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */; };
+		C727FBD520575617006C3AE6 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */; };
+		C727FBD720575D79006C3AE6 /* ShowMedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */; };
+		C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC3856205705F00084CF14 /* TraitementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		BDD222262045B57100B247D1 /* My_Pk_Et_MoiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = My_Pk_Et_MoiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Pk_Et_MoiUITests.swift; sourceTree = "<group>"; };
 		BDD2222C2045B57100B247D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
+		C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicViewController.swift; sourceTree = "<group>"; };
+		C7DC3856205705F00084CF14 /* TraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +131,13 @@
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
+				C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */,
+				C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */,
 				BDD222112045B57100B247D1 /* Assets.xcassets */,
 				BDD222132045B57100B247D1 /* LaunchScreen.storyboard */,
 				BDD222162045B57100B247D1 /* Info.plist */,
 				BDD2220E2045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld */,
+				C7DC3856205705F00084CF14 /* TraitementViewController.swift */,
 			);
 			path = My_Pk_Et_Moi;
 			sourceTree = "<group>";
@@ -291,8 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD222102045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld in Sources */,
+				C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
+				C727FBD720575D79006C3AE6 /* ShowMedicViewController.swift in Sources */,
+				C727FBD520575617006C3AE6 /* MedicamentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
