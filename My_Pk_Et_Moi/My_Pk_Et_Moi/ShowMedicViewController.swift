@@ -31,7 +31,7 @@ class ShowMedicViewController: UIViewController {
         //if a medicament exist then display it
         if let amedicament = self.medicament
         {
-            self.nomMedicLabel.text = amedicament.nom
+            self.nomMedicLabel.text = amedicament.nomMedicament
             self.doseMedicLabel.text = String(amedicament.dose)
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
