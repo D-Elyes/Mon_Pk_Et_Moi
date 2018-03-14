@@ -27,28 +27,6 @@ class ajoutSportViewController: UIViewController{
     }
     
     
-    
-    /*func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
-        // get context into application delegate
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            // faire le message d'erreur
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        //create a sport
-        let sport = Activite(context: context)
-        sport.nom = nom
-        sport.type = type
-        sport.objectif = obj
-        do{
-            try context.save()
-        }
-        catch let error as NSError{
-            // completer l'erreur
-            return
-        }
-    }*/
-    
     /*func alertError(errorMsg error: String, userInfo user: String = ""){
         let alert = UIAlertController(title: error, message: user, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Ok", style: .default)
@@ -63,6 +41,13 @@ class ajoutSportViewController: UIViewController{
         let nomSport : String = embedSportViewController.nomSport.text ?? ""
         let typeSport : String = embedSportViewController.typeTextF.text ?? ""
         let objSport : String = embedSportViewController.objectif.text ?? ""
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        dateFormatter.dateFormat = "hh mm"
+        let heureSport = dateFormatter.string(from: embedSportViewController.heure.date)
+        
         guard (nomSport != "" ) || (typeSport != "" ) else { return }
         // create a new Sports Managed Object
         let sport = Activite(context: CoreDataManager.context)
@@ -70,6 +55,7 @@ class ajoutSportViewController: UIViewController{
         sport.nom = nomSport
         sport.type = typeSport
         sport.objectif = objSport
+        sport.heure = heureSport
         self.dismiss(animated: true, completion: nil)
     }
     

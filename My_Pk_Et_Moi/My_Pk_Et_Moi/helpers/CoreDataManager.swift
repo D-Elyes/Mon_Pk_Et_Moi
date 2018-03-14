@@ -23,7 +23,7 @@ class CoreDataManager: NSObject {
     class func save() -> NSError?{
         //try to save
         do{
-            try CoreDataManager.context.save()
+            try self.context.save()
             return nil
         }
         catch let error as NSError{

@@ -11,8 +11,6 @@ import CoreData
 
 class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
-    //var sports : [Activite] = []
-    
     fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
@@ -94,7 +92,6 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //return self.sports.count
         guard let section = self.sportsFetched.sections?[section] else {
             fatalError("unexpected section number")
         }
@@ -116,30 +113,10 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         return[delete, edit]
     }
     
-    func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
-        // get context into application delegate
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            // faire le message d'erreur
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        //create a sport
-        let sport = Activite(context: context)
-        sport.nom = nom
-        sport.type = type
-        sport.objectif = obj
-        do{
-            try context.save()
-        }
-        catch let error as NSError{
-            // completer l'erreur
-            return
-        }
-    }
+
     
 
     // MARK: - Action Handler
-    
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let sport = self.sportsFetched.object(at: indexPath)
         CoreDataManager.context.delete(sport)
@@ -150,21 +127,4 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.performSegue(withIdentifier: self.segueEditSportId, sender: self)
         self.sportsTable.setEditing(false, animated: true)
     }
-    
-    
-    @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
-        //let jour = "lundi" // à modifier !!!!!!
-        //let heur = "10h00" // à modifier !!!!!!
-        
-        let ajoutSportController = segue.source as! ajoutSportViewController
-        let embedSportController = ajoutSportController.childViewControllers[0] as! EmbedSportViewController
-        let nomSport = embedSportController.nomSport.text ?? ""
-        let typeSport = embedSportController.typeTextF.text ?? ""
-        let objSport = embedSportController.objectif.text ?? ""
-        self.saveNewSport(nomSport: nomSport, typeSport: typeSport, objSport: objSport) //à compléter !!!!!!!!!
-        self.sportsTable.reloadData()
-    }
-    
-
-
 }
