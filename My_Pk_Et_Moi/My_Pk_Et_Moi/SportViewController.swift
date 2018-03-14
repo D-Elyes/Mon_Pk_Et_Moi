@@ -108,6 +108,14 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Effacer", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Modifier", handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return[delete, edit]
+    }
+    
     func saveNewSport(nomSport nom: String, typeSport type: String, objSport obj: String){ // à modifier !!!!!!!!
         // get context into application delegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -143,6 +151,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.sportsTable.setEditing(false, animated: true)
     }
     
+    
     @IBAction func unwindToSportsListAfterSavingNewSport(segue: UIStoryboardSegue){
         //let jour = "lundi" // à modifier !!!!!!
         //let heur = "10h00" // à modifier !!!!!!
@@ -155,6 +164,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.saveNewSport(nomSport: nomSport, typeSport: typeSport, objSport: objSport) //à compléter !!!!!!!!!
         self.sportsTable.reloadData()
     }
+    
 
 
 }
