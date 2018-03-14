@@ -13,9 +13,14 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var traitementTableView: UITableView!
     
-    var names : [String] = ["Panadol","Grippex"]
+    //collection of medicaments to be displayed in self.traitementTableView
     var medicaments : [Medicament] = []
     
+    /// called when add button is pressed
+    ///
+    ///Display a dialog that allow the user to enter a name of medicament, AFter the name entered
+    ///a new Medicament will be created and added to the list
+    /// - Parameter sender: object that trigger action
     @IBAction func addTraitement(_ sender: Any) {
         let alert = UIAlertController(title: "Nouveau Traitement",
                                       message: "Ajouter un traitement",
@@ -30,7 +35,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
             {
                 return
             }
-            self.names.append(nameToSave)
+            self.saveNewTraitement(withName : nameToSave)
             self.traitementTableView.reloadData()
         }
         
@@ -45,23 +50,52 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
-    func alertError(errorMsg error : String, medicInfo medic: String= "")
+    
+    // MARK: - Tratiement data management -
+    
+    /// Create a new Tratiement add it to the collection and save it
+    ///
+    /// - Parameter name: name of medicament to be added
+    func saveNewTraitement(withName name: String)
     {
-        let alert = UIAlertController(title: error,
-                                      message: medic,
-                                      preferredStyle: .alert)
+        //get the context
+        guard let context = self.getContext(errorMsg: "save failed") else {return}
+        //create a Medicament managedObject
+        let medicament = Medicament(context: context)
         
-        let cancelAction = UIAlertAction(title: "ok",
-                                         style: .default)
+        //modify the name
+        medicament.nomMedicament = name
         
-        alert.addAction(cancelAction)
-        pretend(alert.animated: true)
+        do
+        {
+            try context.save()
+            self.medicaments.append(medicament)
+        }
+        catch let error as NSError
+        {
+            self.alert(error: error)
+            return
+        }
     }
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //get the context
+        guard let context = self.getContext(errorMsg: "could not load data") else{return}
+        
+        //create request associated to Medicament entity
+        let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
+        do
+        {
+            try self.medicaments = context.fetch(request)
+        }
+        catch  let error as NSError
+        {
+            self.alert(error: error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +103,8 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: - TableView data source protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -90,6 +126,50 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
         
+    }
+    
+    // MARK: - helper methote -
+    /// get context of core data initialized in application delegate
+    ///
+    /// - Parameters:
+    ///   - errorMsg: main error message
+    ///   - userInfo: additional information user want to display
+    /// - Returns: context of Coredata
+    func getContext(errorMsg: String, userInfo: String = "could not retrieve data context" ) -> NSManagedObjectContext?
+    {
+        //get context of persistent data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else
+        {
+            self.alert(withTitle: errorMsg, andMessage: userInfo)
+            return nil
+        }
+        return appDelegate.persistentContainer.viewContext
+        
+    }
+    
+    /// show an alert dialog box with two message
+    ///
+    /// - Parameters:
+    ///   - title: title of dialog box seen as main message
+    ///   - msg: additional message used to describe context or additional information
+    func alert(withTitle title: String, andMessage msg: String = "")
+    {
+        let alert = UIAlertController(title: title,
+                                      message: msg,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok",
+                                         style: .default)
+        
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    /// shows an alert to inform about an error
+    ///
+    /// - Parameter error: error we want information about
+    func alert(error: NSError)
+    {
+        self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
     }
     
     /*
