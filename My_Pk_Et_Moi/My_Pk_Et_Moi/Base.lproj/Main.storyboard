@@ -488,6 +488,10 @@
         <scene sceneID="TML-sk-XQM">
             <objects>
                 <viewController id="X4c-q1-f4X" customClass="EmbedSportViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjt-qS-zbj"/>
+                        <viewControllerLayoutGuide type="bottom" id="JtG-2h-Psz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6cg-Ko-kLn">
                         <rect key="frame" x="0.0" y="0.0" width="352" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -706,17 +710,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dimanche" destination="ckm-cN-lmx" id="rbU-sE-kg3"/>
-                        <outlet property="heure" destination="5gM-cs-791" id="WU1-IP-bFL"/>
-                        <outlet property="jeudi" destination="hDf-ji-oBp" id="Gu3-Bu-htP"/>
-                        <outlet property="lundi" destination="aNH-5P-lCb" id="NUc-4C-kAI"/>
-                        <outlet property="mardi" destination="0N1-A0-wfh" id="qJL-B5-5Fn"/>
-                        <outlet property="mercredi" destination="UPS-FT-gwm" id="atl-sN-Dxz"/>
-                        <outlet property="nomSport" destination="BeM-fM-om2" id="HRI-ME-pWm"/>
-                        <outlet property="objectif" destination="Tqh-et-35z" id="h2g-6b-ajo"/>
-                        <outlet property="samedi" destination="EoT-wE-gfS" id="OXu-y2-8aT"/>
-                        <outlet property="typeTextF" destination="v6h-N9-S0k" id="TWg-06-zmz"/>
-                        <outlet property="vendredi" destination="leD-FP-NrE" id="GvC-K9-Ic5"/>
+                        <outlet property="dimanche" destination="ckm-cN-lmx" id="i5h-W2-5B7"/>
+                        <outlet property="heure" destination="5gM-cs-791" id="BKt-gs-OgH"/>
+                        <outlet property="jeudi" destination="hDf-ji-oBp" id="QNw-Y7-spV"/>
+                        <outlet property="lundi" destination="aNH-5P-lCb" id="Jex-RY-or5"/>
+                        <outlet property="mardi" destination="0N1-A0-wfh" id="XwP-PR-LWC"/>
+                        <outlet property="mercredi" destination="UPS-FT-gwm" id="Iq6-pg-Kh7"/>
+                        <outlet property="nomSport" destination="BeM-fM-om2" id="58T-nG-EPQ"/>
+                        <outlet property="objectif" destination="Tqh-et-35z" id="Qb3-Ja-733"/>
+                        <outlet property="samedi" destination="EoT-wE-gfS" id="DPW-eg-0Al"/>
+                        <outlet property="typeTextF" destination="v6h-N9-S0k" id="6iu-XN-D9q"/>
+                        <outlet property="vendredi" destination="leD-FP-NrE" id="dsD-zt-HPC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qX-To-PxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
