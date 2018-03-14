@@ -129,6 +129,8 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // MARK: - helper methote -
+    
+   
     /// get context of core data initialized in application delegate
     ///
     /// - Parameters:
@@ -172,14 +174,25 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
     }
     
-    /*
+    
     // MARK: - Navigation
+    
+    let segueShowTraitementId = "showTraitementSegue"
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == self.segueShowTraitementId
+        {
+            if let indexPath = self.traitementTableView.indexPathForSelectedRow
+            {
+                let showMedicamentViewController = segue.destination as! ShowMedicViewController
+                showMedicamentViewController.medicament = self.medicaments[indexPath.row]
+                self.traitementTableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
-    */
+    
 
 }
