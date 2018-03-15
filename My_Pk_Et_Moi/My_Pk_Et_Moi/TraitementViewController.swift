@@ -109,6 +109,29 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    /// delete a medicament fromcollection according to its index
+    ///
+    /// - Precondition: Index must be into bound of collection
+    /// - Parameter traitementWithIndex: index of traitement to delete
+    /// - Returns: true if deletion succeded, else false
+    func delete(tmedicamentWithIndex index : Int)-> Bool
+    {
+        guard let context = self.getContext(errorMsg: "Could not delete Traitement") else {return false}
+        let medicament = self.medicaments[index]
+        context.delete(medicament)
+        do{
+            try context.save()
+            self.medicaments.remove(at: index)
+            return true
+        }
+        catch let error as NSError
+        {
+            self.alert(error: error)
+            return false
+        }
+        
+    }
+    
     
     // MARK: - TableView data source protocol -
     
@@ -133,6 +156,8 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         return cell
         
     }
+    
+    
     
     // MARK: - helper methote -
     
@@ -178,6 +203,25 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     func alert(error: NSError)
     {
         self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
+    }
+    
+    // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    //manage editing of a row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //manage deleting
+        if(editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            self.traitementTableView.beginUpdates()
+            if self.delete(tmedicamentWithIndex: indexPath.row)
+            {
+                self.traitementTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+            self.traitementTableView.endUpdates()
+        }
     }
     
     
