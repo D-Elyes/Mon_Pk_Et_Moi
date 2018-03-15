@@ -19,28 +19,60 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateFin: UITextField!
     
     
+    let datePickerDebut = UIDatePicker()
+    let datePickerFin = UIDatePicker()
     
     
     @IBOutlet weak var qtteParJourTextField: UITextField!
     
     @IBOutlet weak var jourParSemaineTextField: UITextField!
     
+    @IBAction func saveActionButton(_ sender: Any) {
+        
+        if nomMedicTextField.text?.isEmpty ?? true || doseTextField.text?.isEmpty ?? true || dateDebut.text?.isEmpty ?? true || dateFin.text?.isEmpty ?? true || qtteParJourTextField.text?.isEmpty ?? true || jourParSemaineTextField.text?.isEmpty ?? true
+        {
+            alert(withTitle: "Erreur de saisie", andMessage: "Vous devez saisir tous les champs!!!!!")
+        }
+        else if datePickerDebut.date >= datePickerFin.date
+        {
+            alert(withTitle: "Erreur de date", andMessage: "La date de début ne peut pas etre supérieur que la date de fin!!!!!")
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                (_)in
+                self.performSegue(withIdentifier: "unWindToTraitement", sender: self)
+            })
+            
+            alert.addAction(OKAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let datePickerDebut = UIDatePicker()
+         // Do any additional setup after loading the view.
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        //make dateDebut pop up a datePicker when the user click on it
+        //datePickerDebut = UIDatePicker() //we create our datePicker
         datePickerDebut.datePickerMode = UIDatePickerMode.date
         datePickerDebut.addTarget(self, action: #selector(NewTraitementViewController.datePickedDebutValueChanged(sender:)), for: UIControlEvents.valueChanged)
         
+        //we associate the datePicker to the TextField
         dateDebut.inputView = datePickerDebut
+        dateDebut.text = formatter.string(from: datePickerDebut.date)
         
-        let datePickerFin = UIDatePicker()
+        //make dateFin pop up a datePicker when the user click on it
+        //datePickerFin = UIDatePicker()
         datePickerFin.datePickerMode = UIDatePickerMode.date
         datePickerFin.addTarget(self, action: #selector(NewTraitementViewController.datePickedFinValueChanged(sender:)), for: UIControlEvents.valueChanged)
-        
-        dateDebut.inputView = datePickerDebut
+        datePickerFin.date = datePickerFin.date.addingTimeInterval(86400)
         dateFin.inputView = datePickerFin
-        // Do any additional setup after loading the view.
+        dateFin.text = formatter.string(from: datePickerFin.date )
+       
         
     }
 
@@ -105,6 +137,23 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    /// show an alert dialog box with two message
+    ///
+    /// - Parameters:
+    ///   - title: title of dialog box seen as main message
+    ///   - msg: additional message used to describe context or additional information
+    func alert(withTitle title: String, andMessage msg: String = "")
+    {
+        let alert = UIAlertController(title: title,
+                                      message: msg,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok",
+                                         style: .default)
+        
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 
 }

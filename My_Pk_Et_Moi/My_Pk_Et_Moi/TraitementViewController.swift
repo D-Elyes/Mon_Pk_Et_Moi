@@ -203,21 +203,28 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func unwindToTratiementListAfterSavingNewTraitement(segue: UIStoryboardSegue)
     {
         let newTraitementController = segue.source as! NewTraitementViewController
-        print("hello")
-        guard let nomMedicament = newTraitementController.nomMedicTextField.text
-        else
-        {
-            self.alert(withTitle: "Erreur de saisie", andMessage: "Vous n'avez pas saisie le nom")
-            print("hiaaaaa")
-            return
-        }
-        print("gigig\(nomMedicament)")
-        //let dose = dose
-        //let dateDebut = dateDebut
-        //let dateFIn = dateFin
-        //let nbParJour = qtteParJour
-        //let nbJourParSemaine = nbrJourParSemaine
+       
+        let nomMedic =  newTraitementController.nomMedicTextField.text!
         
+        
+        let dose = Int16(newTraitementController.doseTextField!.text!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        guard let dateDebut = dateFormatter.date(from: newTraitementController.dateDebut.text!) else {
+            fatalError("ERROR: Date conversion failed due to mismatched format.")
+        }
+        
+        guard let dateFin = dateFormatter.date(from: newTraitementController.dateFin.text!) else {
+            fatalError("ERROR: Date conversion failed due to mismatched format.")
+        }
+        
+        
+        let nbParJour = Int16(newTraitementController.qtteParJourTextField!.text!)
+        let nbJourParSemaine = Int16(newTraitementController.jourParSemaineTextField!.text!)
+        
+        self.saveNewTraitement(withName: nomMedic, withDose: dose!, withDateDebut: dateDebut as NSDate, withDateFin: dateFin as NSDate, withQtteParJour: nbParJour!, withNbrjourParSemaine: nbJourParSemaine!)
+        
+        self.traitementTableView.reloadData()
     }
     
 
