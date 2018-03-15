@@ -77,7 +77,7 @@ class ajoutSportViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Navigation
+    /*// MARK: - Navigation
     
     let segueEmbedId = "embedFromNewSportSegue"
     
@@ -89,7 +89,7 @@ class ajoutSportViewController: UIViewController{
             let embedController = segue.destination as! EmbedSportViewController
             embedController.sport = nil
         }
-    }
+    }*/
     
 
 }

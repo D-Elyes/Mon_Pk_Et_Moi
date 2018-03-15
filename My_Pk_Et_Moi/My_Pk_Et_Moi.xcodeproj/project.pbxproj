@@ -15,8 +15,11 @@
 		3F06E7E62050563800644A17 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E52050563800644A17 /* SportViewController.swift */; };
 		3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06E7E72050582A00644A17 /* SportTableViewCell.swift */; };
 		3F3B578F2058470D006BFDC4 /* EditSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */; };
+		3F7587F7205AD3A200D7C95B /* RdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587F6205AD3A200D7C95B /* RdvViewController.swift */; };
+		3F7587F9205ADC1000D7C95B /* RdvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */; };
+		3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */; };
+		3F7587FD205AE36D00D7C95B /* EmbedRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587FC205AE36D00D7C95B /* EmbedRdvViewController.swift */; };
 		3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788A6D205927A200D0263D /* EmbedSportViewController.swift */; };
-		3F81E974205AB8040036D4E1 /* JourSemaine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E973205AB8030036D4E1 /* JourSemaine.swift */; };
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
 		3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE16082056C88300DFC11F /* CoreDataManager.swift */; };
 		3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE160A2056CC5600DFC11F /* SportPresenter.swift */; };
@@ -57,8 +60,11 @@
 		3F06E7E52050563800644A17 /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		3F06E7E72050582A00644A17 /* SportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSportViewController.swift; sourceTree = "<group>"; };
+		3F7587F6205AD3A200D7C95B /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
+		3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvTableViewCell.swift; sourceTree = "<group>"; };
+		3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addRdvViewController.swift; sourceTree = "<group>"; };
+		3F7587FC205AE36D00D7C95B /* EmbedRdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbedRdvViewController.swift; sourceTree = "<group>"; };
 		3F788A6D205927A200D0263D /* EmbedSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedSportViewController.swift; sourceTree = "<group>"; };
-		3F81E973205AB8030036D4E1 /* JourSemaine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourSemaine.swift; sourceTree = "<group>"; };
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
 		3FDE16082056C88300DFC11F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3FDE160A2056CC5600DFC11F /* SportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPresenter.swift; sourceTree = "<group>"; };
@@ -116,6 +122,31 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		3F7587F3205AD23100D7C95B /* Sport */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE160A2056CC5600DFC11F /* SportPresenter.swift */,
+				3FDE160C2056ED3100DFC11F /* ShowSportViewController.swift */,
+				3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */,
+				3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */,
+				3F788A6D205927A200D0263D /* EmbedSportViewController.swift */,
+				3F06E7E52050563800644A17 /* SportViewController.swift */,
+				3F06E7E72050582A00644A17 /* SportTableViewCell.swift */,
+			);
+			name = Sport;
+			sourceTree = "<group>";
+		};
+		3F7587F5205AD2BC00D7C95B /* Rendez-vous */ = {
+			isa = PBXGroup;
+			children = (
+				3F7587F6205AD3A200D7C95B /* RdvViewController.swift */,
+				3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */,
+				3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */,
+				3F7587FC205AE36D00D7C95B /* EmbedRdvViewController.swift */,
+			);
+			name = "Rendez-vous";
+			sourceTree = "<group>";
+		};
 		3FDE16072056C83000DFC11F /* helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,17 +180,11 @@
 			children = (
 				3FDE16072056C83000DFC11F /* helpers */,
 				0B01097C204DA14100D785EA /* image */,
+				3F7587F5205AD2BC00D7C95B /* Rendez-vous */,
+				3F7587F3205AD23100D7C95B /* Sport */,
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
-				3F81E973205AB8030036D4E1 /* JourSemaine.swift */,
-				3FDE160A2056CC5600DFC11F /* SportPresenter.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
-				3FDE160C2056ED3100DFC11F /* ShowSportViewController.swift */,
-				3F06E7E72050582A00644A17 /* SportTableViewCell.swift */,
-				3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */,
-				3F06E7E52050563800644A17 /* SportViewController.swift */,
-				3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */,
-				3F788A6D205927A200D0263D /* EmbedSportViewController.swift */,
 				BDD222112045B57100B247D1 /* Assets.xcassets */,
 				BDD222132045B57100B247D1 /* LaunchScreen.storyboard */,
 				BDD222162045B57100B247D1 /* Info.plist */,
@@ -330,13 +355,16 @@
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
 				3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */,
+				3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */,
 				3F06E7E62050563800644A17 /* SportViewController.swift in Sources */,
-				3F81E974205AB8040036D4E1 /* JourSemaine.swift in Sources */,
 				3FDE160D2056ED3100DFC11F /* ShowSportViewController.swift in Sources */,
 				3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */,
 				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,
+				3F7587F7205AD3A200D7C95B /* RdvViewController.swift in Sources */,
 				3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */,
 				3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */,
+				3F7587FD205AE36D00D7C95B /* EmbedRdvViewController.swift in Sources */,
+				3F7587F9205ADC1000D7C95B /* RdvTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
