@@ -18,17 +18,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var dateFin: UITextField!
     
-    @IBAction func dateDebutTextField(_ sender: UITextField) {
-        
-        let datePickerView = UIDatePicker()
-        datePickerView.datePickerMode = .date
-        sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
-    }
     
-    
-    @IBAction func dateFinTextField(_ sender: UITextField) {
-    }
     
     
     @IBOutlet weak var qtteParJourTextField: UITextField!
@@ -38,7 +28,20 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let datePickerDebut = UIDatePicker()
+        datePickerDebut.datePickerMode = UIDatePickerMode.date
+        datePickerDebut.addTarget(self, action: #selector(NewTraitementViewController.datePickedDebutValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        
+        dateDebut.inputView = datePickerDebut
+        
+        let datePickerFin = UIDatePicker()
+        datePickerFin.datePickerMode = UIDatePickerMode.date
+        datePickerFin.addTarget(self, action: #selector(NewTraitementViewController.datePickedFinValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        
+        dateDebut.inputView = datePickerDebut
+        dateFin.inputView = datePickerFin
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +49,20 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // Mark : - Cancel and save new Traitiement
+    
+    @IBAction func cancelActionButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    //MARK: - TextField Delegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation
@@ -59,11 +76,35 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Helper -
     
-    func handleDatePicker( sender: UIDatePicker)
+    /// This function is to update the textfield when the user change the date de debut
+    ///
+    /// - Parameter sender: the corresponding datePicker
+    func datePickedDebutValueChanged(sender: UIDatePicker)
     {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        dateDebut.text = dateFormatter.string(from: sender.date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        //formatter.dateStyle = DateFormatter.Style.full
+        //formatter.timeStyle = DateFormatter.Style.none
+        
+        dateDebut.text = formatter.string(from: sender.date)
+    }
+    
+    /// This function is to update the textfield when the user change the date de fin
+    ///
+    /// - Parameter sender: the corresponding datePicker
+    func datePickedFinValueChanged(sender: UIDatePicker)
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        //formatter.dateStyle = DateFormatter.Style.long
+        //formatter.timeStyle = DateFormatter.Style.none
+        
+       
+        dateFin.text = formatter.string(from: sender.date)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 
 }

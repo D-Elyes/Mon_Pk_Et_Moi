@@ -21,7 +21,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     ///Display a dialog that allow the user to enter a name of medicament, AFter the name entered
     ///a new Medicament will be created and added to the list
     /// - Parameter sender: object that trigger action
-    @IBAction func addTraitement(_ sender: Any) {
+    /*@IBAction func addTraitement(_ sender: Any) {
         let alert = UIAlertController(title: "Nouveau Traitement",
                                       message: "Ajouter un traitement",
                                       preferredStyle: .alert)
@@ -48,7 +48,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         
         present(alert, animated: true)
         
-    }
+    }*/
     
     
     // MARK: - Tratiement data management -
@@ -56,15 +56,21 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     /// Create a new Tratiement add it to the collection and save it
     ///
     /// - Parameter name: name of medicament to be added
-    func saveNewTraitement(withName name: String)
+    func saveNewTraitement(withName name: String, withDose dose: Int16, withDateDebut dateDebut: NSDate, withDateFin dateFin: NSDate, withQtteParJour qtteParJour: Int16, withNbrjourParSemaine nbrJourParSemaine: Int16 )
     {
         //get the context
         guard let context = self.getContext(errorMsg: "save failed") else {return}
         //create a Medicament managedObject
         let medicament = Medicament(context: context)
         
-        //modify the name
+        //modify the medicament
         medicament.nomMedicament = name
+        medicament.dose = dose
+        medicament.dateDebut = dateDebut
+        medicament.dateFIn = dateFin
+        medicament.nbParJour = qtteParJour
+        medicament.nbJourParSemaine = nbrJourParSemaine
+        
         
         do
         {
@@ -177,13 +183,13 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
     
-    let segueShowTraitementId = "showTraitementSegue"
+    let segueShowMedicId = "showMedicSegue"
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == self.segueShowTraitementId
+        if segue.identifier == self.segueShowMedicId
         {
             if let indexPath = self.traitementTableView.indexPathForSelectedRow
             {
@@ -192,6 +198,26 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
                 self.traitementTableView.deselectRow(at: indexPath, animated: true)
             }
         }
+    }
+    
+    @IBAction func unwindToTratiementListAfterSavingNewTraitement(segue: UIStoryboardSegue)
+    {
+        let newTraitementController = segue.source as! NewTraitementViewController
+        print("hello")
+        guard let nomMedicament = newTraitementController.nomMedicTextField.text
+        else
+        {
+            self.alert(withTitle: "Erreur de saisie", andMessage: "Vous n'avez pas saisie le nom")
+            print("hiaaaaa")
+            return
+        }
+        print("gigig\(nomMedicament)")
+        //let dose = dose
+        //let dateDebut = dateDebut
+        //let dateFIn = dateFin
+        //let nbParJour = qtteParJour
+        //let nbJourParSemaine = nbrJourParSemaine
+        
     }
     
 

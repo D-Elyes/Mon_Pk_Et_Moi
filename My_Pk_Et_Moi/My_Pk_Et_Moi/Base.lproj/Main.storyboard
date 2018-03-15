@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="azg-sk-r6K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qhX-uD-lX4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,6 +30,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="puQ-vG-q4P"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dose en gramme" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-Wv-amJ">
                                 <rect key="frame" x="8" y="58" width="359" height="30"/>
@@ -39,6 +42,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="YjU-bT-hfP"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantité par jour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9r-OI-4ji">
                                 <rect key="frame" x="8" y="172" width="359" height="30"/>
@@ -48,6 +54,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="2ob-m2-amU"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de jours par semaine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5RS-Ew-p8w">
                                 <rect key="frame" x="8" y="210" width="359" height="30"/>
@@ -57,15 +66,26 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="4rj-bu-6Ph"/>
+                                </connections>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-Xe-7N1">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Afa-OI-XuW"/>
-                                    <barButtonItem systemItem="save" id="wAc-Fz-doP"/>
+                                    <barButtonItem systemItem="save" id="wAc-Fz-doP">
+                                        <connections>
+                                            <segue destination="BMh-h5-nzp" kind="unwind" unwindAction="unwindToTratiementListAfterSavingNewTraitementWithSegue:" id="aVB-ae-klI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xTb-uE-sLC"/>
-                                    <barButtonItem style="plain" systemItem="cancel" id="Rzn-co-59p"/>
+                                    <barButtonItem style="plain" systemItem="cancel" id="Rzn-co-59p">
+                                        <connections>
+                                            <action selector="cancelActionButton:" destination="azg-sk-r6K" id="ToH-HT-T7W"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BEc-cQ-BqD"/>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.067435698896876034" blue="0.79525351524353027" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +99,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dateDebutTextField:" destination="azg-sk-r6K" eventType="editingDidEnd" id="83A-Z2-3U7"/>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="DcV-HV-EOT"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date de FIn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8j-ha-Wl0">
@@ -91,7 +111,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dateFinTextField:" destination="azg-sk-r6K" eventType="editingDidEnd" id="2q9-Hn-dnE"/>
+                                    <outlet property="delegate" destination="azg-sk-r6K" id="raR-hH-G8b"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -127,8 +147,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ac-qm-9ne" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BMh-h5-nzp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="1581.8590704647677"/>
+            <point key="canvasLocation" x="1537" y="1578"/>
         </scene>
         <!--Show Medic View Controller-->
         <scene sceneID="gVA-G8-ElC">
@@ -254,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKO-hP-GKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813.5999999999999" y="1219.3403298350825"/>
+            <point key="canvasLocation" x="1538" y="655"/>
         </scene>
         <!--Traitement View Controller-->
         <scene sceneID="Ohq-A0-5UW">
@@ -323,7 +344,7 @@
                                             <outlet property="endDateLabel" destination="Sfp-3Z-jry" id="Og5-mC-hAA"/>
                                             <outlet property="medicNameLabel" destination="TJu-4G-6kk" id="cAo-pX-Y6v"/>
                                             <outlet property="startDateLabel" destination="SZe-mU-WjA" id="jbq-6W-iq3"/>
-                                            <segue destination="TlR-9W-82Z" kind="show" identifier="showTraitementSegue" id="kgH-t3-lbT"/>
+                                            <segue destination="TlR-9W-82Z" kind="show" identifier="showMedicSegue" id="kgH-t3-lbT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -338,7 +359,7 @@
                                     <color key="titleColor" red="0.13159238028686671" green="0.24622496312544784" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addTraitement:" destination="buy-S3-vkV" eventType="touchUpInside" id="eBZ-SU-Cdn"/>
+                                    <segue destination="azg-sk-r6K" kind="presentation" id="y2H-oN-5y6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -505,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="41"/>
+            <point key="canvasLocation" x="497" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EW7-D5-Skm">
