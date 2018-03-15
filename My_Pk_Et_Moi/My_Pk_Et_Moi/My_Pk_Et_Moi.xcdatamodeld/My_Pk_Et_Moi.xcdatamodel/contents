@@ -6,7 +6,7 @@
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectif" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="contenirJour" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JourSemaine" inverseName="contenirActivite" inverseEntity="JourSemaine" syncable="YES"/>
+        <relationship name="contenirJour" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourSemaine" inverseName="contenirActivite" inverseEntity="JourSemaine" syncable="YES"/>
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelActivite" inverseName="contenirActivite" inverseEntity="RappelActivite" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">

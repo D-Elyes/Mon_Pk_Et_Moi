@@ -48,6 +48,18 @@ class ajoutSportViewController: UIViewController{
         dateFormatter.dateFormat = "hh mm"
         let heureSport = dateFormatter.string(from: embedSportViewController.heure.date)
         
+        
+        /*var listJour : [String] = []
+        
+        if embedSportViewController.lundi.isOn == true { listJour.append("lundi") }
+        if embedSportViewController.mardi.isOn == true { listJour.append("mardi") }
+        if embedSportViewController.mercredi.isOn == true { listJour.append("mercredi") }
+        if embedSportViewController.jeudi.isOn == true { listJour.append("jeudi") }
+        if embedSportViewController.vendredi.isOn == true { listJour.append("vendredi") }
+        if embedSportViewController.samedi.isOn == true { listJour.append("samedi") }
+        if embedSportViewController.dimanche.isOn == true { listJour.append("dimanche") }
+        */
+        
         guard (nomSport != "" ) || (typeSport != "" ) else { return }
         // create a new Sports Managed Object
         let sport = Activite(context: CoreDataManager.context)
@@ -56,6 +68,12 @@ class ajoutSportViewController: UIViewController{
         sport.type = typeSport
         sport.objectif = objSport
         sport.heure = heureSport
+        
+        /*let jours : JourSemaine? = nil
+        jours?.jour = "lundi"
+        sport.addToContenirJour(jours!)*/
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     
