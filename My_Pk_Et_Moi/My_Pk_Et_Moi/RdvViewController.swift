@@ -21,7 +21,7 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     var indexPathForShow: IndexPath? = nil
     
-    //@IBOutlet var sportPresenter: SportPresenter!
+    @IBOutlet var rdvPresenter: RdvPresenter!
     @IBOutlet weak var rdvTable: UITableView!
     
     override func viewDidLoad() {
@@ -103,7 +103,7 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.rdvTable.dequeueReusableCell(withIdentifier: "rdvCell", for: indexPath) as! RdvTableViewCell
         let rdv = self.rdvFetched.object(at: indexPath)
-        //self.sportPresenter.configure(theCell: cell, forSport: sport)
+        self.rdvPresenter.configure(theCell: cell, forRdv: rdv)
         return cell
     }
     
@@ -120,8 +120,8 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     // MARK: - Action Handler
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        let sport = self.rdvFetched.object(at: indexPath)
-        CoreDataManager.context.delete(sport)
+        let rdv = self.rdvFetched.object(at: indexPath)
+        CoreDataManager.context.delete(rdv)
     }
     
     /*func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{

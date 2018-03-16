@@ -109,10 +109,8 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Effacer", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Modifier", handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return[delete, edit]
+        return[delete]
     }
     
 
