@@ -54,8 +54,8 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
         let lieuRdv : String = self.lieuTextF.text ?? ""
         let medecinRdv : String = self.medTextF.text ?? ""
-    
-        //let dateRdv = self.datePick.date
+        
+        let dateRdv = self.datePick.date
         
         let dateFormatterHeure = DateFormatter()
         dateFormatterHeure.locale = Locale(identifier: "fr_FR")
@@ -66,16 +66,15 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         // create a new Sports Managed Object
         let rdv = Rdv(context: CoreDataManager.context)
         // then modify it according to values
-        //rdv.date = dateRdv as NSDate
+        rdv.date = dateRdv as NSDate
         rdv.heure = heureRdv
         rdv.lieu = lieuRdv
         rdv.concerneMedecin?.nom = medecinRdv
-        
         self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - TextField Delegate
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool { // a modifier clavier ne s'affiche pas !!!!!!!!!!!!!!!
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

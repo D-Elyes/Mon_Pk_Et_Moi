@@ -40,7 +40,6 @@ class ajoutSportViewController: UIViewController{
             else {return}
         let nomSport : String = embedSportViewController.nomSport.text ?? ""
         let typeSport : String = embedSportViewController.typeTextF.text ?? ""
-        let objSport : String = embedSportViewController.objectif.text ?? ""
         
         
         let dateFormatter = DateFormatter()
@@ -66,7 +65,6 @@ class ajoutSportViewController: UIViewController{
         // then modify it according to values
         sport.nom = nomSport
         sport.type = typeSport
-        sport.objectif = objSport
         sport.heure = heureSport
         
         /*let jours : JourSemaine? = nil

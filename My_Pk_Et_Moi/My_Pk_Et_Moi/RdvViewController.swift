@@ -19,9 +19,10 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return fetchResultController
     }()
     
+    @IBOutlet var rdvPresenter: RdvPresenter!
     var indexPathForShow: IndexPath? = nil
     
-    @IBOutlet var rdvPresenter: RdvPresenter!
+    
     @IBOutlet weak var rdvTable: UITableView!
     
     override func viewDidLoad() {
@@ -30,9 +31,8 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
             try self.rdvFetched.performFetch()
         }
         catch let error as NSError{
-            // traiter l'erreur
+            
         }
-        
         // Do any additional setup after loading the view.
     }
     
@@ -66,33 +66,7 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
-    // MARK: - Navigation
-    
-    //let segueShowSportId = "showSportSegue"
-    //let segueEditSportId = "editSportSegue"
-    
-    /*// In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == self.segueShowSportId{
-            if let indexPath = self.rdvTable.indexPathForSelectedRow{
-                let ShowSportViewController = segue.destination as! ShowSportViewController
-                ShowSportViewController.sport = self.sportsFetched.object(at: indexPath)
-                self.sportsTable.deselectRow(at: indexPath, animated: true)
-            }
-        }
-        if segue.identifier == self.segueEditSportId{
-            if let indexPath = self.indexPathForShow{
-                let editSportViewController = segue.destination as! EditSportViewController
-                editSportViewController.sport = self.sportsFetched.object(at: indexPath)
-            }
-        }
-    }*/
-    
-    
     // MARK: - Tableview Delegate
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         guard let section = self.rdvFetched.sections?[section] else {
             fatalError("unexpected section number")
@@ -109,13 +83,9 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Effacer", handler: self.deleteHandlerAction)
-        //let edit = UITableViewRowAction(style: .default, title: "Modifier", handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        //edit.backgroundColor = UIColor.blue
         return[delete/*, edit*/]
     }
-    
-    
     
     
     // MARK: - Action Handler
@@ -124,10 +94,13 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
         CoreDataManager.context.delete(rdv)
     }
     
-    /*func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        self.indexPathForShow = indexPath
-        self.performSegue(withIdentifier: self.segueEditSportId, sender: self)
-        self.rdvTable.setEditing(false, animated: true)
-    }*/
+    
+    // MARK: - Navigation
+    
+    /*// In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }*/
 
 }

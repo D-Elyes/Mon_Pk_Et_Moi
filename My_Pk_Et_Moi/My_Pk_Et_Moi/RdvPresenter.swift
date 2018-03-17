@@ -27,8 +27,8 @@ class RdvPresenter: NSObject {
                 if let heureTmp = rdv.heure{ self.heureRdv = heureTmp.capitalized }
                 else{ self.heureRdv = "-"}
                 
-                if let medecinTmp = rdv.concerneMedecin?.nom{ self.medecinRdv = medecinTmp.capitalized }
-                else{ self.medecinRdv = "-"}
+                /*if let medecinTmp = rdv.concerneMedecin?.nom{ self.medecinRdv = medecinTmp.capitalized }
+                else{ self.medecinRdv = "-"}*/
             }
             else{
                 self.dateRdv = nil
@@ -38,12 +38,6 @@ class RdvPresenter: NSObject {
             }
         }
     }
-    
-    //Convert date as string
-    let dateFormatter = DateFormatter()
-    /*dateFormatter = Locale(identifier: "fr_FR")
-    dateFormatter.dateFormat = "dd/MM/yy"
-    let dateRdv = dateFormatter.string(from: self.dateRdv)*/
     
     func configure(theCell : RdvTableViewCell?, forRdv: Rdv?){
         self.rdv = forRdv
