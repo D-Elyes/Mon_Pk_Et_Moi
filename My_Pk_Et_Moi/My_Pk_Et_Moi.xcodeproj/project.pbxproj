@@ -20,6 +20,9 @@
 		BDD222152045B57100B247D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD222132045B57100B247D1 /* LaunchScreen.storyboard */; };
 		BDD222202045B57100B247D1 /* My_Pk_Et_MoiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2221F2045B57100B247D1 /* My_Pk_Et_MoiTests.swift */; };
 		BDD2222B2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */; };
+		C70C1C67205C9CEE007FFF12 /* EditMedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C1C66205C9CEE007FFF12 /* EditMedicViewController.swift */; };
+		C71080FA205C7AF200AF2C14 /* EmbedTratiementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */; };
+		C715EAA8205BFF6E00D960BF /* TraitementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */; };
 		C727FBD520575617006C3AE6 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */; };
 		C727FBD720575D79006C3AE6 /* ShowMedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */; };
 		C73496B4205984BA00DB8DC3 /* NewTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */; };
@@ -63,6 +66,9 @@
 		BDD222262045B57100B247D1 /* My_Pk_Et_MoiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = My_Pk_Et_MoiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Pk_Et_MoiUITests.swift; sourceTree = "<group>"; };
 		BDD2222C2045B57100B247D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C70C1C66205C9CEE007FFF12 /* EditMedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMedicViewController.swift; sourceTree = "<group>"; };
+		C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedTratiementViewController.swift; sourceTree = "<group>"; };
+		C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementPresenter.swift; sourceTree = "<group>"; };
 		C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
 		C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicViewController.swift; sourceTree = "<group>"; };
 		C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTraitementViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
+				C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */,
 				C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */,
 				C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */,
 				C727FBD420575617006C3AE6 /* MedicamentTableViewCell.swift */,
@@ -141,6 +148,8 @@
 				BDD222162045B57100B247D1 /* Info.plist */,
 				BDD2220E2045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld */,
 				C7DC3856205705F00084CF14 /* TraitementViewController.swift */,
+				C70C1C66205C9CEE007FFF12 /* EditMedicViewController.swift */,
+				C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */,
 			);
 			path = My_Pk_Et_Moi;
 			sourceTree = "<group>";
@@ -303,11 +312,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD222102045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld in Sources */,
+				C715EAA8205BFF6E00D960BF /* TraitementPresenter.swift in Sources */,
 				C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
+				C70C1C67205C9CEE007FFF12 /* EditMedicViewController.swift in Sources */,
 				C73496B4205984BA00DB8DC3 /* NewTraitementViewController.swift in Sources */,
 				C727FBD720575D79006C3AE6 /* ShowMedicViewController.swift in Sources */,
+				C71080FA205C7AF200AF2C14 /* EmbedTratiementViewController.swift in Sources */,
 				C727FBD520575617006C3AE6 /* MedicamentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

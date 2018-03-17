@@ -12,46 +12,58 @@ import CoreData
 class TraitementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var traitementTableView: UITableView!
+   
     
+    @IBOutlet var TraitementPresenter: TraitementPresenter!
     //collection of medicaments to be displayed in self.traitementTableView
     var medicaments : [Medicament] = []
     
-    /// called when add button is pressed
-    ///
-    ///Display a dialog that allow the user to enter a name of medicament, AFter the name entered
-    ///a new Medicament will be created and added to the list
-    /// - Parameter sender: object that trigger action
-    /*@IBAction func addTraitement(_ sender: Any) {
-        let alert = UIAlertController(title: "Nouveau Traitement",
-                                      message: "Ajouter un traitement",
-                                      preferredStyle: .alert)
+   
+    
+   
+    
+  
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        //get the context
+        guard let context = self.getContext(errorMsg: "could not load data") else{return}
         
-        let saveAction = UIAlertAction(title: "Ajouter",
-                                       style: .default)
+        //create request associated to Medicament entity
+        let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
+        do
         {
-            [unowned self ] action in
-            guard let textField = alert.textFields?.first,
-                let nameToSave = textField.text else
-            {
-                return
-            }
-            self.saveNewTraitement(withName : nameToSave)
-            self.traitementTableView.reloadData()
+            try self.medicaments = context.fetch(request)
         }
-        
-        let cancelAction = UIAlertAction(title: "Annuler",
-                                         style: .default)
-        
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-        
-    }*/
+        catch  let error as NSError
+        {
+            self.alert(error: error)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    //MARK: - Traitement data management
     
-    // MARK: - Tratiement data management -
+    /// save data
+    func save()
+    {
+        //get context into application delegate
+        guard let context = self.getContext(errorMsg: "Save failed") else {return}
+        do
+        {
+            try context.save()
+        }
+        catch let error as NSError
+        {
+            self.alert(error: error)
+            return
+        }
+    }
     
     /// Create a new Tratiement add it to the collection and save it
     ///
@@ -83,30 +95,61 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
     }
-    
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //get the context
-        guard let context = self.getContext(errorMsg: "could not load data") else{return}
-        
-        //create request associated to Medicament entity
-        let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
-        do
-        {
-            try self.medicaments = context.fetch(request)
-        }
-        catch  let error as NSError
-        {
-            self.alert(error: error)
-        }
+    
+    // MARK: - TableView data source protocol -
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return self.medicaments.count
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = self.traitementTableView.dequeueReusableCell(withIdentifier: "medicCell",for: indexPath) as! MedicamentTableViewCell
+        
+        self.TraitementPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
+        
+        //cell.medicNameLabel.text = self.names[indexPath.row]
+        /*cell.medicNameLabel.text = self.medicaments[indexPath.row].nomMedicament
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
+        cell.startDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateDebut)
+        cell.endDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateFIn)*/
+        cell.accessoryType = .detailButton
+        
+        return cell
+        
+    }
+    
+    // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
+    {
+        self.traitementTableView.beginUpdates()
+        if self.delete(medicamentWithIndex: indexPath.row)
+        {
+            self.traitementTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+        self.traitementTableView.endUpdates()
+    }
+    
+    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
+    {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueEditMedicId, sender: self)
+        self.traitementTableView.setEditing(false, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return [delete,edit]
     }
     
     /// delete a medicament fromcollection according to its index
@@ -114,7 +157,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     /// - Precondition: Index must be into bound of collection
     /// - Parameter traitementWithIndex: index of traitement to delete
     /// - Returns: true if deletion succeded, else false
-    func delete(tmedicamentWithIndex index : Int)-> Bool
+    func delete(medicamentWithIndex index : Int)-> Bool
     {
         guard let context = self.getContext(errorMsg: "Could not delete Traitement") else {return false}
         let medicament = self.medicaments[index]
@@ -132,30 +175,23 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+   
+    //manage editing of a row
+   /* func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //manage deleting
+        if(editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            self.traitementTableView.beginUpdates()
+            if self.delete(medicamentWithIndex: indexPath.row)
+            {
+                self.traitementTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+            self.traitementTableView.endUpdates()
+        }
+    }*/
     
-    // MARK: - TableView data source protocol -
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return self.medicaments.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = self.traitementTableView.dequeueReusableCell(withIdentifier: "medicCell",for: indexPath) as! MedicamentTableViewCell
-        
-        
-        //cell.medicNameLabel.text = self.names[indexPath.row]
-        cell.medicNameLabel.text = self.medicaments[indexPath.row].nomMedicament
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
-        cell.startDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateDebut)
-        cell.endDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateFIn)
-        
-        
-        return cell
-        
-    }
     
     
     
@@ -205,29 +241,20 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
     }
     
-    // tell if a particular row can be edited
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+    // Marks: - TableView Delegate protocol
     
-    //manage editing of a row
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //manage deleting
-        if(editingStyle == UITableViewCellEditingStyle.delete)
-        {
-            self.traitementTableView.beginUpdates()
-            if self.delete(tmedicamentWithIndex: indexPath.row)
-            {
-                self.traitementTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            }
-            self.traitementTableView.endUpdates()
-        }
+    var indexPathForShow : IndexPath? = nil
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueShowMedicId, sender: self)
     }
     
     
     // MARK: - Navigation
     
     let segueShowMedicId = "showMedicSegue"
+    let segueEditMedicId = "editMedicSegue"
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -235,11 +262,21 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         // Pass the selected object to the new view controller.
         if segue.identifier == self.segueShowMedicId
         {
-            if let indexPath = self.traitementTableView.indexPathForSelectedRow
+            if let indexPath = self.indexPathForShow
             {
                 let showMedicamentViewController = segue.destination as! ShowMedicViewController
                 showMedicamentViewController.medicament = self.medicaments[indexPath.row]
                 self.traitementTableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        if segue.identifier == self.segueEditMedicId
+        {
+            if let indexPath = self.indexPathForShow
+            {
+                let editMedicViewController = segue.destination as! EditMedicViewController
+                editMedicViewController.medicament = self.medicaments[indexPath.row]
+                
+                
             }
         }
     }
@@ -247,29 +284,38 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func unwindToTratiementListAfterSavingNewTraitement(segue: UIStoryboardSegue)
     {
         let newTraitementController = segue.source as! NewTraitementViewController
-       
-        let nomMedic =  newTraitementController.nomMedicTextField.text!
+        let embedTraitementController = newTraitementController.childViewControllers[0] as! EmbedTratiementViewController
+        let nomMedic =  embedTraitementController.nomMedicTextField.text!
         
         
-        let dose = Int16(newTraitementController.doseTextField!.text!)
+        let dose = Int16(embedTraitementController.doseTextField!.text!)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        guard let dateDebut = dateFormatter.date(from: newTraitementController.dateDebut.text!) else {
+        guard let dateDebut = dateFormatter.date(from: embedTraitementController.dateDebut.text!) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
         
-        guard let dateFin = dateFormatter.date(from: newTraitementController.dateFin.text!) else {
+        guard let dateFin = dateFormatter.date(from: embedTraitementController.dateFin.text!) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
         
         
-        let nbParJour = Int16(newTraitementController.qtteParJourTextField!.text!)
-        let nbJourParSemaine = Int16(newTraitementController.jourParSemaineTextField!.text!)
+        let nbParJour = Int16(embedTraitementController.qtteParJourTextField!.text!)
+        let nbJourParSemaine = Int16(embedTraitementController.jourParSemaineTextField!.text!)
         
         self.saveNewTraitement(withName: nomMedic, withDose: dose!, withDateDebut: dateDebut as NSDate, withDateFin: dateFin as NSDate, withQtteParJour: nbParJour!, withNbrjourParSemaine: nbJourParSemaine!)
         
         self.traitementTableView.reloadData()
     }
     
+     @IBAction func unwindToTratiementListAfterEditingTraitement(segue: UIStoryboardSegue)
+     {
+        self.save()
+        self.traitementTableView.reloadData()
+    }
+        
+    
+        
+        
 
 }
