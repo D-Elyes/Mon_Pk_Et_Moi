@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,7 +36,7 @@
     <entity name="Medecin" representedClassName="Medecin" syncable="YES" codeGenerationType="class">
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="specialite" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="avoirRdv" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rdv" inverseName="concerneMedecin" inverseEntity="Rdv" syncable="YES"/>
+        <relationship name="avoirRdv" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rdv" inverseName="concerneMedecin" inverseEntity="Rdv" syncable="YES"/>
     </entity>
     <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -65,7 +65,7 @@
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lieu" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="concerneEvaluation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="concerneRdv" inverseEntity="Evaluation" syncable="YES"/>
-        <relationship name="concerneMedecin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="avoirRdv" inverseEntity="Medecin" syncable="YES"/>
+        <relationship name="concerneMedecin" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Medecin" inverseName="avoirRdv" inverseEntity="Medecin" syncable="YES"/>
         <relationship name="possedeRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelRdv" inverseName="contenirRdv" inverseEntity="RappelRdv" syncable="YES"/>
     </entity>
     <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">

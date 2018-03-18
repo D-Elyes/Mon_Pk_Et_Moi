@@ -13,13 +13,15 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
 
     fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = {
         let request : NSFetchRequest<Evaluation> = Evaluation.fetchRequest()
-        //request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evaluation.concerneRdv.date),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController
     }()
     
     @IBOutlet weak var evaluationsTable: UITableView!
+    
+    @IBOutlet var evaluationPresenter: EvaluationPresenter!
     
     //var indexPathForShow: IndexPath? = nil
     //@IBOutlet var sportPresenter: SportPresenter!
@@ -30,7 +32,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
             try self.evaluationFetched.performFetch()
         }
         catch let error as NSError{
-            // traiter l'erreur
+            
         }
         // Do any additional setup after loading the view.
     }
@@ -72,13 +74,13 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.evaluationsTable.dequeueReusableCell(withIdentifier: "evaluationCell", for: indexPath) as! EvaluationTableViewCell
         let evaluation = self.evaluationFetched.object(at: indexPath)
-        //self.sportPresenter.configure(theCell: cell, forSport: sport)
+        self.evaluationPresenter.configure(theCell: cell, forEvaluation: evaluation)
         return cell
     }
     
 
     // MARK: - Navigation
-    
+   
     let segueAddEvaluationId = "addEvaluationSegue"
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -249,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmH-I5-6o4" userLabel="dateRdv">
-                                <rect key="frame" x="87" y="74" width="201.5" height="20.5"/>
+                                <rect key="frame" x="87" y="30" width="201.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rendez-vous du : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QW4-f8-yBv">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="20.5"/>
@@ -266,7 +266,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69N-cO-ySo" userLabel="heureRdv">
-                                <rect key="frame" x="121" y="99" width="133.5" height="20.5"/>
+                                <rect key="frame" x="121" y="55" width="133.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcv-r5-q2w">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="20.5"/>
@@ -283,85 +283,85 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure Actuel : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m13-dJ-Mb6">
-                                <rect key="frame" x="36" y="219.5" width="113" height="20.5"/>
+                                <rect key="frame" x="36" y="175.5" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4j0-Js-Col">
-                                <rect key="frame" x="163" y="165" width="51" height="31"/>
+                                <rect key="frame" x="163" y="121" width="51" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OGq-ah-edz">
-                                <rect key="frame" x="163" y="216" width="51" height="31"/>
+                                <rect key="frame" x="163" y="172" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-8i-LEu">
-                                <rect key="frame" x="242" y="220.5" width="31.5" height="20.5"/>
+                                <rect key="frame" x="242" y="176.5" width="31.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DYSKINESIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siy-Sd-cjX">
-                                <rect key="frame" x="242" y="271" width="104.5" height="20.5"/>
+                                <rect key="frame" x="242" y="227" width="104.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evènement(s) :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NN9-ua-00P">
-                                <rect key="frame" x="130" y="348" width="115.5" height="20.5"/>
+                                <rect key="frame" x="130" y="304" width="115.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-Qc-q6V">
-                                <rect key="frame" x="66" y="410" width="51" height="31"/>
+                                <rect key="frame" x="66" y="366" width="51" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qiP-FG-blh">
-                                <rect key="frame" x="66" y="449" width="51" height="31"/>
+                                <rect key="frame" x="66" y="405" width="51" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-f6-Hir">
-                                <rect key="frame" x="66" y="488" width="51" height="31"/>
+                                <rect key="frame" x="66" y="444" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxc-jB-9AJ">
-                                <rect key="frame" x="175" y="454" width="46.5" height="20.5"/>
+                                <rect key="frame" x="175" y="410" width="46.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prise de dispersible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA4-dz-koZ">
-                                <rect key="frame" x="175" y="532" width="149.5" height="20.5"/>
+                                <rect key="frame" x="175" y="488" width="149.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hallucination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nV1-zs-zvk">
-                                <rect key="frame" x="175" y="493" width="99" height="20.5"/>
+                                <rect key="frame" x="175" y="449" width="99" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Buq-f9-3FK">
-                                <rect key="frame" x="163" y="267" width="51" height="31"/>
+                                <rect key="frame" x="163" y="223" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-kg-RNP">
-                                <rect key="frame" x="242" y="170" width="25" height="20.5"/>
+                                <rect key="frame" x="242" y="126" width="25" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somnolence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvE-pF-rPy">
-                                <rect key="frame" x="175" y="415" width="95" height="20.5"/>
+                                <rect key="frame" x="175" y="371" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BbU-6g-fFF">
-                                <rect key="frame" x="66" y="527" width="51" height="31"/>
+                                <rect key="frame" x="66" y="483" width="51" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="99j-qR-H8o">
-                                <rect key="frame" x="66" y="566" width="51" height="31"/>
+                                <rect key="frame" x="66" y="522" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clic / bolus d'Apokinon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6d-UC-vdo">
-                                <rect key="frame" x="175" y="571" width="173.5" height="20.5"/>
+                                <rect key="frame" x="175" y="527" width="173.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -370,9 +370,17 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MLL-nJ-8IP"/>
-                                    <barButtonItem systemItem="cancel" id="u5y-Fc-GRC"/>
+                                    <barButtonItem systemItem="cancel" id="u5y-Fc-GRC">
+                                        <connections>
+                                            <action selector="cancelAction:" destination="SRA-36-WqA" id="Hjz-Jh-Qcp"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tqi-dA-evD"/>
-                                    <barButtonItem systemItem="save" id="tTt-MB-h2Q"/>
+                                    <barButtonItem systemItem="save" id="tTt-MB-h2Q">
+                                        <connections>
+                                            <action selector="saveAction:" destination="SRA-36-WqA" id="jEd-vJ-dnb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xQI-X2-fDO"/>
                                 </items>
                             </toolbar>
@@ -424,10 +432,22 @@
                             <constraint firstItem="DmH-I5-6o4" firstAttribute="top" secondItem="xEa-bD-nJg" secondAttribute="bottom" constant="10" id="yIM-bi-DG2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chute" destination="qiP-FG-blh" id="bSL-Gj-GMA"/>
+                        <outlet property="clic_bolus" destination="99j-qR-H8o" id="tBG-wN-8SH"/>
+                        <outlet property="dateLabel" destination="vr0-Lg-Nct" id="M3j-5V-Lrn"/>
+                        <outlet property="dyskinesies" destination="Buq-f9-3FK" id="MOd-X5-pyY"/>
+                        <outlet property="hallucination" destination="7ed-f6-Hir" id="HLM-bc-UyV"/>
+                        <outlet property="heureLabel" destination="d6C-Uf-tSa" id="wW9-bb-3B2"/>
+                        <outlet property="off" destination="OGq-ah-edz" id="EnT-WE-Dzs"/>
+                        <outlet property="on" destination="4j0-Js-Col" id="pB3-js-vqT"/>
+                        <outlet property="prise_dispersible" destination="BbU-6g-fFF" id="Anj-HO-YXx"/>
+                        <outlet property="somnolence" destination="z9q-Qc-q6V" id="Hla-a6-3Bw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqT-EZ-h3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1025" y="-45"/>
+            <point key="canvasLocation" x="-1026.4000000000001" y="-45.42728635682159"/>
         </scene>
         <!--Evaluation-->
         <scene sceneID="VYC-tA-cxQ">
@@ -489,15 +509,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="UmX-rB-HHy" id="kND-KX-vGl"/>
-                                            <outlet property="heureLabel" destination="nuJ-S8-doO" id="ZYV-IO-xRq"/>
-                                            <segue destination="SRA-36-WqA" kind="show" identifier="addEvaluationSegue" id="RmQ-hF-dXU"/>
+                                            <outlet property="dateLabel" destination="UmX-rB-HHy" id="4Pq-3j-DjL"/>
+                                            <outlet property="heureLabel" destination="nuJ-S8-doO" id="D8J-qu-neJ"/>
+                                            <segue destination="SRA-36-WqA" kind="presentation" identifier="addEvaluationSegue" id="8yQ-k7-V1R"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="y1l-gM-NOI" id="maf-2m-CQn"/>
-                                    <outlet property="delegate" destination="y1l-gM-NOI" id="iLB-kJ-HKR"/>
+                                    <outlet property="dataSource" destination="y1l-gM-NOI" id="tFA-aH-FhG"/>
+                                    <outlet property="delegate" destination="y1l-gM-NOI" id="hTA-8V-Eki"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -511,10 +531,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Evaluation" id="ILW-nm-3WQ"/>
                     <connections>
-                        <outlet property="evaluationsTable" destination="X5o-Ky-XxC" id="kEA-WX-hlY"/>
+                        <outlet property="evaluationPresenter" destination="hWy-R1-xc2" id="h3y-Xc-hnn"/>
+                        <outlet property="evaluationsTable" destination="X5o-Ky-XxC" id="Pli-FQ-YbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tx-3O-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="hWy-R1-xc2" customClass="EvaluationPresenter" customModule="My_Pk_Et_Moi" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-274" y="-44"/>
         </scene>
@@ -602,7 +624,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="78.5" height="64"/>
                                         <state key="normal" image="evaluation.png"/>
                                         <connections>
-                                            <segue destination="y1l-gM-NOI" kind="show" id="nNy-Z9-v02"/>
+                                            <segue destination="y1l-gM-NOI" kind="show" id="Hos-Jy-xrI"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmj-ed-wvB">

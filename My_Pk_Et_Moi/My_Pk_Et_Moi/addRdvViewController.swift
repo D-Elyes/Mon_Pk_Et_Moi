@@ -63,14 +63,25 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let heureRdv = dateFormatterHeure.string(from: self.heurePick.date)
         
         guard (lieuRdv != "" ) || (medecinRdv != "" ) else { return }
-        // create a new Sports Managed Object
+        // create a new Rdv Managed Object
         let rdv = Rdv(context: CoreDataManager.context)
         // then modify it according to values
         rdv.date = dateRdv as NSDate
         rdv.heure = heureRdv
         rdv.lieu = lieuRdv
         rdv.concerneMedecin?.nom = medecinRdv
-        self.dismiss(animated: true, completion: nil)
+        
+        //Create an evaluation if the Rdv is with a neurologue
+        //if medecinRdv == "Neurologue"{
+            // create a new Evalaution Managed Object
+            let evaluation = Evaluation(context: CoreDataManager.context)
+            // then modify it according to values
+            evaluation.concerneRdv?.date = dateRdv as NSDate
+            evaluation.concerneRdv?.heure = heureRdv
+        //}
+        //else{
+            self.dismiss(animated: true, completion: nil)
+        //}
     }
     
     // MARK: - TextField Delegate
