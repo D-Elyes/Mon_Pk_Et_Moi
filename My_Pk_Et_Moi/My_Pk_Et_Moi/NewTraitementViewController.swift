@@ -21,31 +21,54 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    let datePickerDebut = UIDatePicker()
-    let datePickerFin = UIDatePicker()
-    
     
     @IBOutlet weak var qtteParJourTextField: UITextField!
     
     @IBOutlet weak var jourParSemaineTextField: UITextField!
     
     @IBAction func saveActionButton(_ sender: Any) {
-        let embedTraitementController = self.childViewControllers[0] as! EmbedTratiementViewController
+        guard let embedTraitementController = self.childViewControllers[0] as? EmbedTratiementViewController else {return}
         
         if embedTraitementController.nomMedicTextField.text?.isEmpty ?? true || embedTraitementController.doseTextField.text?.isEmpty ?? true || embedTraitementController.dateDebut.text?.isEmpty ?? true || embedTraitementController.dateFin.text?.isEmpty ?? true || embedTraitementController.qtteParJourTextField.text?.isEmpty ?? true || embedTraitementController.jourParSemaineTextField.text?.isEmpty ?? true
         {
-            alert(withTitle: "Erreur de saisie", andMessage: "Vous devez saisir tous les champs!!!!!")
+            DialogBoxHelper.alert(view: self,withTitle: "Erreur de saisie", andMessage: "Vous devez saisir tous les champs!!!!!")
         }
-        else if datePickerDebut.date >= datePickerFin.date
+        else if embedTraitementController.datePickerDebut.date >= embedTraitementController.datePickerFin.date
         {
-            alert(withTitle: "Erreur de date", andMessage: "La date de début ne peut pas etre supérieur que la date de fin!!!!!")
+            DialogBoxHelper.alert(view: self, withTitle: "Erreur de date", andMessage: "La date de début ne peut pas etre supérieur que la date de fin!!!!!")
         }
         else
         {
+            let medic = Medicament(context: CoreDataManager.context)
+            
+             medic.nomMedicament =  embedTraitementController.nomMedicTextField.text!
+            
+            
+            medic.dose = Int16(embedTraitementController.doseTextField!.text!)!
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            guard let dateDebut = dateFormatter.date(from: embedTraitementController.dateDebut.text!) else {
+                fatalError("ERROR: Date conversion failed due to mismatched format.")
+            }
+            
+            medic.dateDebut = dateDebut as NSDate
+            
+            guard let dateFin = dateFormatter.date(from: embedTraitementController.dateFin.text!) else {
+                fatalError("ERROR: Date conversion failed due to mismatched format.")
+            }
+            
+            medic.dateFIn = dateFin as NSDate
+            
+            
+            medic.nbParJour = Int16(embedTraitementController.qtteParJourTextField!.text!)!
+            medic.nbJourParSemaine = Int16(embedTraitementController.jourParSemaineTextField!.text!)!
+            
+            
+            
             let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
                 (_)in
-                self.performSegue(withIdentifier: "unWindToTraitement", sender: self)
+                self.dismiss(animated: true, completion: nil)
             })
             
             alert.addAction(OKAction)
@@ -55,28 +78,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         // Do any additional setup after loading the view.
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
         
-        //make dateDebut pop up a datePicker when the user click on it
-        
-        datePickerDebut.datePickerMode = UIDatePickerMode.date
-        datePickerDebut.addTarget(self, action: #selector(NewTraitementViewController.datePickedDebutValueChanged(sender:)), for: UIControlEvents.valueChanged)
-        
-        //we associate the datePicker to the TextField
-        let embedTraitementController = self.childViewControllers[0] as! EmbedTratiementViewController
-        embedTraitementController.dateDebut.inputView = datePickerDebut
-        embedTraitementController.dateDebut.text = formatter.string(from: datePickerDebut.date)
-        
-        //make dateFin pop up a datePicker when the user click on it
-       
-        datePickerFin.datePickerMode = UIDatePickerMode.date
-        datePickerFin.addTarget(self, action: #selector(NewTraitementViewController.datePickedFinValueChanged(sender:)), for: UIControlEvents.valueChanged)
-        datePickerFin.date = datePickerFin.date.addingTimeInterval(86400)
-        embedTraitementController.dateFin.inputView = datePickerFin
-        embedTraitementController.dateFin.text = formatter.string(from: datePickerFin.date )
-       
         
     }
 
@@ -115,55 +117,6 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    // MARK: - Helper -
-    
-    /// This function is to update the textfield when the user change the date de debut
-    ///
-    /// - Parameter sender: the corresponding datePicker
-    func datePickedDebutValueChanged(sender: UIDatePicker)
-    {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        //formatter.dateStyle = DateFormatter.Style.full
-        //formatter.timeStyle = DateFormatter.Style.none
-        
-        dateDebut.text = formatter.string(from: sender.date)
-    }
-    
-    /// This function is to update the textfield when the user change the date de fin
-    ///
-    /// - Parameter sender: the corresponding datePicker
-    func datePickedFinValueChanged(sender: UIDatePicker)
-    {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        //formatter.dateStyle = DateFormatter.Style.long
-        //formatter.timeStyle = DateFormatter.Style.none
-        
-       
-        dateFin.text = formatter.string(from: sender.date)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    /// show an alert dialog box with two message
-    ///
-    /// - Parameters:
-    ///   - title: title of dialog box seen as main message
-    ///   - msg: additional message used to describe context or additional information
-    func alert(withTitle title: String, andMessage msg: String = "")
-    {
-        let alert = UIAlertController(title: title,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok",
-                                         style: .default)
-        
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
+ 
 
 }
