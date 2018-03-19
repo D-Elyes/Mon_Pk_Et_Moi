@@ -37,28 +37,58 @@ class AddEvaluationViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        /*// Mettre une condition qu'une seule sélection
+        // Mettre une condition qu'une seule sélection
+         //guard (nomSport != "" ) || (typeSport != "" ) else { return } Changer la condition !
+         // create a new Evaluation Managed Object
+         let evaluation = Evaluation(context: CoreDataManager.context)
+         
+         /*
          if self.on.isOn == true {let etat : String = "On"}
          else if self.off.isOn == true {let etat : String = "Off"}
-         else {let etat : String = "Dyskenesies"}
-         
-         var listEvenement : [String] = []
-         
-         if self.chute.isOn == true { listEvenement.append("Chute") }
-         if self.clic_bolus.isOn == true { listEvenement.append("Clic / bolus d'Apokinon") }
-         if self.hallucination.isOn == true { listEvenement.append("Hallucination") }
-         if self.prise_dispersible.isOn == true { listEvenement.append("Prise de dispersible") }
-         if self.somnolence.isOn == true { listEvenement.append("Somnolence") }
-         
-         
-         
-         if let evaluationTmp = self.evaluation{
-         self.evaluation sportTmp.nom
-         //Ajouter les evenemnt problème avec too many
-         }
-         
-         
-         self.dismiss(animated: true, completion: nil)*/
+         else {let etat : String = "Dyskenesies"}*/
+        // Add result
+        // create each new Resultat Managed Object
+        /*let on = Etat(context: CoreDataManager.context)
+        let off = Etat(context: CoreDataManager.context)
+        let dyskinesies = Etat(context: CoreDataManager.context)
+
+    
+        if self.on.isOn == true {
+            chute.evenement = ""
+            evaluation
+        }*/
+
+        
+        // Add Event
+        // create each new Evenement Managed Object
+        let chute = Evenement(context: CoreDataManager.context)
+        let clic_bolus = Evenement(context: CoreDataManager.context)
+        let hallucination = Evenement(context: CoreDataManager.context)
+        let prise_dispersible = Evenement(context: CoreDataManager.context)
+        let somnolence = Evenement(context: CoreDataManager.context)
+        
+        if self.chute.isOn == true {
+            chute.evenement = ""
+            evaluation.addToContenirEvenement(chute)
+        }
+        if self.clic_bolus.isOn == true {
+            clic_bolus.evenement = ""
+            evaluation.addToContenirEvenement(clic_bolus)
+        }
+        if self.hallucination.isOn == true {
+            hallucination.evenement = ""
+            evaluation.addToContenirEvenement(hallucination)
+        }
+        if self.prise_dispersible.isOn == true {
+            prise_dispersible.evenement = ""
+            evaluation.addToContenirEvenement(prise_dispersible)
+        }
+        if self.somnolence.isOn == true {
+            somnolence.evenement = ""
+            evaluation.addToContenirEvenement(somnolence)
+        }
+        
+         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelAction(_ sender: Any) {

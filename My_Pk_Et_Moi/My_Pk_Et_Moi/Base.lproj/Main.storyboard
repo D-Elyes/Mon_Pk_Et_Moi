@@ -472,40 +472,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour le rendez-vous du :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIw-CP-kZN">
-                                                    <rect key="frame" x="10" y="10" width="187" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rendez-vous du" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIw-CP-kZN">
+                                                    <rect key="frame" x="10" y="24" width="125" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="à :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzP-5J-Nk5">
-                                                    <rect key="frame" x="10" y="41" width="19" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure Rdv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuJ-S8-doO">
-                                                    <rect key="frame" x="285" y="41" width="80" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="à" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzP-5J-Nk5">
+                                                    <rect key="frame" x="215" y="24" width="9" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Rdv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmX-rB-HHy">
-                                                    <rect key="frame" x="295" y="10" width="70" height="21"/>
+                                                    <rect key="frame" x="140" y="24" width="70" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="0.066752330380000002" blue="0.088316775520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure Rdv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuJ-S8-doO">
+                                                    <rect key="frame" x="229" y="24" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.066752330380000002" blue="0.088316775520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yzP-5J-Nk5" firstAttribute="leading" secondItem="Ooc-uw-3EO" secondAttribute="leading" constant="10" id="3pG-5T-2ZB"/>
-                                                <constraint firstItem="yzP-5J-Nk5" firstAttribute="top" secondItem="BIw-CP-kZN" secondAttribute="bottom" constant="10" id="5VT-LE-sHp"/>
-                                                <constraint firstItem="UmX-rB-HHy" firstAttribute="top" secondItem="Ooc-uw-3EO" secondAttribute="top" constant="10" id="87z-Ur-B8H"/>
-                                                <constraint firstAttribute="trailing" secondItem="nuJ-S8-doO" secondAttribute="trailing" constant="10" id="QZO-k1-Ehr"/>
-                                                <constraint firstItem="BIw-CP-kZN" firstAttribute="top" secondItem="Ooc-uw-3EO" secondAttribute="top" constant="10" id="avK-PI-awM"/>
-                                                <constraint firstItem="nuJ-S8-doO" firstAttribute="top" secondItem="UmX-rB-HHy" secondAttribute="bottom" constant="10" id="avi-HC-fpN"/>
-                                                <constraint firstItem="BIw-CP-kZN" firstAttribute="leading" secondItem="Ooc-uw-3EO" secondAttribute="leading" constant="10" id="fMa-Ev-BJa"/>
-                                                <constraint firstAttribute="trailing" secondItem="UmX-rB-HHy" secondAttribute="trailing" constant="10" id="rYX-cA-E9s"/>
+                                                <constraint firstItem="nuJ-S8-doO" firstAttribute="leading" secondItem="yzP-5J-Nk5" secondAttribute="trailing" constant="5" id="0Lo-Tb-iAD"/>
+                                                <constraint firstItem="nuJ-S8-doO" firstAttribute="centerY" secondItem="Ooc-uw-3EO" secondAttribute="centerY" id="LvM-IZ-Pwp"/>
+                                                <constraint firstItem="BIw-CP-kZN" firstAttribute="leading" secondItem="Ooc-uw-3EO" secondAttribute="leading" constant="10" id="aZ1-qX-xJS"/>
+                                                <constraint firstItem="yzP-5J-Nk5" firstAttribute="leading" secondItem="UmX-rB-HHy" secondAttribute="trailing" constant="5" id="cdu-jE-ndr"/>
+                                                <constraint firstItem="BIw-CP-kZN" firstAttribute="centerY" secondItem="Ooc-uw-3EO" secondAttribute="centerY" id="d72-9D-Tqu"/>
+                                                <constraint firstItem="yzP-5J-Nk5" firstAttribute="centerY" secondItem="Ooc-uw-3EO" secondAttribute="centerY" id="ike-6e-LOJ"/>
+                                                <constraint firstItem="UmX-rB-HHy" firstAttribute="leading" secondItem="BIw-CP-kZN" secondAttribute="trailing" constant="5" id="lcM-9x-ODb"/>
+                                                <constraint firstItem="UmX-rB-HHy" firstAttribute="centerY" secondItem="Ooc-uw-3EO" secondAttribute="centerY" id="wpd-mL-GFs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -538,7 +538,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tx-3O-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="hWy-R1-xc2" customClass="EvaluationPresenter" customModule="My_Pk_Et_Moi" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-274" y="-44"/>
+            <point key="canvasLocation" x="-274.39999999999998" y="-44.527736131934034"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -729,8 +729,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objectif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-Ha-BV5">
-                                                    <rect key="frame" x="105" y="12" width="61" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-Ha-BV5">
+                                                    <rect key="frame" x="105" y="12" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -752,8 +752,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heureLabel" destination="TFb-Ha-BV5" id="BtS-aG-LSh"/>
                                             <outlet property="nomlabel" destination="rFd-Mi-hSD" id="DBl-YR-591"/>
-                                            <outlet property="objLabel" destination="TFb-Ha-BV5" id="fXm-jX-QAI"/>
                                             <outlet property="typeLabel" destination="m59-ar-zah" id="87R-gJ-4Ws"/>
                                             <segue destination="Pja-BG-QaB" kind="show" identifier="showSportSegue" id="N3d-qh-HKM"/>
                                         </connections>

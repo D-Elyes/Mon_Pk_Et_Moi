@@ -60,7 +60,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
         let dateFormatterHeure = DateFormatter()
         dateFormatterHeure.locale = Locale(identifier: "fr_FR")
-        dateFormatterHeure.dateFormat = "hh mm"
+        dateFormatterHeure.dateFormat = "hh:mm"
         let heureRdv = dateFormatterHeure.string(from: self.heurePick.date)
         
         guard (lieuRdv != "" ) || (medecinRdv != "" ) else { return }
@@ -70,21 +70,11 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         rdv.date = dateRdv as NSDate
         rdv.heure = heureRdv
         rdv.lieu = lieuRdv
-        
+        // create a new Medecin Managed Object
         let medecin = Medecin(context: CoreDataManager.context)
         // then modify it according to values
         medecin.specialite = medecinRdv
-        
- 
-        
-        
         rdv.concerneMedecin? = medecin
-        
-        
-        
-        
-        
-        
         
         //Create an evaluation if the Rdv is with a neurologue
         if medecinRdv == "Neurologue"{
@@ -93,6 +83,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             // then modify it according to values
             evaluation.concerneRdv?.date = dateRdv as NSDate
             evaluation.concerneRdv?.heure = heureRdv
+            evaluation.concerneRdv = rdv
             self.dismiss(animated: true, completion: nil)
         }
         else{

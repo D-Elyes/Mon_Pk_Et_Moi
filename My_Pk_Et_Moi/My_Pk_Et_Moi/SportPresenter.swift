@@ -11,9 +11,8 @@ import Foundation
 class SportPresenter: NSObject {
     fileprivate var nomSport : String = ""
     fileprivate var typeSport : String = ""
-    /*fileprivate var objectif : String = ""
     fileprivate var heure : String = ""
-    fileprivate var jour : [String] = [] // a compléter*/
+    //fileprivate var jour : [String] = []  a compléter
     
     fileprivate var sport : Activite? = nil {
         didSet{
@@ -24,21 +23,17 @@ class SportPresenter: NSObject {
                 if let typeTmp = sport.type{ self.typeSport = typeTmp.capitalized }
                 else{ self.typeSport = "-"}
                 
-                /*if let objTmp = sport.objectif{ self.objectif = objTmp.capitalized }
-                else{ self.objectif = "-"}
-                
                 if let heureTmp = sport.heure{ self.heure = heureTmp.capitalized }
                 else{ self.heure = "-"}
                 
-                if let nomTmp = sport.nom{ self.nomSport = nomTmp.capitalized }
+                /*if let nomTmp = sport.nom{ self.nomSport = nomTmp.capitalized }
                 else{ self.nomSport = "-"}*/
             }
             else{
                 self.nomSport = ""
                 self.typeSport = ""
-                /*self.objectif = ""
                 self.heure = ""
-                self.jour = []*/
+                //self.jour = []
             }
         }
     }
@@ -48,6 +43,6 @@ class SportPresenter: NSObject {
         guard let cell = theCell else { return }
         cell.nomlabel.text = self.nomSport
         cell.typeLabel.text = self.typeSport
-        //cell.objLabel.text = self.objectif
+        cell.heureLabel.text = self.heure
     }
 }

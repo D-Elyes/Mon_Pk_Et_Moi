@@ -10,7 +10,7 @@ import UIKit
 
 class SportTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var objLabel: UILabel!
+    @IBOutlet weak var heureLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var nomlabel: UILabel!
     

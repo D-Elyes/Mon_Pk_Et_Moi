@@ -47,18 +47,6 @@ class ajoutSportViewController: UIViewController{
         dateFormatter.dateFormat = "hh mm"
         let heureSport = dateFormatter.string(from: embedSportViewController.heure.date)
         
-        
-        /*var listJour : [String] = []
-        
-        if embedSportViewController.lundi.isOn == true { listJour.append("lundi") }
-        if embedSportViewController.mardi.isOn == true { listJour.append("mardi") }
-        if embedSportViewController.mercredi.isOn == true { listJour.append("mercredi") }
-        if embedSportViewController.jeudi.isOn == true { listJour.append("jeudi") }
-        if embedSportViewController.vendredi.isOn == true { listJour.append("vendredi") }
-        if embedSportViewController.samedi.isOn == true { listJour.append("samedi") }
-        if embedSportViewController.dimanche.isOn == true { listJour.append("dimanche") }
-        */
-        
         guard (nomSport != "" ) || (typeSport != "" ) else { return }
         // create a new Sports Managed Object
         let sport = Activite(context: CoreDataManager.context)
@@ -67,11 +55,51 @@ class ajoutSportViewController: UIViewController{
         sport.type = typeSport
         sport.heure = heureSport
         
-        /*let jours : JourSemaine? = nil
-        jours?.jour = "lundi"
-        sport.addToContenirJour(jours!)*/
+        // Add days
+        // create each new JourSemaine Managed Object
+        let lundi = JourSemaine(context: CoreDataManager.context)
+        let mardi = JourSemaine(context: CoreDataManager.context)
+        let mercredi = JourSemaine(context: CoreDataManager.context)
+        let jeudi = JourSemaine(context: CoreDataManager.context)
+        let vendredi = JourSemaine(context: CoreDataManager.context)
+        let samedi = JourSemaine(context: CoreDataManager.context)
+        let dimanche = JourSemaine(context: CoreDataManager.context)
         
-        
+        if embedSportViewController.lundi.isOn == true {
+            lundi.jour = "Lundi"
+            sport.addToContenirJour(lundi)
+            lundi.contenirActivite = sport
+        }
+        if embedSportViewController.mardi.isOn == true {
+            mardi.jour = "Mardi"
+            sport.addToContenirJour(mardi)
+            mardi.contenirActivite = sport
+        }
+        if embedSportViewController.mercredi.isOn == true {
+            mercredi.jour = "Mercredi"
+            sport.addToContenirJour(mercredi)
+            mercredi.contenirActivite = sport
+        }
+        if embedSportViewController.jeudi.isOn == true {
+            jeudi.jour = "Jeudi"
+            sport.addToContenirJour(jeudi)
+            jeudi.contenirActivite = sport
+        }
+        if embedSportViewController.vendredi.isOn == true {
+            vendredi.jour = "Vendredi"
+            sport.addToContenirJour(vendredi)
+            vendredi.contenirActivite = sport
+        }
+        if embedSportViewController.samedi.isOn == true {
+            samedi.jour = "Samedi"
+            sport.addToContenirJour(samedi)
+            samedi.contenirActivite = sport
+        }
+        if embedSportViewController.dimanche.isOn == true {
+            dimanche.jour = "Dimanche"
+            sport.addToContenirJour(dimanche)
+            dimanche.contenirActivite = sport
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

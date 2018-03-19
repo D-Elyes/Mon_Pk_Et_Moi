@@ -42,9 +42,9 @@ class RdvPresenter: NSObject {
     func configure(theCell : RdvTableViewCell?, forRdv: Rdv?){
         self.rdv = forRdv
         guard let cell = theCell else { return }
-        //cell.dateLabel.text = self.dateRdv
+        cell.dateLabel.text = self.rdv?.convertDate(dateModify: self.dateRdv!)
         cell.lieuLabel.text = self.lieuRdv
         cell.heureLabel.text = self.heureRdv
-        cell.medecinLabel.text = self.medecinRdv
+        cell.medecinLabel.text = self.rdv?.concerneMedecin?.specialite
     }
 }

@@ -31,7 +31,7 @@ class EvaluationPresenter: NSObject {
     func configure(theCell : EvaluationTableViewCell?, forEvaluation: Evaluation?){
         self.evaluation = forEvaluation
         guard let cell = theCell else { return }
-        //cell.dateLabel.text = self.dateRdv
-        cell.heureLabel.text = self.heureRdv
+        cell.dateLabel.text = evaluation?.concerneRdv?.convertDate(dateModify: self.dateRdv!)
+        cell.heureLabel.text = evaluation?.concerneRdv?.heure
     }
 }

@@ -29,6 +29,9 @@ class ShowSportViewController: UIViewController {
             self.typeLabel.text = sportTmp.type
             self.objLabel.text = sportTmp.objectif
             self.heureLabel.text = sportTmp.heure
+            /*for jour in sport?.contenirJour.{
+                self.jourLabel.text = jour.
+            }*/
         }
     }
 

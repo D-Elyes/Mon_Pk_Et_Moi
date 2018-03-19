@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1212" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,6 +8,11 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contenirJour" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourSemaine" inverseName="contenirActivite" inverseEntity="JourSemaine" syncable="YES"/>
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelActivite" inverseName="contenirActivite" inverseEntity="RappelActivite" syncable="YES"/>
+    </entity>
+    <entity name="Etat" representedClassName="Etat" syncable="YES" codeGenerationType="class">
+        <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reponse" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="contenirHeure" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="correspondreJourEvl" inverseEntity="JourEvaluation" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">
         <relationship name="concerneRdv" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Rdv" inverseName="concerneEvaluation" inverseEntity="Rdv" syncable="YES"/>
@@ -19,15 +24,10 @@
         <attribute name="evenement" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="appartientAEva" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="contenirEvenement" inverseEntity="Evaluation" syncable="YES"/>
     </entity>
-    <entity name="Heure" representedClassName="Heure" syncable="YES" codeGenerationType="class">
-        <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reponse" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="contenirHeure" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="correspondreJourEvl" inverseEntity="JourEvaluation" syncable="YES"/>
-    </entity>
     <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
         <attribute name="delai" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="correspondreEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="contenirJourEvaluation" inverseEntity="Evaluation" syncable="YES"/>
-        <relationship name="correspondreJourEvl" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Heure" inverseName="contenirHeure" inverseEntity="Heure" syncable="YES"/>
+        <relationship name="correspondreJourEvl" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Etat" inverseName="contenirHeure" inverseEntity="Etat" syncable="YES"/>
     </entity>
     <entity name="JourSemaine" representedClassName="JourSemaine" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,7 +77,7 @@
         <element name="Activite" positionX="153" positionY="-90" width="128" height="148"/>
         <element name="Evaluation" positionX="90" positionY="401" width="128" height="103"/>
         <element name="Evenement" positionX="-180" positionY="378" width="128" height="73"/>
-        <element name="Heure" positionX="-99" positionY="536" width="128" height="88"/>
+        <element name="Etat" positionX="-99" positionY="536" width="128" height="88"/>
         <element name="JourEvaluation" positionX="108" positionY="530" width="128" height="88"/>
         <element name="JourSemaine" positionX="351" positionY="-72" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
