@@ -14,7 +14,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
-    let medecins = ["neurologue", "dentiste"] // requete pour avoir tout les medecins
+    let medecins = ["Neurologue", "Dentiste"] // requete pour avoir tout les medecins
     
     @IBOutlet weak var datePick: UIDatePicker!
     @IBOutlet weak var lieuTextF: UITextField!
@@ -69,19 +69,32 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         rdv.date = dateRdv as NSDate
         rdv.heure = heureRdv
         rdv.lieu = lieuRdv
-        rdv.concerneMedecin?.nom = medecinRdv
+        
+        let medecin = Medecin(context: CoreDataManager.context)
+        // then modify it according to values
+        medecin.specialite = medecinRdv
+        
+        
+        rdv.concerneMedecin? = medecin
+        
+        
+        
+        
+        
+        
         
         //Create an evaluation if the Rdv is with a neurologue
-        //if medecinRdv == "Neurologue"{
+        if medecinRdv == "Neurologue"{
             // create a new Evalaution Managed Object
             let evaluation = Evaluation(context: CoreDataManager.context)
             // then modify it according to values
             evaluation.concerneRdv?.date = dateRdv as NSDate
             evaluation.concerneRdv?.heure = heureRdv
-        //}
-        //else{
             self.dismiss(animated: true, completion: nil)
-        //}
+        }
+        else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - TextField Delegate

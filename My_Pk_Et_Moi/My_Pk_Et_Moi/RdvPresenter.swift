@@ -27,8 +27,8 @@ class RdvPresenter: NSObject {
                 if let heureTmp = rdv.heure{ self.heureRdv = heureTmp.capitalized }
                 else{ self.heureRdv = "-"}
                 
-                /*if let medecinTmp = rdv.concerneMedecin?.nom{ self.medecinRdv = medecinTmp.capitalized }
-                else{ self.medecinRdv = "-"}*/
+                if let medecinTmp = rdv.concerneMedecin?.nom{ self.medecinRdv = medecinTmp.capitalized }
+                else{ self.medecinRdv = "-"}
             }
             else{
                 self.dateRdv = nil
