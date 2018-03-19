@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -73,6 +74,8 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let medecin = Medecin(context: CoreDataManager.context)
         // then modify it according to values
         medecin.specialite = medecinRdv
+        
+ 
         
         
         rdv.concerneMedecin? = medecin
