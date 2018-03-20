@@ -65,6 +65,8 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             
             
             
+            
+            
             let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
                 (_)in
