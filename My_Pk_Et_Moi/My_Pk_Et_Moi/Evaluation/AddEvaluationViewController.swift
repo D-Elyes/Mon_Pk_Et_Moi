@@ -15,6 +15,7 @@ class AddEvaluationViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var heureLabel: UILabel!
     
+    
     @IBOutlet weak var on: UISwitch!
     @IBOutlet weak var off: UISwitch!
     @IBOutlet weak var dyskinesies: UISwitch!
@@ -27,7 +28,8 @@ class AddEvaluationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.dateLabel.text = self.evaluation?.concerneRdv?.convertDate(dateModify: (self.evaluation?.concerneRdv?.date)!)
+        self.heureLabel.text = self.evaluation?.concerneRdv?.heure
         // Do any additional setup after loading the view.
     }
 
@@ -37,15 +39,31 @@ class AddEvaluationViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        // Mettre une condition qu'une seule sélection
-         //guard (nomSport != "" ) || (typeSport != "" ) else { return } Changer la condition !
-         // create a new Evaluation Managed Object
-         let evaluation = Evaluation(context: CoreDataManager.context)
-         
-         /*
-         if self.on.isOn == true {let etat : String = "On"}
-         else if self.off.isOn == true {let etat : String = "Off"}
-         else {let etat : String = "Dyskenesies"}*/
+        
+        //get the number of days between the current date and the date of the Rdv into jourRestant
+        let calendar: NSCalendar = NSCalendar.current as NSCalendar
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: NSDate() as Date)
+        let date2 = calendar.startOfDay(for: (evaluation?.concerneRdv?.date)! as Date)
+        
+        let flags = NSCalendar.Unit.day
+        let components = calendar.components(flags, from: date1, to: date2)
+        let jourRestant = components.day!
+        
+        guard ((jourRestant <= 0) && (jourRestant >= -5)) else {
+                // mettre un message d'erreur !!!!!!!!!!!!!!!!!
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        
+        // create a new Evaluation Managed Object
+        //let evaluation = Evaluation(context: CoreDataManager.context)
+        
+        /*
+        if self.on.isOn == true {let etat : String = "On"}
+        else if self.off.isOn == true {let etat : String = "Off"}
+        else {let etat : String = "Dyskenesies"}*/
         // Add result
         // create each new Resultat Managed Object
         /*let on = Etat(context: CoreDataManager.context)
@@ -69,23 +87,23 @@ class AddEvaluationViewController: UIViewController {
         
         if self.chute.isOn == true {
             chute.evenement = ""
-            evaluation.addToContenirEvenement(chute)
+            self.evaluation?.addToContenirEvenement(chute)
         }
         if self.clic_bolus.isOn == true {
             clic_bolus.evenement = ""
-            evaluation.addToContenirEvenement(clic_bolus)
+            self.evaluation?.addToContenirEvenement(clic_bolus)
         }
         if self.hallucination.isOn == true {
             hallucination.evenement = ""
-            evaluation.addToContenirEvenement(hallucination)
+            self.evaluation?.addToContenirEvenement(hallucination)
         }
         if self.prise_dispersible.isOn == true {
             prise_dispersible.evenement = ""
-            evaluation.addToContenirEvenement(prise_dispersible)
+            self.evaluation?.addToContenirEvenement(prise_dispersible)
         }
         if self.somnolence.isOn == true {
             somnolence.evenement = ""
-            evaluation.addToContenirEvenement(somnolence)
+            self.evaluation?.addToContenirEvenement(somnolence)
         }
         
          self.dismiss(animated: true, completion: nil)

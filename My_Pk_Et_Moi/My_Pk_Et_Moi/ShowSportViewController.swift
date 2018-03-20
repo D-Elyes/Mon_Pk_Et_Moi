@@ -29,9 +29,17 @@ class ShowSportViewController: UIViewController {
             self.typeLabel.text = sportTmp.type
             self.objLabel.text = sportTmp.objectif
             self.heureLabel.text = sportTmp.heure
-            /*for jour in sport?.contenirJour.{
-                self.jourLabel.text = jour.
-            }*/
+            
+            //insert into labeljour all days
+            self.jourLabel.text = ""
+            if let jours = sportTmp.contenirJour{
+                for jour in jours{
+                    if let j = jour as? JourSemaine{
+                        self.jourLabel.text = self.jourLabel.text! + " " + j.jour!
+                    }
+                }
+            }
+            
         }
     }
 

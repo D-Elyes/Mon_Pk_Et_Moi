@@ -25,6 +25,7 @@
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
 		3FB3C2DD205DBCB600A93591 /* AddEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */; };
 		3FBB9D6B205ECF630065EA52 /* EvaluationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */; };
+		3FCE02FC20617A1C004D0F86 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */; };
 		3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE16082056C88300DFC11F /* CoreDataManager.swift */; };
 		3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE160A2056CC5600DFC11F /* SportPresenter.swift */; };
 		3FDE160D2056ED3100DFC11F /* ShowSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE160C2056ED3100DFC11F /* ShowSportViewController.swift */; };
@@ -75,6 +76,7 @@
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
 		3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvaluationViewController.swift; sourceTree = "<group>"; };
 		3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationPresenter.swift; sourceTree = "<group>"; };
+		3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		3FDE16082056C88300DFC11F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3FDE160A2056CC5600DFC11F /* SportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPresenter.swift; sourceTree = "<group>"; };
 		3FDE160C2056ED3100DFC11F /* ShowSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSportViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDE16082056C88300DFC11F /* CoreDataManager.swift */,
+				3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -207,9 +210,9 @@
 		BDD222062045B57000B247D1 /* My_Pk_Et_Moi */ = {
 			isa = PBXGroup;
 			children = (
-				3F8411D220606FF800364264 /* Model */,
 				3FDE16072056C83000DFC11F /* helpers */,
 				0B01097C204DA14100D785EA /* image */,
+				3F8411D220606FF800364264 /* Model */,
 				3F7587F5205AD2BC00D7C95B /* Rendez-vous */,
 				3F843014205D5069002D1A78 /* Evaluation */,
 				3F7587F3205AD23100D7C95B /* Sport */,
@@ -397,6 +400,7 @@
 				3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */,
 				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,
 				3F7587F7205AD3A200D7C95B /* RdvViewController.swift in Sources */,
+				3FCE02FC20617A1C004D0F86 /* DialogBoxHelper.swift in Sources */,
 				3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */,
 				3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */,
 				3FE8E08A205C267D00943E72 /* RdvPresenter.swift in Sources */,

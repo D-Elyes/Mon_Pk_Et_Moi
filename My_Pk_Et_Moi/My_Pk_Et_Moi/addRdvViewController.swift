@@ -75,6 +75,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         // then modify it according to values
         medecin.specialite = medecinRdv
         rdv.concerneMedecin? = medecin
+        medecin.addToAvoirRdv(rdv)
         
         //Create an evaluation if the Rdv is with a neurologue
         if medecinRdv == "Neurologue"{
