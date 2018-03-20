@@ -7,26 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class NewTraitementViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var nomMedicTextField: UITextField!
-    
-    @IBOutlet weak var doseTextField: UITextField!
-    
-    @IBOutlet weak var dateDebut: UITextField!
-    
-    @IBOutlet weak var dateFin: UITextField!
-    
-    
-    
-    
-    
-    @IBOutlet weak var qtteParJourTextField: UITextField!
-    
-    @IBOutlet weak var jourParSemaineTextField: UITextField!
     
     @IBAction func saveActionButton(_ sender: Any) {
+        
         guard let embedTraitementController = self.childViewControllers[0] as? EmbedTratiementViewController else {return}
         
         if embedTraitementController.nomMedicTextField.text?.isEmpty ?? true || embedTraitementController.doseTextField.text?.isEmpty ?? true || embedTraitementController.dateDebut.text?.isEmpty ?? true || embedTraitementController.dateFin.text?.isEmpty ?? true || embedTraitementController.qtteParJourTextField.text?.isEmpty ?? true || embedTraitementController.jourParSemaineTextField.text?.isEmpty ?? true
@@ -65,6 +52,8 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             
             
             
+            scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
+            
             
             
             let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
@@ -80,6 +69,10 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var dateInfo = DateComponents()
+        dateInfo.day = 1
+        print(dateInfo.day ?? "NOPe")
         
         
     }
@@ -117,6 +110,47 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             let embedController = segue.destination as! EmbedTratiementViewController
             embedController.medicament = nil
         }
+    }
+    
+    
+    func scheduleNotification(nom: String)
+    {
+        
+        //add atachment
+        let myimage = "medication-capsule"
+        guard let imageUrl = Bundle.main.url(forResource: myimage, withExtension: "png" ) else {
+           
+            return
+        }
+        
+        var attachment: UNNotificationAttachment
+        
+        attachment = try! UNNotificationAttachment(identifier: "medicNoification", url: imageUrl, options: .none)
+        
+        let notif = UNMutableNotificationContent()
+        notif.title = "Rappel medicament"
+        notif.subtitle = "Reprise de medicament"
+        notif.body = "C'est l'heur de prendre \(nom)"
+        
+        notif.attachments = [attachment]
+        
+        var dateInfo = DateComponents()
+        dateInfo.hour = 18
+        dateInfo.minute = 05
+        
+        let notifiTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "medicNoification", content: notif, trigger: notifiTrigger)
+        
+        let center = UNUserNotificationCenter.current()
+        
+        center.add(request) { (error : Error?) in
+                if let theError = error
+                {
+                    print(theError.localizedDescription)
+            }
+        }
+      //  UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in    })
     }
     
  
