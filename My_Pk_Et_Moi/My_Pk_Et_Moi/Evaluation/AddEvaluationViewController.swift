@@ -48,7 +48,7 @@ class AddEvaluationViewController: UIViewController {
         let flags = NSCalendar.Unit.day
         let components = calendar.components(flags, from: date1, to: date2)
         
-        // get current time into format string
+        // get current time
         let date = Date()
         let dateFormatterHeure = DateFormatter()
         dateFormatterHeure.locale = Locale(identifier: "fr_FR")
@@ -56,6 +56,11 @@ class AddEvaluationViewController: UIViewController {
         let heure = dateFormatterHeure.string(from: date)
         
         
+        
+        guard ((components.day! < 0) && (components.day! >= -5)) else {
+                DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
+            return
+        }
         
         // create a new jourEvaluation Managed Object
         let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
