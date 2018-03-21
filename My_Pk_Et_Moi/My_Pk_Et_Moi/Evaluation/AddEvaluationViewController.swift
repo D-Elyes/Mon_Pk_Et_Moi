@@ -48,32 +48,38 @@ class AddEvaluationViewController: UIViewController {
         
         let flags = NSCalendar.Unit.day
         let components = calendar.components(flags, from: date1, to: date2)
-        let jourRestant = components.day!
         
-        guard ((jourRestant <= 0) && (jourRestant >= -5)) else {
-                // mettre un message d'erreur !!!!!!!!!!!!!!!!!
-            self.dismiss(animated: true, completion: nil)
+        
+        guard ((components.day! < 0) && (components.day! >= -5)) else {
+                DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
             return
         }
         
+        /*// create a new jourEvaluation Managed Object
+        let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
+        jourAvantRdv.jour = String(components.day!) + " jour"
+        jourAvantRdv.correspondreEvaluation = evaluation
+        evaluation?.addToPossedeJourEvaluation(jourAvantRdv)
         
         // create a new Evaluation Managed Object
         //let evaluation = Evaluation(context: CoreDataManager.context)
         
-        /*
-        if self.on.isOn == true {let etat : String = "On"}
-        else if self.off.isOn == true {let etat : String = "Off"}
-        else {let etat : String = "Dyskenesies"}*/
+        
+        if self.on.isOn == true {let resEtat : String = "On"}
+        else if self.off.isOn == true {let resEtat : String = "Off"}
+        else {let resEtat : String = "Dyskenesies"}
+
         // Add result
         // create each new Resultat Managed Object
-        /*let on = Etat(context: CoreDataManager.context)
-        let off = Etat(context: CoreDataManager.context)
-        let dyskinesies = Etat(context: CoreDataManager.context)
+        let etat = Etat(context: CoreDataManager.context)
+        
+        //Get current time in format string
+        let date = Date()
+        let hour = calendar.component(.hour, from: date)
+        print(hour)
 
     
         if self.on.isOn == true {
-            chute.evenement = ""
-            evaluation
         }*/
 
         

@@ -31,7 +31,7 @@ class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDel
             try self.rdvFetched.performFetch()
         }
         catch let error as NSError{
-            
+            DialogBoxHelper.alert(view: self, error: error)
         }
         // Do any additional setup after loading the view.
     }

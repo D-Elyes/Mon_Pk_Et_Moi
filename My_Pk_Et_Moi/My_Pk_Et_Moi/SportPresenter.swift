@@ -12,7 +12,6 @@ class SportPresenter: NSObject {
     fileprivate var nomSport : String = ""
     fileprivate var typeSport : String = ""
     fileprivate var heure : String = ""
-    //fileprivate var jour : [String] = []  a compléter
     
     fileprivate var sport : Activite? = nil {
         didSet{
@@ -25,9 +24,6 @@ class SportPresenter: NSObject {
                 
                 if let heureTmp = sport.heure{ self.heure = heureTmp.capitalized }
                 else{ self.heure = "-"}
-                
-                /*if let nomTmp = sport.nom{ self.nomSport = nomTmp.capitalized }
-                else{ self.nomSport = "-"}*/
             }
             else{
                 self.nomSport = ""

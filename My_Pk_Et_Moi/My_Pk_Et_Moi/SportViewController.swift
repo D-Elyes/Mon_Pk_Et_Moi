@@ -30,7 +30,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
             try self.sportsFetched.performFetch()
         }
         catch let error as NSError{
-            // traiter l'erreur
+            DialogBoxHelper.alert(view: self, error: error)
         }
         
         // Do any additional setup after loading the view.

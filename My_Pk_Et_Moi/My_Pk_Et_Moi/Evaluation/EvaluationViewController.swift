@@ -32,7 +32,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
             try self.evaluationFetched.performFetch()
         }
         catch let error as NSError{
-            
+            DialogBoxHelper.alert(view: self, error: error)
         }
         // Do any additional setup after loading the view.
     }

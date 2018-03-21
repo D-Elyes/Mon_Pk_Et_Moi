@@ -26,14 +26,6 @@ class ajoutSportViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*func alertError(errorMsg error: String, userInfo user: String = ""){
-        let alert = UIAlertController(title: error, message: user, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }*/
-    
 
     @IBAction func saveAction(_ sender: Any) {
         guard let embedSportViewController = self.childViewControllers[0] as? EmbedSportViewController
