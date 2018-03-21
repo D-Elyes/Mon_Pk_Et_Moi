@@ -45,43 +45,42 @@ class AddEvaluationViewController: UIViewController {
         // Replace the hour (time) of both dates with 00:00
         let date1 = calendar.startOfDay(for: NSDate() as Date)
         let date2 = calendar.startOfDay(for: (evaluation?.concerneRdv?.date)! as Date)
-        
         let flags = NSCalendar.Unit.day
         let components = calendar.components(flags, from: date1, to: date2)
         
+        // get current time into format string
+        let date = Date()
+        let dateFormatterHeure = DateFormatter()
+        dateFormatterHeure.locale = Locale(identifier: "fr_FR")
+        dateFormatterHeure.dateFormat = "hh:mm"
+        let heure = dateFormatterHeure.string(from: date)
         
-        guard ((components.day! < 0) && (components.day! >= -5)) else {
-                DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
-            return
-        }
         
-        /*// create a new jourEvaluation Managed Object
+        
+        // create a new jourEvaluation Managed Object
         let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
         jourAvantRdv.jour = String(components.day!) + " jour"
-        jourAvantRdv.correspondreEvaluation = evaluation
-        evaluation?.addToPossedeJourEvaluation(jourAvantRdv)
+        jourAvantRdv.addToCorrespondreEvaluation(self.evaluation!)
+        self.evaluation?.addToContenirJourEvaluation(jourAvantRdv)
         
         // create a new Evaluation Managed Object
         //let evaluation = Evaluation(context: CoreDataManager.context)
         
-        
-        if self.on.isOn == true {let resEtat : String = "On"}
-        else if self.off.isOn == true {let resEtat : String = "Off"}
-        else {let resEtat : String = "Dyskenesies"}
+        var resEtat : String = ""
+        if self.on.isOn == true {resEtat = "On"}
+        else if self.off.isOn == true {resEtat = "Off"}
+        else {resEtat = "Dyskenesies"}
 
+
+        
         // Add result
         // create each new Resultat Managed Object
         let etat = Etat(context: CoreDataManager.context)
+        etat.reponse = resEtat
+        etat.heure = heure
+        etat.addToCorrespondreJourEvaluation(jourAvantRdv)
+        jourAvantRdv.addToContenirEtat(etat)
         
-        //Get current time in format string
-        let date = Date()
-        let hour = calendar.component(.hour, from: date)
-        print(hour)
-
-    
-        if self.on.isOn == true {
-        }*/
-
         
         // Add Event
         // create each new Evenement Managed Object
