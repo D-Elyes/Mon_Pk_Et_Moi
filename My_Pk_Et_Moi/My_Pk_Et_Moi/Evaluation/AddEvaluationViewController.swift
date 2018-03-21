@@ -56,9 +56,19 @@ class AddEvaluationViewController: UIViewController {
         let heure = dateFormatterHeure.string(from: date)
         
         
-        
+        // If the add is not in the 5 days
         guard ((components.day! < 0) && (components.day! >= -5)) else {
                 DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
+            return
+        }
+        
+        //If the user fill more than one "Etat"
+        if (((self.on.isOn == true) && (self.off.isOn == true)) || ((self.on.isOn == true) && (self.dyskinesies.isOn == true)) || ((self.off.isOn == true) && (self.dyskinesies.isOn == true)) || ((self.on.isOn == true) && (self.off.isOn == true) && (self.dyskinesies.isOn == true))){
+            DialogBoxHelper.alert(view: self, withTitle: "Formulaire", andMessage: "Vous devez renseigner qu'un seul etat")
+            return
+        }
+        else if (self.on.isOn == false) && (self.off.isOn == false) && (self.dyskinesies.isOn == false){
+            DialogBoxHelper.alert(view: self, withTitle: "Formulaire", andMessage: "Vous n'avez pas renseigné d'état")
             return
         }
         
