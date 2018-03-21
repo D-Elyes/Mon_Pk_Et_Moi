@@ -447,7 +447,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqT-EZ-h3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026.4000000000001" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="-1956" y="-44"/>
+        </scene>
+        <!--Show Evaluation View Controller-->
+        <scene sceneID="HIh-lC-27z">
+            <objects>
+                <viewController id="LIb-jt-cOX" customClass="ShowEvaluationViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iM9-ya-ek4"/>
+                        <viewControllerLayoutGuide type="bottom" id="qTX-NP-ctG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Da6-Q4-IEc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6q-2D-tjr" userLabel="ajouter">
+                                <rect key="frame" x="137" y="72" width="102" height="30"/>
+                                <state key="normal" title="Ajouter un état"/>
+                                <connections>
+                                    <segue destination="SRA-36-WqA" kind="presentation" identifier="addEvaluationSegue" id="lKh-9k-erC"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HjZ-qI-KF3">
+                                <rect key="frame" x="66" y="152" width="243" height="190"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="2QQ-29-Vxc"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DGP-dg-DIR" customClass="JourEvaluationTableViewCell" customModule="My_Pk_Et_Moi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="243" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DGP-dg-DIR" id="Mkn-xj-UMc">
+                                            <rect key="frame" x="0.0" y="0.0" width="243" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfP-kL-Fbz">
+                                                    <rect key="frame" x="100" y="12" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YfP-kL-Fbz" firstAttribute="centerX" secondItem="Mkn-xj-UMc" secondAttribute="centerX" id="Up0-qD-h7w"/>
+                                                <constraint firstItem="YfP-kL-Fbz" firstAttribute="centerY" secondItem="Mkn-xj-UMc" secondAttribute="centerY" id="rDX-f9-wyY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="joursPrecedent" destination="YfP-kL-Fbz" id="nN2-E6-PRp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="HjZ-qI-KF3" secondAttribute="trailing" constant="50" id="0DC-Ql-Rrj"/>
+                            <constraint firstItem="HjZ-qI-KF3" firstAttribute="leading" secondItem="Da6-Q4-IEc" secondAttribute="leadingMargin" constant="50" id="GUm-Yk-mxA"/>
+                            <constraint firstItem="K6q-2D-tjr" firstAttribute="top" secondItem="iM9-ya-ek4" secondAttribute="bottom" constant="8" id="RNa-Ya-R1e"/>
+                            <constraint firstItem="HjZ-qI-KF3" firstAttribute="top" secondItem="K6q-2D-tjr" secondAttribute="bottom" constant="50" id="a3F-PT-neK"/>
+                            <constraint firstItem="K6q-2D-tjr" firstAttribute="centerX" secondItem="Da6-Q4-IEc" secondAttribute="centerX" id="q1A-y5-jYq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="joursEvaluationTable" destination="HjZ-qI-KF3" id="aCV-Pr-2hp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSr-A0-thA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1138.4000000000001" y="-45.42728635682159"/>
         </scene>
         <!--Evaluation-->
         <scene sceneID="VYC-tA-cxQ">
@@ -511,7 +580,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="UmX-rB-HHy" id="4Pq-3j-DjL"/>
                                             <outlet property="heureLabel" destination="nuJ-S8-doO" id="D8J-qu-neJ"/>
-                                            <segue destination="SRA-36-WqA" kind="presentation" identifier="addEvaluationSegue" id="8yQ-k7-V1R"/>
+                                            <segue destination="LIb-jt-cOX" kind="show" identifier="showEvaluationSegue" id="ZP5-ff-X9y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

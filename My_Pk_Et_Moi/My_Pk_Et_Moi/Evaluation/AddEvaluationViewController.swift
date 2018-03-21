@@ -15,7 +15,6 @@ class AddEvaluationViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var heureLabel: UILabel!
     
-    
     @IBOutlet weak var on: UISwitch!
     @IBOutlet weak var off: UISwitch!
     @IBOutlet weak var dyskinesies: UISwitch!
@@ -55,7 +54,6 @@ class AddEvaluationViewController: UIViewController {
         dateFormatterHeure.dateFormat = "hh:mm"
         let heure = dateFormatterHeure.string(from: date)
         
-        
         // If the add is not in the 5 days
         guard (components.day! <= 5) && (components.day! > 0) else {
                 DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
@@ -78,16 +76,11 @@ class AddEvaluationViewController: UIViewController {
         jourAvantRdv.addToCorrespondreEvaluation(self.evaluation!)
         self.evaluation?.addToContenirJourEvaluation(jourAvantRdv)
         
-        // create a new Evaluation Managed Object
-        //let evaluation = Evaluation(context: CoreDataManager.context)
-        
         var resEtat : String = ""
         if self.on.isOn == true {resEtat = "On"}
         else if self.off.isOn == true {resEtat = "Off"}
         else {resEtat = "Dyskenesies"}
 
-
-        
         // Add result
         // create each new Resultat Managed Object
         let etat = Etat(context: CoreDataManager.context)
@@ -95,7 +88,6 @@ class AddEvaluationViewController: UIViewController {
         etat.heure = heure
         etat.addToCorrespondreJourEvaluation(jourAvantRdv)
         jourAvantRdv.addToContenirEtat(etat)
-        
         
         // Add Event
         // create each new Evenement Managed Object

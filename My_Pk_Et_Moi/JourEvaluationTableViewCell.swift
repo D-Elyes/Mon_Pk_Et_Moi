@@ -1,17 +1,16 @@
 //
-//  EvaluationTableViewCell.swift
+//  JourEvaluationTableViewCell.swift
 //  My_Pk_Et_Moi
 //
-//  Created by Bazaz on 17/03/2018.
+//  Created by Amin BAZAZ on 21/03/2018.
 //  Copyright © 2018 Elyes DOUDECH. All rights reserved.
 //
 
 import UIKit
 
-class EvaluationTableViewCell: UITableViewCell {
+class JourEvaluationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var heureLabel: UILabel!
+    @IBOutlet weak var joursPrecedent: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +22,5 @@ class EvaluationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
