@@ -57,7 +57,7 @@ class AddEvaluationViewController: UIViewController {
         
         
         // If the add is not in the 5 days
-        guard ((components.day! < 0) && (components.day! >= -5)) else {
+        guard (components.day! <= 5) && (components.day! > 0) else {
                 DialogBoxHelper.alert(view: self, withTitle: "Mauvaise période d'évaluation", andMessage: "Une évaluation peut être effectuée durant les 5 jours avant le rendez-vous")
             return
         }
