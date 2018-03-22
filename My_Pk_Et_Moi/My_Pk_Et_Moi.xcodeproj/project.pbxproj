@@ -23,6 +23,8 @@
 		3F7587F9205ADC1000D7C95B /* RdvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */; };
 		3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */; };
 		3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788A6D205927A200D0263D /* EmbedSportViewController.swift */; };
+		3F7CB6A820641D4F0090E3E7 /* EtatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */; };
+		3F7CB6AC20641F020090E3E7 /* ShowEtatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */; };
 		3F8411D120606B1E00364264 /* Rdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8411D020606B1E00364264 /* Rdv.swift */; };
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
 		3FB3C2DD205DBCB600A93591 /* AddEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */; };
@@ -76,6 +78,8 @@
 		3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvTableViewCell.swift; sourceTree = "<group>"; };
 		3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addRdvViewController.swift; sourceTree = "<group>"; };
 		3F788A6D205927A200D0263D /* EmbedSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedSportViewController.swift; sourceTree = "<group>"; };
+		3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtatTableViewCell.swift; sourceTree = "<group>"; };
+		3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowEtatViewController.swift; path = ../ShowEtatViewController.swift; sourceTree = "<group>"; };
 		3F8411D020606B1E00364264 /* Rdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rdv.swift; sourceTree = "<group>"; };
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
 		3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvaluationViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				3F397A942062C664003C8A67 /* ShowEvaluationViewController.swift */,
 				3F6E6B82205D9671004168EB /* EvaluationTableViewCell.swift */,
 				3F397A982062CDFA003C8A67 /* JourEvaluationTableViewCell.swift */,
+				3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */,
+				3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */,
 			);
 			path = Evaluation;
 			sourceTree = "<group>";
@@ -397,10 +403,12 @@
 				3F397A992062CDFA003C8A67 /* JourEvaluationTableViewCell.swift in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				3F8411D120606B1E00364264 /* Rdv.swift in Sources */,
+				3F7CB6AC20641F020090E3E7 /* ShowEtatViewController.swift in Sources */,
 				3FBB9D6B205ECF630065EA52 /* EvaluationPresenter.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
 				3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */,
 				3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */,
+				3F7CB6A820641D4F0090E3E7 /* EtatTableViewCell.swift in Sources */,
 				3F06E7E62050563800644A17 /* SportViewController.swift in Sources */,
 				3FDE160D2056ED3100DFC11F /* ShowSportViewController.swift in Sources */,
 				3F6E6B83205D9671004168EB /* EvaluationTableViewCell.swift in Sources */,

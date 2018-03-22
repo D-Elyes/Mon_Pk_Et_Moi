@@ -20,7 +20,7 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
         let request : NSFetchRequest<JourEvaluation> = JourEvaluation.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(JourEvaluation.jour),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        //fetchRequest.predicate = NSPredicate(format: "correspondreEvaluation == %@", evaluation)
+        //request.predicate = NSPredicate(format: "correspondreEvaluation == %@", evaluation)
         fetchResultController.delegate = self
         return fetchResultController
     }()
@@ -83,6 +83,8 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Navigation
     
     let segueAddEvaluationId = "addEvaluationSegue"
+    let segueShowEtatId = "showEtatSegue"
+    
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,6 +94,12 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
             if let evaluationTmp = self.evaluation{
                 let addEvaluationViewController = segue.destination as! AddEvaluationViewController
                 addEvaluationViewController.evaluation = evaluationTmp
+            }
+        }
+        if segue.identifier == self.segueShowEtatId{
+            if let evaluationTmp = self.evaluation{
+                let showEtatViewController = segue.destination as! ShowEtatViewController
+                showEtatViewController.evaluation = evaluationTmp
             }
         }
     }
