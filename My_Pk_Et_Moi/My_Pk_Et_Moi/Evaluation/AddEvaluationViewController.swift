@@ -70,10 +70,11 @@ class AddEvaluationViewController: UIViewController {
             return
         }
         
+        
         // create a new jourEvaluation Managed Object
         let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
         jourAvantRdv.jour = String(components.day!) + " jour"
-        jourAvantRdv.addToCorrespondreEvaluation(self.evaluation!)
+        jourAvantRdv.correspondreEvaluation = self.evaluation
         self.evaluation?.addToContenirJourEvaluation(jourAvantRdv)
         
         var resEtat : String = ""
@@ -86,7 +87,7 @@ class AddEvaluationViewController: UIViewController {
         let etat = Etat(context: CoreDataManager.context)
         etat.reponse = resEtat
         etat.heure = heure
-        etat.addToCorrespondreJourEvaluation(jourAvantRdv)
+        etat.correspondreJourEvaluation = jourAvantRdv
         jourAvantRdv.addToContenirEtat(etat)
         
         // Add Event

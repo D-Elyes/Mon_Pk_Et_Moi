@@ -12,7 +12,7 @@
     <entity name="Etat" representedClassName="Etat" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reponse" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="correspondreJourEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="contenirEtat" inverseEntity="JourEvaluation" syncable="YES"/>
+        <relationship name="correspondreJourEvaluation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="contenirEtat" inverseEntity="JourEvaluation" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">
         <relationship name="concerneRdv" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Rdv" inverseName="concerneEvaluation" inverseEntity="Rdv" syncable="YES"/>
@@ -27,7 +27,7 @@
     <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contenirEtat" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Etat" inverseName="correspondreJourEvaluation" inverseEntity="Etat" syncable="YES"/>
-        <relationship name="correspondreEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="contenirJourEvaluation" inverseEntity="Evaluation" syncable="YES"/>
+        <relationship name="correspondreEvaluation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="contenirJourEvaluation" inverseEntity="Evaluation" syncable="YES"/>
     </entity>
     <entity name="JourSemaine" representedClassName="JourSemaine" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
@@ -75,7 +75,7 @@
     </entity>
     <elements>
         <element name="Activite" positionX="153" positionY="-90" width="128" height="148"/>
-        <element name="Evaluation" positionX="90" positionY="401" width="128" height="103"/>
+        <element name="Evaluation" positionX="99" positionY="419" width="128" height="103"/>
         <element name="Evenement" positionX="-180" positionY="378" width="128" height="73"/>
         <element name="JourSemaine" positionX="351" positionY="-72" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
@@ -87,7 +87,7 @@
         <element name="RappelTraitement" positionX="495" positionY="236" width="128" height="58"/>
         <element name="Rdv" positionX="-162" positionY="126" width="128" height="133"/>
         <element name="Traitement" positionX="511" positionY="333" width="128" height="88"/>
-        <element name="JourEvaluation" positionX="171" positionY="533" width="128" height="88"/>
-        <element name="Etat" positionX="-126" positionY="522" width="128" height="88"/>
+        <element name="JourEvaluation" positionX="106" positionY="549" width="128" height="88"/>
+        <element name="Etat" positionX="-144" positionY="533" width="128" height="88"/>
     </elements>
 </model>
