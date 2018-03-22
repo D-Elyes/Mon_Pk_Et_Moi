@@ -70,25 +70,43 @@ class AddEvaluationViewController: UIViewController {
             return
         }
         
+        // check if the day before rdv is already created
+        var jourAvantRdv : JourEvaluation? = nil
+        var possedeJour : Bool = false
+        if let jours = evaluation?.contenirJourEvaluation{
+            for jour in jours{
+                if let j = jour as? JourEvaluation{
+                    if j.jour == String(components.day!) + " jour"{
+                        possedeJour = true
+                        jourAvantRdv = j
+                    }
+                }
+            }
+        }
         
-        // create a new jourEvaluation Managed Object
-        let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
-        jourAvantRdv.jour = String(components.day!) + " jour"
-        jourAvantRdv.correspondreEvaluation = self.evaluation
-        self.evaluation?.addToContenirJourEvaluation(jourAvantRdv)
+        
+        //set value of new day
+        if possedeJour == false {
+            // create a new jourEvaluation Managed Object
+            jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
+            jourAvantRdv?.jour = String(components.day!) + " jour"
+            jourAvantRdv?.correspondreEvaluation = self.evaluation
+            self.evaluation?.addToContenirJourEvaluation(jourAvantRdv!)
+            
+        }
         
         var resEtat : String = ""
         if self.on.isOn == true {resEtat = "On"}
         else if self.off.isOn == true {resEtat = "Off"}
         else {resEtat = "Dyskenesies"}
-
+        
         // Add result
         // create each new Resultat Managed Object
         let etat = Etat(context: CoreDataManager.context)
         etat.reponse = resEtat
         etat.heure = heure
         etat.correspondreJourEvaluation = jourAvantRdv
-        jourAvantRdv.addToContenirEtat(etat)
+        jourAvantRdv?.addToContenirEtat(etat)
         
         // Add Event
         // create each new Evenement Managed Object
@@ -118,6 +136,7 @@ class AddEvaluationViewController: UIViewController {
             somnolence.evenement = ""
             self.evaluation?.addToContenirEvenement(somnolence)
         }
+
         
          self.dismiss(animated: true, completion: nil)
     }
