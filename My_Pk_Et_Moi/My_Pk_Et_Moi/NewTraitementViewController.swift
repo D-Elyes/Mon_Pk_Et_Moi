@@ -52,6 +52,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             
             
             
+            
             scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
             
             
@@ -70,9 +71,6 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var dateInfo = DateComponents()
-        dateInfo.day = 1
-        print(dateInfo.day ?? "NOPe")
         
         
     }
@@ -110,6 +108,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             let embedController = segue.destination as! EmbedTratiementViewController
             embedController.medicament = nil
         }
+        
     }
     
     

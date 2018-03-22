@@ -9,6 +9,16 @@
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelActivite" inverseName="contenirActivite" inverseEntity="RappelActivite" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">
+        <attribute name="attribute" optional="YES" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" syncable="YES"/>
+        <attribute name="attribute2" optional="YES" syncable="YES"/>
+        <attribute name="attribute3" optional="YES" syncable="YES"/>
+        <attribute name="attribute4" optional="YES" syncable="YES"/>
+        <attribute name="attribute5" optional="YES" syncable="YES"/>
+        <attribute name="attribute6" optional="YES" syncable="YES"/>
+        <attribute name="attribute7" optional="YES" syncable="YES"/>
+        <attribute name="attribute8" optional="YES" syncable="YES"/>
+        <attribute name="attribute9" optional="YES" syncable="YES"/>
         <relationship name="contenirEvenement" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="appartientAEva" inverseEntity="Evenement" syncable="YES"/>
         <relationship name="contenirJourEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="correspondreEvaluation" inverseEntity="JourEvaluation" syncable="YES"/>
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelEvaluation" inverseName="contenirEvaluation" inverseEntity="RappelEvaluation" syncable="YES"/>
@@ -20,6 +30,10 @@
     <entity name="Heure" representedClassName="Heure" syncable="YES" codeGenerationType="class">
         <attribute name="reponse" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="contenirHeure" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JourEvaluation" inverseName="correspondreJourEvl" inverseEntity="JourEvaluation" syncable="YES"/>
+    </entity>
+    <entity name="HeurPrise" representedClassName="HeurPrise" syncable="YES" codeGenerationType="class">
+        <attribute name="heur" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="priseDuTraitement" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traitement" inverseName="estPrisA" inverseEntity="Traitement" syncable="YES"/>
     </entity>
     <entity name="JourActivite" representedClassName="JourActivite" syncable="YES" codeGenerationType="class">
         <attribute name="heureActivite" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -41,13 +55,9 @@
         <relationship name="avoirRdv" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rdv" inverseName="concerneMedecin" inverseEntity="Rdv" syncable="YES"/>
     </entity>
     <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
-        <attribute name="dateDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="dateFIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nbJourParSemaine" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nbParJour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nomMedicament" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="contientRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelTraitement" inverseName="contientMedicament" inverseEntity="RappelTraitement" syncable="YES"/>
+        <attribute name="nomMedic" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="estConernePar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traitement" inverseName="concerne" inverseEntity="Traitement" syncable="YES"/>
     </entity>
     <entity name="Rappel" representedClassName="Rappel" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -62,7 +72,7 @@
         <relationship name="contenirRdv" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rdv" inverseName="possedeRappel" inverseEntity="Rdv" syncable="YES"/>
     </entity>
     <entity name="RappelTraitement" representedClassName="RappelTraitement" parentEntity="Rappel" syncable="YES" codeGenerationType="class">
-        <relationship name="contientMedicament" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="contientRappel" inverseEntity="Medicament" syncable="YES"/>
+        <relationship name="contientMedicament" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Traitement" inverseName="contientRappel" inverseEntity="Traitement" syncable="YES"/>
     </entity>
     <entity name="Rdv" representedClassName="Rdv" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -71,21 +81,30 @@
         <relationship name="concerneMedecin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="avoirRdv" inverseEntity="Medecin" syncable="YES"/>
         <relationship name="possedeRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelRdv" inverseName="contenirRdv" inverseEntity="RappelRdv" syncable="YES"/>
     </entity>
+    <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">
+        <attribute name="dateDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateFIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="concerne" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="estConernePar" inverseEntity="Medicament" syncable="YES"/>
+        <relationship name="contientRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelTraitement" inverseName="contientMedicament" inverseEntity="RappelTraitement" syncable="YES"/>
+        <relationship name="estPrisA" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeurPrise" inverseName="priseDuTraitement" inverseEntity="HeurPrise" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Acitivite" positionX="153" positionY="-90" width="128" height="133"/>
-        <element name="Evaluation" positionX="90" positionY="401" width="128" height="88"/>
+        <element name="Evaluation" positionX="90" positionY="401" width="128" height="238"/>
         <element name="Evenement" positionX="-171" positionY="387" width="128" height="73"/>
         <element name="Heure" positionX="-99" positionY="536" width="128" height="73"/>
         <element name="JourActivite" positionX="477" positionY="-90" width="128" height="88"/>
         <element name="JourEvaluation" positionX="108" positionY="530" width="128" height="88"/>
         <element name="JourSemaine" positionX="709" positionY="-90" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
-        <element name="Medicament" positionX="709" positionY="387" width="128" height="150"/>
+        <element name="Medicament" positionX="909" positionY="315" width="128" height="88"/>
         <element name="Rappel" positionX="295" positionY="194" width="128" height="58"/>
         <element name="RappelActivite" positionX="333" positionY="63" width="128" height="58"/>
         <element name="RappelEvaluation" positionX="88" positionY="270" width="128" height="58"/>
         <element name="RappelRdv" positionX="81" positionY="137" width="128" height="58"/>
         <element name="RappelTraitement" positionX="486" positionY="254" width="128" height="58"/>
         <element name="Rdv" positionX="-162" positionY="126" width="128" height="118"/>
+        <element name="Traitement" positionX="709" positionY="387" width="128" height="118"/>
+        <element name="HeurPrise" positionX="673" positionY="572" width="128" height="73"/>
     </elements>
 </model>

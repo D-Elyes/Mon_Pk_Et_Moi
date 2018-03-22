@@ -40,7 +40,6 @@ class ShowMedicViewController: UIViewController {
             self.dateEndLabel.text = formatter.string(for: amedicament.dateFIn)
             
             self.numberPerDayLabel.text = String(amedicament.nbParJour)
-            self.numberPerWeekLabel.text = String(amedicament.nbJourParSemaine)
         }
         // Do any additional setup after loading the view.
     }

@@ -12,7 +12,6 @@
 		0B010986204DA49300D785EA /* medication-capsule.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010985204DA49300D785EA /* medication-capsule.png */; };
 		0B010988204DA4F200D785EA /* weightlifting.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010987204DA4F200D785EA /* weightlifting.png */; };
 		0B01098A204DA56E00D785EA /* evaluation.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B010989204DA56E00D785EA /* evaluation.png */; };
-		BD2A059920623D9100612808 /* TraitementNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2A059820623D9100612808 /* TraitementNotificationViewController.swift */; };
 		BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222072045B57000B247D1 /* AppDelegate.swift */; };
 		BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD222092045B57000B247D1 /* ViewController.swift */; };
 		BDD2220D2045B57100B247D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD2220B2045B57100B247D1 /* Main.storyboard */; };
@@ -55,7 +54,6 @@
 		0B010985204DA49300D785EA /* medication-capsule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medication-capsule.png"; sourceTree = "<group>"; };
 		0B010987204DA4F200D785EA /* weightlifting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weightlifting.png; sourceTree = "<group>"; };
 		0B010989204DA56E00D785EA /* evaluation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evaluation.png; sourceTree = "<group>"; };
-		BD2A059820623D9100612808 /* TraitementNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraitementNotificationViewController.swift; sourceTree = "<group>"; };
 		BDD222042045B57000B247D1 /* My_Pk_Et_Moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Pk_Et_Moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD222072045B57000B247D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD222092045B57000B247D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
-				BD2A059820623D9100612808 /* TraitementNotificationViewController.swift */,
 				C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */,
 				C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */,
 				C727FBD620575D79006C3AE6 /* ShowMedicViewController.swift */,
@@ -331,7 +328,6 @@
 				BDD222102045B57100B247D1 /* My_Pk_Et_Moi.xcdatamodeld in Sources */,
 				C715EAA8205BFF6E00D960BF /* TraitementPresenter.swift in Sources */,
 				C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */,
-				BD2A059920623D9100612808 /* TraitementNotificationViewController.swift in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
 				C7117CB7205DC93B0012374A /* DialogBoxHelper.swift in Sources */,

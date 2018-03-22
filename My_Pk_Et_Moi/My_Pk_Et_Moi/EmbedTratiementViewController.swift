@@ -23,7 +23,6 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var qtteParJourTextField: UITextField!
     
-    @IBOutlet weak var jourParSemaineTextField: UITextField!
     
     var medicament: Medicament? = nil
 
@@ -59,7 +58,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
             self.nomMedicTextField.text = medicament.nomMedicament
             self.doseTextField.text = String(medicament.dose)
             self.qtteParJourTextField.text = String(medicament.nbParJour)
-            self.jourParSemaineTextField.text = String(medicament.nbJourParSemaine)
+            
             
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed

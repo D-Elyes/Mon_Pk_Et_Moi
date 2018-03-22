@@ -16,14 +16,14 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet var TraitementPresenter: TraitementPresenter!
     //collection of medicaments to be displayed in self.traitementTableView
-    var medicaments : [Medicament] = []
+    var medicaments : [Traitement] = []
     
    
-   fileprivate lazy var medicFetched : NSFetchedResultsController<Medicament> =
+   fileprivate lazy var medicFetched : NSFetchedResultsController<Traitement> =
     {
       // prepare a request
-        let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Medicament.dateDebut), ascending: false)]
+        let request : NSFetchRequest<Traitement> = Traitement.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Traitement.dateDebut), ascending: false)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
@@ -77,21 +77,20 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         //get the context
         let context = CoreDataManager.context
         //create a Medicament managedObject
-        let medicament = Medicament(context: context)
+        let traitement = Traitement(context: context)
         
         //modify the medicament
-        medicament.nomMedicament = name
-        medicament.dose = dose
-        medicament.dateDebut = dateDebut
-        medicament.dateFIn = dateFin
-        medicament.nbParJour = qtteParJour
-        medicament.nbJourParSemaine = nbrJourParSemaine
+       // Traitement.nomMedicament = name
+       // Traitement.dose = dose
+        traitement.dateDebut = dateDebut
+        traitement.dateFIn = dateFin
+        traitement.heurPrise = qtteParJour
         
         
         do
         {
             try context.save()
-            self.medicaments.append(medicament)
+            self.medicaments.append(traitement)
         }
         catch let error as NSError
         {
@@ -325,7 +324,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         self.saveNewTraitement(withName: nomMedic, withDose: dose!, withDateDebut: dateDebut as NSDate, withDateFin: dateFin as NSDate, withQtteParJour: nbParJour!, withNbrjourParSemaine: nbJourParSemaine!)
         
         self.traitementTableView.reloadData()*/
-  //  }
+   // }
     
     @IBAction func unwindToTratiementListAfterEditingTraitement(segue: UIStoryboardSegue)
      {
