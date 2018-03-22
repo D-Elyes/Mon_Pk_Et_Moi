@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ShowTraitementViewController: UIViewController {
 
@@ -27,15 +29,15 @@ class ShowTraitementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //if a medicament exist then display it
-        if let amedicament = self.medicament
+        if let aTraitement = self.traitement
         {
-            self.nomMedicLabel.text = amedicament.nomMedicament
-            self.doseMedicLabel.text = String(amedicament.dose)
+            self.nomMedicLabel.text = aTraitement.concerne?.nomMedic
+            self.doseMedicLabel.text = String(aTraitement.concerne?.dose)
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
             
-            self.dateStartLabel.text = formatter.string(for: amedicament.dateDebut)
-            self.dateEndLabel.text = formatter.string(for: amedicament.dateFIn)
+            self.dateStartLabel.text = formatter.string(for: aTraitement.dateDebut)
+            self.dateEndLabel.text = formatter.string(for: aTraitement.dateFIn)
             
         }
         // Do any additional setup after loading the view.
