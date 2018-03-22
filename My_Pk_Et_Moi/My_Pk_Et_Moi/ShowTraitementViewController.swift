@@ -32,12 +32,26 @@ class ShowTraitementViewController: UIViewController {
         if let aTraitement = self.traitement
         {
             self.nomMedicLabel.text = aTraitement.concerne?.nomMedic
-            self.doseMedicLabel.text = String(aTraitement.concerne?.dose)
+            self.doseMedicLabel.text = String((aTraitement.concerne?.dose)!)
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
             
             self.dateStartLabel.text = formatter.string(for: aTraitement.dateDebut)
             self.dateEndLabel.text = formatter.string(for: aTraitement.dateFIn)
+            self.heurPrise.text = ""
+            
+            if let heurs = aTraitement.estPrisA
+            {
+                for heursPrise in heurs
+                {
+                    if let h = heursPrise as? HeurPrise
+                    {
+                        self.heurPrise.text = self.heurPrise.text! +   String(h.heur) + "\n"
+                    }
+                }
+            }
+            
+            
             
         }
         // Do any additional setup after loading the view.

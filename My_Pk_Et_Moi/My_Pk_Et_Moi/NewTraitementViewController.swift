@@ -16,7 +16,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         
         guard let embedTraitementController = self.childViewControllers[0] as? EmbedTratiementViewController else {return}
         
-        if embedTraitementController.nomMedicTextField.text?.isEmpty ?? true || embedTraitementController.doseTextField.text?.isEmpty ?? true || embedTraitementController.dateDebut.text?.isEmpty ?? true || embedTraitementController.dateFin.text?.isEmpty ?? true || embedTraitementController.qtteParJourTextField.text?.isEmpty ?? true || embedTraitementController.jourParSemaineTextField.text?.isEmpty ?? true
+        if embedTraitementController.nomMedicTextField.text?.isEmpty ?? true || embedTraitementController.doseTextField.text?.isEmpty ?? true || embedTraitementController.dateDebut.text?.isEmpty ?? true || embedTraitementController.dateFin.text?.isEmpty ?? true
         {
             DialogBoxHelper.alert(view: self,withTitle: "Erreur de saisie", andMessage: "Vous devez saisir tous les champs!!!!!")
         }
@@ -26,34 +26,34 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            let medic = Medicament(context: CoreDataManager.context)
+            let traitement = Traitement(context: CoreDataManager.context)
             
-             medic.nomMedicament =  embedTraitementController.nomMedicTextField.text!
+            let medicament = Medicament(context: CoreDataManager.context)
+            
+            medicament.nomMedic = embedTraitementController.nomMedicTextField.text!
+            medicament.dose = Int16(embedTraitementController.doseTextField!.text!)!
+            
+            traitement.concerne = medicament
+            medicament.estConernePar?.adding(traitement)
             
             
-            medic.dose = Int16(embedTraitementController.doseTextField!.text!)!
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
             guard let dateDebut = dateFormatter.date(from: embedTraitementController.dateDebut.text!) else {
                 fatalError("ERROR: Date conversion failed due to mismatched format.")
             }
             
-            medic.dateDebut = dateDebut as NSDate
+            traitement.dateDebut = dateDebut as NSDate
             
             guard let dateFin = dateFormatter.date(from: embedTraitementController.dateFin.text!) else {
                 fatalError("ERROR: Date conversion failed due to mismatched format.")
             }
             
-            medic.dateFIn = dateFin as NSDate
-            
-            
-            medic.nbParJour = Int16(embedTraitementController.qtteParJourTextField!.text!)!
-            medic.nbJourParSemaine = Int16(embedTraitementController.jourParSemaineTextField!.text!)!
+            traitement.dateFIn = dateFin as NSDate
             
             
             
-            
-            scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
+            //scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
             
             
             

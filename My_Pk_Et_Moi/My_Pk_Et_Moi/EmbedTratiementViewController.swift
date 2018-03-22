@@ -21,10 +21,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
     let datePickerDebut = UIDatePicker()
     let datePickerFin = UIDatePicker()
     
-    @IBOutlet weak var qtteParJourTextField: UITextField!
-    
-    
-    var medicament: Medicament? = nil
+    var traitement: Traitement? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +50,10 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
         dateFin.text = formatter.string(from: datePickerFin.date )
         
         
-        if let medicament = self.medicament
+        if let traitement = self.traitement
         {
-            self.nomMedicTextField.text = medicament.nomMedicament
-            self.doseTextField.text = String(medicament.dose)
+            self.nomMedicTextField.text = traitement.concerne?.nomMedic
+            self.doseTextField.text = String((traitement.concerne?.dose)!)
             self.qtteParJourTextField.text = String(medicament.nbParJour)
             
             
