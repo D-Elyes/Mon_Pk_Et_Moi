@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EditMedicViewController: UIViewController, UITextFieldDelegate {
+class EditTraitementViewController: UIViewController, UITextFieldDelegate {
     
-    var medicament : Medicament? = nil
+    var traitement : Traitement? = nil
     var embedTraitementController : EmbedTratiementViewController? = nil
     
     let datePickerDebut = UIDatePicker()

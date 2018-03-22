@@ -93,6 +93,7 @@
         <element name="Evaluation" positionX="90" positionY="401" width="128" height="238"/>
         <element name="Evenement" positionX="-171" positionY="387" width="128" height="73"/>
         <element name="Heure" positionX="-99" positionY="536" width="128" height="73"/>
+        <element name="HeurPrise" positionX="673" positionY="572" width="128" height="73"/>
         <element name="JourActivite" positionX="477" positionY="-90" width="128" height="88"/>
         <element name="JourEvaluation" positionX="108" positionY="530" width="128" height="88"/>
         <element name="JourSemaine" positionX="709" positionY="-90" width="128" height="73"/>
@@ -105,6 +106,5 @@
         <element name="RappelTraitement" positionX="486" positionY="254" width="128" height="58"/>
         <element name="Rdv" positionX="-162" positionY="126" width="128" height="118"/>
         <element name="Traitement" positionX="709" positionY="387" width="128" height="118"/>
-        <element name="HeurPrise" positionX="673" positionY="572" width="128" height="73"/>
     </elements>
 </model>

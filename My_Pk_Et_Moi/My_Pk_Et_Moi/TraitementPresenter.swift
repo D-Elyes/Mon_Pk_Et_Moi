@@ -13,7 +13,6 @@ import CoreData
 class TraitementPresenter : NSObject
 {
     fileprivate var medicName: String = ""
-    fileprivate var dose : Int16 = 0
     fileprivate var dateDabut :  Date = Date()
     fileprivate var dateFin : Date = Date()
     
@@ -33,15 +32,6 @@ class TraitementPresenter : NSObject
                     self.medicName = " - "
                 }
                 
-                
-                if let medicDose = Int16?((traitement.concerne?.dose)!)
-                {
-                    self.dose = medicDose
-                }
-                else
-                {
-                    self.dose = 0
-                }
                 
                 
                 if let medicDateDebut = traitement.dateDebut
@@ -65,21 +55,17 @@ class TraitementPresenter : NSObject
                 
         
                 
-                
-         
-                
             }
             else
             {
                 self.medicName = ""
-                self.dose = 0
                 self.dateDabut =  Date()
                 self.dateFin = Date()
             }
         }
     }
     
-    func configure(theCell : MedicamentTableViewCell?, forTraitement: Traitement? )
+    func configure(theCell : TraitementTableViewCell?, forTraitement: Traitement? )
     {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"

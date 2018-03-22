@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MedicamentTableViewCell: UITableViewCell {
+class TraitementTableViewCell: UITableViewCell {
 
     @IBOutlet weak var medicNameLabel: UILabel!
     

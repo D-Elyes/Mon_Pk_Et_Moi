@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowMedicViewController: UIViewController {
+class ShowTraitementViewController: UIViewController {
 
     @IBOutlet weak var nomMedicLabel: UILabel!
     
@@ -19,12 +19,10 @@ class ShowMedicViewController: UIViewController {
     @IBOutlet weak var dateEndLabel: UILabel!
     
     
-    @IBOutlet weak var numberPerDayLabel: UILabel!
+    @IBOutlet weak var heurPrise: UILabel!
     
     
-    @IBOutlet weak var numberPerWeekLabel: UILabel!
-    
-    var medicament : Medicament? = nil
+    var traitement : Traitement? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +37,6 @@ class ShowMedicViewController: UIViewController {
             self.dateStartLabel.text = formatter.string(for: amedicament.dateDebut)
             self.dateEndLabel.text = formatter.string(for: amedicament.dateFIn)
             
-            self.numberPerDayLabel.text = String(amedicament.nbParJour)
         }
         // Do any additional setup after loading the view.
     }

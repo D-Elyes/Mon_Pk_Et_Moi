@@ -16,10 +16,10 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet var TraitementPresenter: TraitementPresenter!
     //collection of medicaments to be displayed in self.traitementTableView
-    var medicaments : [Traitement] = []
+    //var traitement : [Traitement] = []
     
    
-   fileprivate lazy var medicFetched : NSFetchedResultsController<Traitement> =
+   fileprivate lazy var traitementFetched : NSFetchedResultsController<Traitement> =
     {
       // prepare a request
         let request : NSFetchRequest<Traitement> = Traitement.fetchRequest()
@@ -44,7 +44,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         do
         {
           //  try self.medicaments = context.fetch(request)
-            try self.medicFetched.performFetch()
+            try self.traitementFetched.performFetch()
         }
         catch  let error as NSError
         {
@@ -69,6 +69,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    /*
     /// Create a new Tratiement add it to the collection and save it
     ///
     /// - Parameter name: name of medicament to be added
@@ -84,7 +85,6 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
        // Traitement.dose = dose
         traitement.dateDebut = dateDebut
         traitement.dateFIn = dateFin
-        traitement.heurPrise = qtteParJour
         
         
         do
@@ -97,7 +97,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
             DialogBoxHelper.alert(view: self,error: error)
             return
         }
-    }
+    }*/
   
     
     // MARK: - TableView data source protocol -
@@ -105,7 +105,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //return self.medicaments.count
-        guard let section = self.medicFetched.sections?[section] else
+        guard let section = self.traitementFetched.sections?[section] else
         {
             fatalError("unexpected section number")
         }
@@ -115,10 +115,10 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = self.traitementTableView.dequeueReusableCell(withIdentifier: "medicCell",for: indexPath) as! MedicamentTableViewCell
+        let cell = self.traitementTableView.dequeueReusableCell(withIdentifier: "traitementCell",for: indexPath) as! TraitementTableViewCell
         
-        let medicament = self.medicFetched.object(at: indexPath)
-        self.TraitementPresenter.configure(theCell: cell, forMedicament: medicament)
+        let traitement = self.traitementFetched.object(at: indexPath)
+        self.TraitementPresenter.configure(theCell: cell, forTraitement:  traitement)
        //self.TraitementPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
         
         //cell.medicNameLabel.text = self.names[indexPath.row]
@@ -142,8 +142,8 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
     {
-        let medic = self.medicFetched.object(at: indexPath)
-        CoreDataManager.context.delete(medic)
+        let traitement = self.traitementFetched.object(at: indexPath)
+        CoreDataManager.context.delete(traitement)
         //self.traitementTableView.beginUpdates()
         /*if self.delete(medicamentWithIndex: indexPath.row)
         {
@@ -155,7 +155,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
     {
         self.indexPathForShow = indexPath
-        self.performSegue(withIdentifier: self.segueEditMedicId, sender: self)
+        self.performSegue(withIdentifier: self.segueEditTraitementId, sender: self)
         self.traitementTableView.setEditing(false, animated: true)
     }
     
@@ -219,7 +219,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         self.indexPathForShow = indexPath
-        self.performSegue(withIdentifier: self.segueShowMedicId, sender: self)
+        self.performSegue(withIdentifier: self.segueShowTraitementId, sender: self)
     }
     
     //MARK - NSFetchResultController delegare protocl
@@ -246,10 +246,10 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
                 self.traitementTableView.insertRows(at: [newIndexPath], with: .fade)
             }
         case .update:
-            if let indexPath = indexPath, let cell = self.traitementTableView.cellForRow(at: indexPath) as? MedicamentTableViewCell
+            if let indexPath = indexPath, let cell = self.traitementTableView.cellForRow(at: indexPath) as? TraitementTableViewCell
             {
-                let medicament = self.medicFetched.object(at: indexPath)
-                self.TraitementPresenter.configure(theCell: cell, forMedicament: medicament)
+                let traitement = self.traitementFetched.object(at: indexPath)
+                self.TraitementPresenter.configure(theCell: cell, forTraitement:  traitement)
             }
         default:
             break
@@ -259,38 +259,38 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
     
-    let segueShowMedicId = "showMedicSegue"
-    let segueEditMedicId = "editMedicSegue"
+    let segueShowTraitementId = "showTraitementSegue"
+    let segueEditTraitementId = "editTraitementSegue"
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == self.segueShowMedicId
+        if segue.identifier == self.segueShowTraitementId
         {
             
             if let indexPath = self.indexPathForShow
             {
             
-                let showMedicamentViewController = segue.destination as! ShowMedicViewController
-                showMedicamentViewController.medicament = self.medicFetched.object(at: indexPath)
+                let showTraitementViewController = segue.destination as! ShowTraitementViewController
+                showTraitementViewController.traitement = self.traitementFetched.object(at: indexPath)
                 self.traitementTableView.deselectRow(at: indexPath, animated: true)
                 indexPathForShow = nil
             }
             else if let indexPath = self.traitementTableView.indexPathForSelectedRow
             {
-                let showMedicamentViewController = segue.destination as! ShowMedicViewController
-                showMedicamentViewController.medicament = self.medicFetched.object(at: indexPath)
+                let showTraitementViewController = segue.destination as! ShowTraitementViewController
+                showTraitementViewController.traitement = self.traitementFetched.object(at: indexPath)
                 self.traitementTableView.deselectRow(at: indexPath, animated: true)
             }
         }
         
-        if segue.identifier == self.segueEditMedicId
+        if segue.identifier == self.segueEditTraitementId
         {
             if let indexPath = self.indexPathForShow
             {
-                let editMedicViewController = segue.destination as! EditMedicViewController
-                editMedicViewController.medicament = self.medicFetched.object(at: indexPath)
+                let editTraitementViewController = segue.destination as! EditTraitementViewController
+                editTraitementViewController.traitement = self.traitementFetched.object(at: indexPath)
                 
                 
             }
