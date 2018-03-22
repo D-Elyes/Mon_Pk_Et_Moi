@@ -74,7 +74,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.evaluationsTable.dequeueReusableCell(withIdentifier: "evaluationCell", for: indexPath) as! EvaluationTableViewCell
         let evaluation = self.evaluationFetched.object(at: indexPath)
-        self.evaluationPresenter.configure(theCell: cell, forEvaluation: evaluation)
+        self.evaluationPresenter.configureEvaluation(theCell: cell, forEvaluation: evaluation)
         return cell
     }
     

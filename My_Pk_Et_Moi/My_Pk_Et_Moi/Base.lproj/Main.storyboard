@@ -475,7 +475,7 @@
                                     <constraint firstAttribute="height" constant="190" id="2QQ-29-Vxc"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DGP-dg-DIR" customClass="JourEvaluationTableViewCell" customModule="My_Pk_Et_Moi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="jourEvaluationCell" id="DGP-dg-DIR" customClass="JourEvaluationTableViewCell" customModule="My_Pk_Et_Moi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="243" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DGP-dg-DIR" id="Mkn-xj-UMc">
@@ -499,6 +499,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LIb-jt-cOX" id="DgA-C4-dUY"/>
+                                    <outlet property="delegate" destination="LIb-jt-cOX" id="FLi-kH-MRJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -511,10 +515,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="jourEvaluationPresenter" destination="Cu8-ra-2OJ" id="W9F-dF-Qm9"/>
                         <outlet property="joursEvaluationTable" destination="HjZ-qI-KF3" id="aCV-Pr-2hp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSr-A0-thA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Cu8-ra-2OJ" customClass="EvaluationPresenter" customModule="My_Pk_Et_Moi" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-1138.4000000000001" y="-45.42728635682159"/>
         </scene>

@@ -12,23 +12,15 @@ import CoreData
 class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     
-    /*
-    
-    @IBOutlet weak var evaluationsTable: UITableView!
-    
-    @IBOutlet var evaluationPresenter: EvaluationPresenter!
-    
-    //var indexPathForShow: IndexPath? = nil
-    //@IBOutlet var sportPresenter: SportPresenter!
-*/
     var evaluation : Evaluation? = nil
     
+    @IBOutlet var jourEvaluationPresenter: EvaluationPresenter!
     
     fileprivate lazy var joursEvaluationFetched : NSFetchedResultsController<JourEvaluation> = {
         let request : NSFetchRequest<JourEvaluation> = JourEvaluation.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(JourEvaluation.jour),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        //fetchRequest.predicate = NSPredicate(format: "correspondreEvaluation == %@", evalu)
+        //fetchRequest.predicate = NSPredicate(format: "correspondreEvaluation == %@", evaluation)
         fetchResultController.delegate = self
         return fetchResultController
     }()
@@ -44,7 +36,6 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-
         // Do any additional setup after loading the view.
     }
 
@@ -83,9 +74,9 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = self.joursEvaluationTable.dequeueReusableCell(withIdentifier: "evaluationCell", for: indexPath) as! EvaluationTableViewCell
+        let cell = self.joursEvaluationTable.dequeueReusableCell(withIdentifier: "jourEvaluationCell", for: indexPath) as! JourEvaluationTableViewCell
         let joursEvaluation = self.joursEvaluationFetched.object(at: indexPath)
-        //self.evaluationPresenter.configure(theCell: cell, forEvaluation: joursEvaluation)
+        self.jourEvaluationPresenter.configureJourEvaluation(theCell: cell, forJourEvaluation: joursEvaluation)
         return cell
     }
     
