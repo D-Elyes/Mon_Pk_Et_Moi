@@ -22,7 +22,7 @@
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
         <attribute name="evenement" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="appartientAEva" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="contenirEvenement" inverseEntity="Evaluation" syncable="YES"/>
+        <relationship name="appartientAEva" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="contenirEvenement" inverseEntity="Evaluation" syncable="YES"/>
     </entity>
     <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
@@ -75,8 +75,10 @@
     </entity>
     <elements>
         <element name="Activite" positionX="153" positionY="-90" width="128" height="148"/>
+        <element name="Etat" positionX="-144" positionY="533" width="128" height="88"/>
         <element name="Evaluation" positionX="99" positionY="419" width="128" height="103"/>
         <element name="Evenement" positionX="-180" positionY="378" width="128" height="73"/>
+        <element name="JourEvaluation" positionX="106" positionY="549" width="128" height="88"/>
         <element name="JourSemaine" positionX="351" positionY="-72" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
         <element name="Medicament" positionX="711" positionY="473" width="128" height="118"/>
@@ -87,7 +89,5 @@
         <element name="RappelTraitement" positionX="495" positionY="236" width="128" height="58"/>
         <element name="Rdv" positionX="-162" positionY="126" width="128" height="133"/>
         <element name="Traitement" positionX="511" positionY="333" width="128" height="88"/>
-        <element name="JourEvaluation" positionX="106" positionY="549" width="128" height="88"/>
-        <element name="Etat" positionX="-144" positionY="533" width="128" height="88"/>
     </elements>
 </model>

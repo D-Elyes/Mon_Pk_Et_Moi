@@ -117,24 +117,29 @@ class AddEvaluationViewController: UIViewController {
         let somnolence = Evenement(context: CoreDataManager.context)
         
         if self.chute.isOn == true {
-            chute.evenement = ""
+            chute.evenement = "Chute"
             self.evaluation?.addToContenirEvenement(chute)
+            chute.appartientAEva = self.evaluation
         }
         if self.clic_bolus.isOn == true {
-            clic_bolus.evenement = ""
+            clic_bolus.evenement = "Clic / bolus d'Apokinon"
             self.evaluation?.addToContenirEvenement(clic_bolus)
+            clic_bolus.appartientAEva = self.evaluation
         }
         if self.hallucination.isOn == true {
-            hallucination.evenement = ""
+            hallucination.evenement = "Hallucination"
             self.evaluation?.addToContenirEvenement(hallucination)
+            hallucination.appartientAEva = self.evaluation
         }
         if self.prise_dispersible.isOn == true {
-            prise_dispersible.evenement = ""
+            prise_dispersible.evenement = "Prise de dispersible"
             self.evaluation?.addToContenirEvenement(prise_dispersible)
+            prise_dispersible.appartientAEva = self.evaluation
         }
         if self.somnolence.isOn == true {
-            somnolence.evenement = ""
+            somnolence.evenement = "Somnolence"
             self.evaluation?.addToContenirEvenement(somnolence)
+            somnolence.appartientAEva = self.evaluation
         }
 
         

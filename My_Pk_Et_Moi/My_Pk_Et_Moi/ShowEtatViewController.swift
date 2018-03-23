@@ -19,23 +19,26 @@ class ShowEtatViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var evenementTable: UITableView!
     
-    fileprivate lazy var etatFetched : NSFetchedResultsController<Etat> = {
+    func getEtatFetched() -> NSFetchedResultsController<Etat> {
         let request : NSFetchRequest<Etat> = Etat.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Etat.heure),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        //fetchRequest.predicate = NSPredicate(format: "correspondreEvaluation == %@", evaluation)
+        request.predicate = NSPredicate(format: "correspondreJourEvaluation.correspondreEvaluation == %@", self.evaluation!)
         fetchResultController.delegate = self
         return fetchResultController
-    }()
+    }
+    fileprivate lazy var etatFetched : NSFetchedResultsController<Etat> = self.getEtatFetched()
     
-    fileprivate lazy var evenementFetched : NSFetchedResultsController<Evenement> = {
+    func getEvenementFetched() -> NSFetchedResultsController<Evenement> {
         let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evenement.evenement),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        //fetchRequest.predicate = NSPredicate(format: "correspondreEvaluation == %@", evaluation)
+        request.predicate = NSPredicate(format: "appartientAEva == %@", self.evaluation!)
         fetchResultController.delegate = self
         return fetchResultController
-    }()
+    }
+    fileprivate lazy var evenementFetched : NSFetchedResultsController<Evenement> = self.getEvenementFetched()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
