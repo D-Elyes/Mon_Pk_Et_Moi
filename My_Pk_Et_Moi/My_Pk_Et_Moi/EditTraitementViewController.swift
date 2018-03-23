@@ -21,7 +21,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
-        guard (self.medicament != nil) else {return}
+        guard (self.traitement != nil) else {return}
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem : .save, target: self, action: #selector(self.saveAction))
       
@@ -35,9 +35,9 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
     //MARK: -Save
     @IBAction func saveAction(sender: UIBarButtonItem)
     {
-        guard let medicament = self.medicament else {return}
+        guard let medicament = self.traitement else {return}
         let editController = self.childViewControllers[0]as! EmbedTratiementViewController
-        if editController.nomMedicTextField.text?.isEmpty ?? true || editController.doseTextField.text?.isEmpty ?? true || editController.dateDebut.text?.isEmpty ?? true || editController.dateFin.text?.isEmpty ?? true || editController.qtteParJourTextField.text?.isEmpty ?? true || editController.jourParSemaineTextField.text?.isEmpty ?? true
+        if editController.nomMedicTextField.text?.isEmpty ?? true || editController.doseTextField.text?.isEmpty ?? true || editController.dateDebut.text?.isEmpty ?? true || editController.dateFin.text?.isEmpty ?? true
         {
             DialogBoxHelper.alert(view: self,withTitle: "Erreur de saisie", andMessage: "Vous devez saisir tous les champs!!!!!")
         }
@@ -47,10 +47,10 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            medicament.nomMedicament =  editController.nomMedicTextField.text!
+            traitement?.concerne?.nomMedic =  editController.nomMedicTextField.text!
             
             
-            medicament.dose = Int16(editController.doseTextField!.text!)!
+            traitement?.concerne?.dose = Int16(editController.doseTextField!.text!)!
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
             medicament.dateDebut = dateFormatter.date(from: editController.dateDebut.text!) as NSDate?
@@ -86,7 +86,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == self.segueEmbedId
         {
             let embedController = segue.destination as! EmbedTratiementViewController
-            embedController.medicament  = self.medicament
+            embedController.traitement  = self.traitement
         }
     }
     

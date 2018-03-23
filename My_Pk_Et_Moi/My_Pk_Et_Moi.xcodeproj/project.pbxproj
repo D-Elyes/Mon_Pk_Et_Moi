@@ -254,6 +254,7 @@
 				TargetAttributes = {
 					BDD222032045B57000B247D1 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3K38S8PH3Y;
 						ProvisioningStyle = Automatic;
 					};
 					BDD2221A2045B57100B247D1 = {
@@ -490,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K38S8PH3Y;
 				INFOPLIST_FILE = My_Pk_Et_Moi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Polytech.My-Pk-Et-Moi";
@@ -502,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K38S8PH3Y;
 				INFOPLIST_FILE = My_Pk_Et_Moi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Polytech.My-Pk-Et-Moi";

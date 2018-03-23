@@ -106,7 +106,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == self.segueEmbedId
         {
             let embedController = segue.destination as! EmbedTratiementViewController
-            embedController.medicament = nil
+            embedController.traitement = nil
         }
         
     }

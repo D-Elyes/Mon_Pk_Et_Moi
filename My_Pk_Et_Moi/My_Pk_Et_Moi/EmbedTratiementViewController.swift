@@ -54,14 +54,13 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
         {
             self.nomMedicTextField.text = traitement.concerne?.nomMedic
             self.doseTextField.text = String((traitement.concerne?.dose)!)
-            self.qtteParJourTextField.text = String(medicament.nbParJour)
             
             
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
             
-            self.dateDebut.text = formatter.string(for: medicament.dateDebut)
-            self.dateFin.text = formatter.string(for: medicament.dateFIn)
+            self.dateDebut.text = formatter.string(for: traitement.dateDebut)
+            self.dateFin.text = formatter.string(for: traitement.dateFIn)
             
         }
     }
