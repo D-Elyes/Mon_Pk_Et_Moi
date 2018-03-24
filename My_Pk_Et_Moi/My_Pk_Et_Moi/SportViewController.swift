@@ -11,13 +11,7 @@ import CoreData
 
 class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
-    fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
-        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
+    fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = Activite.getAllActivity()
     
     var indexPathForShow: IndexPath? = nil
     

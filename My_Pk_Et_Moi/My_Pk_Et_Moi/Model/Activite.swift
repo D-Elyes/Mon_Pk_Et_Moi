@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Activite{
-    func getAllActivity() -> NSFetchedResultsController<Activite>{
+    static func getAllActivity() -> NSFetchedResultsController<Activite>{
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)

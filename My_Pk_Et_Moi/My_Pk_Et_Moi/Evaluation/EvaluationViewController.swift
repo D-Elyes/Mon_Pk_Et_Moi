@@ -11,20 +11,11 @@ import CoreData
 
 class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
-    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = {
-        let request : NSFetchRequest<Evaluation> = Evaluation.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evaluation.concerneRdv.date),ascending:true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
+    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = Evaluation.getAllEvaluation()
     
     @IBOutlet weak var evaluationsTable: UITableView!
     
     @IBOutlet var evaluationPresenter: EvaluationPresenter!
-    
-    //var indexPathForShow: IndexPath? = nil
-    //@IBOutlet var sportPresenter: SportPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
