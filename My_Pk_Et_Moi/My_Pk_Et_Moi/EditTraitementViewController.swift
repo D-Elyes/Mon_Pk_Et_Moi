@@ -75,7 +75,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
     
 
     // MARK: - Navigation
-    let segueEmbedId = "embedFromEditMedicSegue"
+    let segueEmbedId = "embedFromEditTraitementSegue"
     let segueUnwindId = "unwindToTraitementViewCOntrollerFromEditing"
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

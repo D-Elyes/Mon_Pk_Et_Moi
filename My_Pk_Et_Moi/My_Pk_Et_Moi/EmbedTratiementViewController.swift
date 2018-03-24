@@ -8,8 +8,14 @@
 
 import UIKit
 
-class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
+class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource,UITableViewDelegate {
     
+   
+    
+    
+    @IBOutlet weak var priseTableView: UITableView!
+    
+   
     @IBOutlet weak var nomMedicTextField: UITextField!
     
     @IBOutlet weak var doseTextField: UITextField!
@@ -22,9 +28,65 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
     let datePickerFin = UIDatePicker()
     
     var traitement: Traitement? = nil
+    
+    var hourFormatter = DateFormatter()
+    
+    
+   var alert = UIAlertController()
+    
+    
+    
+    var heurs: [NSDate] = []
 
+    
+    @IBAction func ajouterprise(_ sender: Any) {
+        
+         let hourPicker  = UIDatePicker()
+        hourPicker.datePickerMode = UIDatePickerMode.time
+        hourPicker.addTarget(self, action: #selector(hourPickedValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        
+        alert = UIAlertController(title: "Nouvelle prise",
+                                      message: "Ajouter une nouvelle prise",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title : "Ajouter",
+                                       style: .default)
+        {
+            [unowned self] action in
+            guard let textField = self.alert.textFields?.first,
+                let hourToSave = textField.text else {
+                    return
+            }
+            self.heurs.append(self.hourFormatter.date(from: hourToSave)! as NSDate)
+            self.priseTableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Annuler",
+                                         style: .default)
+        let field = UITextField()
+        field.inputView = hourPicker
+        alert.addTextField()
+        //{(textField : UITextField) in
+               /* textField.inputView = self.hourPicker
+                textField.text = self.hourFormatter.string(from: self.hourPicker.date)
+        }*/
+        alert.textFields?.first?.inputView = hourPicker
+        alert.textFields?.first?.text = self.hourFormatter.string(from: hourPicker.date)
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert,animated: true)
+        
+        
+    }
+    
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hourFormatter.dateFormat = "HH:mm"
 
         // Do any additional setup after loading the view.
         
@@ -49,7 +111,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
         dateFin.inputView = datePickerFin
         dateFin.text = formatter.string(from: datePickerFin.date )
         
-        
+ 
         if let traitement = self.traitement
         {
             self.nomMedicTextField.text = traitement.concerne?.nomMedic
@@ -109,8 +171,29 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate {
         dateFin.text = formatter.string(from: sender.date)
     }
     
+    func hourPickedValueChanged(sender: UIDatePicker)
+    {
+        
+        alert.textFields?.first?.text = hourFormatter.string(from: sender.date)
+    }
+    
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    
+    //MARK: - Date table view protocl
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.heurs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.priseTableView.dequeueReusableCell(withIdentifier: "hourCell", for: indexPath) as! HourTableViewCell
+        
+        cell.hourLabel.text = hourFormatter.string(for: self.heurs[indexPath.row])
+        return cell
     }
     
     

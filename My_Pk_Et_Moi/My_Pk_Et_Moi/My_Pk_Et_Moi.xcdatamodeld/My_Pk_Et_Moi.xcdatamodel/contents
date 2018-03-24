@@ -9,16 +9,16 @@
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelActivite" inverseName="contenirActivite" inverseEntity="RappelActivite" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES" syncable="YES"/>
-        <attribute name="attribute1" optional="YES" syncable="YES"/>
-        <attribute name="attribute2" optional="YES" syncable="YES"/>
-        <attribute name="attribute3" optional="YES" syncable="YES"/>
-        <attribute name="attribute4" optional="YES" syncable="YES"/>
-        <attribute name="attribute5" optional="YES" syncable="YES"/>
-        <attribute name="attribute6" optional="YES" syncable="YES"/>
-        <attribute name="attribute7" optional="YES" syncable="YES"/>
-        <attribute name="attribute8" optional="YES" syncable="YES"/>
-        <attribute name="attribute9" optional="YES" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute2" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute3" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute4" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute5" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute6" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute7" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute8" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attribute9" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="contenirEvenement" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="appartientAEva" inverseEntity="Evenement" syncable="YES"/>
         <relationship name="contenirJourEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="correspondreEvaluation" inverseEntity="JourEvaluation" syncable="YES"/>
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelEvaluation" inverseName="contenirEvaluation" inverseEntity="RappelEvaluation" syncable="YES"/>
@@ -32,7 +32,7 @@
         <relationship name="contenirHeure" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JourEvaluation" inverseName="correspondreJourEvl" inverseEntity="JourEvaluation" syncable="YES"/>
     </entity>
     <entity name="HeurPrise" representedClassName="HeurPrise" syncable="YES" codeGenerationType="class">
-        <attribute name="heur" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="heur" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="priseDuTraitement" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traitement" inverseName="estPrisA" inverseEntity="Traitement" syncable="YES"/>
     </entity>
     <entity name="JourActivite" representedClassName="JourActivite" syncable="YES" codeGenerationType="class">
@@ -92,10 +92,10 @@
         <element name="Acitivite" positionX="153" positionY="-90" width="128" height="133"/>
         <element name="Evaluation" positionX="90" positionY="401" width="128" height="238"/>
         <element name="Evenement" positionX="-171" positionY="387" width="128" height="73"/>
-        <element name="Heure" positionX="-99" positionY="536" width="128" height="73"/>
-        <element name="HeurPrise" positionX="673" positionY="572" width="128" height="73"/>
+        <element name="Heure" positionX="358" positionY="611" width="128" height="73"/>
+        <element name="HeurPrise" positionX="673" positionY="572" width="128" height="75"/>
         <element name="JourActivite" positionX="477" positionY="-90" width="128" height="88"/>
-        <element name="JourEvaluation" positionX="108" positionY="530" width="128" height="88"/>
+        <element name="JourEvaluation" positionX="376" positionY="477" width="128" height="88"/>
         <element name="JourSemaine" positionX="709" positionY="-90" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
         <element name="Medicament" positionX="909" positionY="315" width="128" height="88"/>

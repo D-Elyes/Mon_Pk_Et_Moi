@@ -24,6 +24,10 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         {
             DialogBoxHelper.alert(view: self, withTitle: "Erreur de date", andMessage: "La date de début ne peut pas etre supérieur que la date de fin!!!!!")
         }
+        else if embedTraitementController.heurs.count == 0
+        {
+            DialogBoxHelper.alert(view: self, withTitle: "Erreur", andMessage: "Vous devez au moin saisir une heur de prise")
+        }
         else
         {
             let traitement = Traitement(context: CoreDataManager.context)
@@ -50,6 +54,14 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             }
             
             traitement.dateFIn = dateFin as NSDate
+            
+            /*for i in embedTraitementController.heurs
+            {
+                    let prise = HeurPrise()
+                   // prise.heur = i
+                   // traitement.estPrisA?.adding(prise)
+                
+            }*/
             
             
             

@@ -1,25 +1,16 @@
 //
-//  MedicamentTableViewCell.swift
+//  HourTableViewCell.swift
 //  My_Pk_Et_Moi
 //
-//  Created by Elyes DOUDECH on 13/03/2018.
+//  Created by Elyes DOUDECH on 24/03/2018.
 //  Copyright © 2018 Elyes DOUDECH. All rights reserved.
 //
 
 import UIKit
 
-class TraitementTableViewCell: UITableViewCell {
+class HourTableViewCell: UITableViewCell {
 
-    
-  
-    @IBOutlet weak var medicNameLabel: UILabel!
-    
-    
-    @IBOutlet weak var startDateLabel: UILabel!
-    
-    
-    @IBOutlet weak var endDateLabel: UILabel!
-    
+    @IBOutlet weak var hourLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
