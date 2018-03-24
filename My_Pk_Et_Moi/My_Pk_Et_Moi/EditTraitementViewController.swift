@@ -55,7 +55,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
             dateFormatter.dateFormat = "dd/MM/yyyy"
             medicament.dateDebut = dateFormatter.date(from: editController.dateDebut.text!) as NSDate?
             
-            medicament.dateFIn = dateFormatter.date(from: editController.dateFin.text!) as NSDate?
+            medicament.dateFin = dateFormatter.date(from: editController.dateFin.text!) as NSDate?
             
             let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {

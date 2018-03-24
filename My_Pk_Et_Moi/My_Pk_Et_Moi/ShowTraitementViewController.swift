@@ -38,7 +38,7 @@ class ShowTraitementViewController: UIViewController {
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
             
             self.dateStartLabel.text = formatter.string(for: aTraitement.dateDebut)
-            self.dateEndLabel.text = formatter.string(for: aTraitement.dateFIn)
+            self.dateEndLabel.text = formatter.string(for: aTraitement.dateFin)
             formatter.dateFormat = "HH:MM"
             self.heurPrise.text = ""
             

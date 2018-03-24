@@ -44,7 +44,7 @@ class TraitementPresenter : NSObject
                 }
                 
                 
-                if let medicDateFin = traitement.dateFIn
+                if let medicDateFin = traitement.dateFin
                 {
                     self.dateFin = medicDateFin as Date
                 }

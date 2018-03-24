@@ -122,7 +122,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
             formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
             
             self.dateDebut.text = formatter.string(for: traitement.dateDebut)
-            self.dateFin.text = formatter.string(for: traitement.dateFIn)
+            self.dateFin.text = formatter.string(for: traitement.dateFin)
             
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qhX-uD-lX4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qhX-uD-lX4"/>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g3Y-9k-eJp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -10,13 +10,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes>
         <!--New Traitement View Controller-->
-        <scene sceneID="tCF-gc-yVQ">
+        <scene sceneID="tCF-gc-yVQ"/>
         <!--Ajout d'un rendez-vous-->
         <scene sceneID="nB4-ed-rB7">
             <objects>
-                <viewController id="azg-sk-r6K" customClass="NewTraitementViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="azg-sk-r6K" customClass="NewTraitementViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController"/>
                 <viewController id="ndJ-M9-6Sg" customClass="addRdvViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MXL-C2-bup"/>
@@ -24,18 +23,18 @@
                         <viewControllerLayoutGuide type="top" id="EQW-tv-rAD"/>
                         <viewControllerLayoutGuide type="bottom" id="sVa-gT-ian"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nZi-1B-WmW">
+                    <view key="view" contentMode="scaleToFill" id="nZi-1B-WmW"/>
                     <view key="view" contentMode="scaleToFill" id="Dbv-kV-Khb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-Xe-7N1">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-Xe-7N1"/>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaE-WI-RXE">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Afa-OI-XuW"/>
-                                    <barButtonItem systemItem="save" id="wAc-Fz-doP">
+                                    <barButtonItem systemItem="save" id="wAc-Fz-doP"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xZr-oU-FYG"/>
                                     <barButtonItem systemItem="cancel" id="O9B-1Z-1uu">
                                         <connections>
@@ -44,7 +43,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xTb-uE-sLC"/>
-                                    <barButtonItem style="plain" systemItem="cancel" id="Rzn-co-59p">
+                                    <barButtonItem style="plain" systemItem="cancel" id="Rzn-co-59p"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Pqb-ay-eze"/>
                                     <barButtonItem systemItem="save" id="5aT-E9-9hl">
                                         <connections>
@@ -57,7 +56,7 @@
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.067435698896876034" blue="0.79525351524353027" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wSi-jN-tJk">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wSi-jN-tJk"/>
                                 <rect key="frame" x="16" y="133" width="343" height="490"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P64-me-SHx">
@@ -156,18 +155,17 @@
             <point key="canvasLocation" x="492" y="1468.5157421289357"/>
         </scene>
         <!--Rendez-Vous-->
-        <scene sceneID="o2s-lE-uSh">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="18l-XN-l5w" customClass="RdvViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController">
+        <scene sceneID="o2s-lE-uSh"/>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="18l-XN-l5w" customClass="RdvViewController" customModule="My_Pk_Et_Moi" customModuleProvider="target" sceneMemberID="viewController"/>
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FE6-GC-kB6"/>
                         <viewControllerLayoutGuide type="bottom" id="LeX-nz-MR6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="16n-99-pwD">
+                    <view key="view" contentMode="scaleToFill" id="16n-99-pwD"/>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Km6-on-rCs">
+                       
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Km6-on-rCs"/>
                                 <rect key="frame" x="327" y="635" width="22" height="22"/>
                                 <connections>
                                     <segue destination="PeA-Ry-9UU" kind="embed" identifier="embedFromNewTraitementSegue" id="cyQ-IU-iqx"/>

@@ -38,7 +38,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             medicament.dose = Int16(embedTraitementController.doseTextField!.text!)!
             
             traitement.concerne = medicament
-            medicament.estConernePar?.adding(traitement)
+            medicament.estConcernePar?.adding(traitement)
             
             
             let dateFormatter = DateFormatter()
@@ -53,7 +53,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 fatalError("ERROR: Date conversion failed due to mismatched format.")
             }
             
-            traitement.dateFIn = dateFin as NSDate
+            traitement.dateFin = dateFin as NSDate
             
             /*for i in embedTraitementController.heurs
             {
