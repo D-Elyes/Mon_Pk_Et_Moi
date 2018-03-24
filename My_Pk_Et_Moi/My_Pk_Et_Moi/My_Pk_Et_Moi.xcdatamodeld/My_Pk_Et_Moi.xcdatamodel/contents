@@ -98,15 +98,15 @@
         <relationship name="estPrisA" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeurPrise" inverseName="priseDuTraitement" inverseEntity="HeurPrise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activite" positionX="153" positionY="-90" width="128" height="148"/>
+        <element name="Activite" positionX="126" positionY="-126" width="128" height="148"/>
         <element name="Etat" positionX="-126" positionY="522" width="128" height="88"/>
-        <element name="Evaluation" positionX="90" positionY="401" width="128" height="103"/>
+        <element name="Evaluation" positionX="99" positionY="311" width="128" height="103"/>
         <element name="Evenement" positionX="-180" positionY="378" width="128" height="73"/>
         <element name="Heure" positionX="358" positionY="611" width="128" height="73"/>
         <element name="HeurPrise" positionX="673" positionY="572" width="128" height="75"/>
-        <element name="JourActivite" positionX="477" positionY="-90" width="128" height="88"/>
-        <element name="JourEvaluation" positionX="171" positionY="533" width="128" height="88"/>
-        <element name="JourSemaine" positionX="351" positionY="-72" width="128" height="73"/>
+        <element name="JourActivite" positionX="565" positionY="-243" width="128" height="88"/>
+        <element name="JourEvaluation" positionX="180" positionY="443" width="128" height="88"/>
+        <element name="JourSemaine" positionX="331" positionY="-81" width="128" height="73"/>
         <element name="Medecin" positionX="-234" positionY="-45" width="128" height="88"/>
         <element name="Medicament" positionX="909" positionY="315" width="128" height="88"/>
         <element name="Rappel" positionX="295" positionY="194" width="128" height="58"/>
