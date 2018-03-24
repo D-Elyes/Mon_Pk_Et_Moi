@@ -39,6 +39,16 @@
 		BDD222152045B57100B247D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD222132045B57100B247D1 /* LaunchScreen.storyboard */; };
 		BDD222202045B57100B247D1 /* My_Pk_Et_MoiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2221F2045B57100B247D1 /* My_Pk_Et_MoiTests.swift */; };
 		BDD2222B2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */; };
+		C70C1C67205C9CEE007FFF12 /* EditTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C1C66205C9CEE007FFF12 /* EditTraitementViewController.swift */; };
+		C71080FA205C7AF200AF2C14 /* EmbedTratiementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */; };
+		C7117CB5205DC66C0012374A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7117CB4205DC66C0012374A /* CoreDataManager.swift */; };
+		C7117CB7205DC93B0012374A /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7117CB6205DC93B0012374A /* DialogBoxHelper.swift */; };
+		C7156C672065EACA009069D5 /* HourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7156C662065EACA009069D5 /* HourTableViewCell.swift */; };
+		C715EAA8205BFF6E00D960BF /* TraitementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */; };
+		C727FBD520575617006C3AE6 /* TraitementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD420575617006C3AE6 /* TraitementTableViewCell.swift */; };
+		C727FBD720575D79006C3AE6 /* ShowTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */; };
+		C73496B4205984BA00DB8DC3 /* NewTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */; };
+		C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC3856205705F00084CF14 /* TraitementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +107,16 @@
 		BDD222262045B57100B247D1 /* My_Pk_Et_MoiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = My_Pk_Et_MoiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD2222A2045B57100B247D1 /* My_Pk_Et_MoiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Pk_Et_MoiUITests.swift; sourceTree = "<group>"; };
 		BDD2222C2045B57100B247D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C70C1C66205C9CEE007FFF12 /* EditTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTraitementViewController.swift; sourceTree = "<group>"; };
+		C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedTratiementViewController.swift; sourceTree = "<group>"; };
+		C7117CB4205DC66C0012374A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C7117CB6205DC93B0012374A /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		C7156C662065EACA009069D5 /* HourTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourTableViewCell.swift; sourceTree = "<group>"; };
+		C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementPresenter.swift; sourceTree = "<group>"; };
+		C727FBD420575617006C3AE6 /* TraitementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementTableViewCell.swift; sourceTree = "<group>"; };
+		C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTraitementViewController.swift; sourceTree = "<group>"; };
+		C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTraitementViewController.swift; sourceTree = "<group>"; };
+		C7DC3856205705F00084CF14 /* TraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +242,12 @@
 				3F7587F3205AD23100D7C95B /* Sport */,
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
+				C7156C662065EACA009069D5 /* HourTableViewCell.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
+				C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */,
+				C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */,
+				C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */,
+				C727FBD420575617006C3AE6 /* TraitementTableViewCell.swift */,
 				BDD222112045B57100B247D1 /* Assets.xcassets */,
 				BDD222132045B57100B247D1 /* LaunchScreen.storyboard */,
 				BDD222162045B57100B247D1 /* Info.plist */,
@@ -246,6 +271,15 @@
 				BDD2222C2045B57100B247D1 /* Info.plist */,
 			);
 			path = My_Pk_Et_MoiUITests;
+			sourceTree = "<group>";
+		};
+		C7117CB8205DCAB10012374A /* Class Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C7117CB6205DC93B0012374A /* DialogBoxHelper.swift */,
+				C7117CB4205DC66C0012374A /* CoreDataManager.swift */,
+			);
+			path = "Class Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +350,7 @@
 				TargetAttributes = {
 					BDD222032045B57000B247D1 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3K38S8PH3Y;
 						ProvisioningStyle = Automatic;
 					};
 					BDD2221A2045B57100B247D1 = {
@@ -562,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K38S8PH3Y;
 				INFOPLIST_FILE = My_Pk_Et_Moi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Polytech.My-Pk-Et-Moi";
@@ -574,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K38S8PH3Y;
 				INFOPLIST_FILE = My_Pk_Et_Moi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Polytech.My-Pk-Et-Moi";
