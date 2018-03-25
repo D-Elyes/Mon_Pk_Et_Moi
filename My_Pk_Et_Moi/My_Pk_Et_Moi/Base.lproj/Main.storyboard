@@ -234,7 +234,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQg-wV-f42" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="8BM-9o-3Ep" customClass="RdvPresenter" customModule="My_Pk_Et_Moi" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="129"/>
+            <point key="canvasLocation" x="-1455" y="139"/>
         </scene>
         <!--Add Evaluation View Controller-->
         <scene sceneID="HZc-dy-qoi">
@@ -1331,7 +1331,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qX-To-PxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="330" y="2334"/>
-        </scene>
+        
     </scenes>
     <resources>
         <image name="evaluation.png" width="64" height="64"/>
