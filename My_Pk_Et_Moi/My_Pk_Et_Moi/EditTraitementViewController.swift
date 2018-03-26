@@ -35,7 +35,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
     //MARK: -Save
     @IBAction func saveAction(sender: UIBarButtonItem)
     {
-        guard let medicament = self.traitement else {return}
+        guard let traitement = self.traitement else {return}
         let editController = self.childViewControllers[0]as! EmbedTratiementViewController
         if editController.nomMedicTextField.text?.isEmpty ?? true || editController.doseTextField.text?.isEmpty ?? true || editController.dateDebut.text?.isEmpty ?? true || editController.dateFin.text?.isEmpty ?? true
         {
@@ -47,15 +47,32 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            traitement?.concerne?.nomMedic =  editController.nomMedicTextField.text!
+            traitement.concerne?.nomMedic =  editController.nomMedicTextField.text!
             
             
-            traitement?.concerne?.dose = Int16(editController.doseTextField!.text!)!
+            traitement.concerne?.dose = Int16(editController.doseTextField!.text!)!
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
-            medicament.dateDebut = dateFormatter.date(from: editController.dateDebut.text!) as NSDate?
             
-            medicament.dateFin = dateFormatter.date(from: editController.dateFin.text!) as NSDate?
+            traitement.dateDebut = dateFormatter.date(from: editController.dateDebut.text!) as NSDate?
+            
+            traitement.dateFin = dateFormatter.date(from: editController.dateFin.text!) as NSDate?
+            
+            
+            traitement.estPrisA = []
+            
+            for i in editController.heurs
+            {
+                let prise = HeurPrise(context: CoreDataManager.context)
+                prise.heur = i
+                
+            
+                
+                    traitement.addToEstPrisA(prise)
+                    prise.addToPriseDuTraitement(traitement)
+                
+                
+            }
             
             let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
@@ -64,6 +81,7 @@ class EditTraitementViewController: UIViewController, UITextFieldDelegate {
            
                 //self.dismiss(animated: true, completion: nil)
             })
+            
             
             alert.addAction(OKAction)
             self.present(alert, animated: true, completion: nil)

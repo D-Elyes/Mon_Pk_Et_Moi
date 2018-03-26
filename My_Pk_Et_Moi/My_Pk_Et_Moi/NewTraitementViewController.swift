@@ -54,16 +54,21 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             }
             
             traitement.dateFin = dateFin as NSDate
+            dateFormatter.dateFormat = "HH:mm"
+            //let priseA = traitement.mutableSetValue(forKey: #keyPath(Heurprise.priseDuTraitement))
             
-            /*for i in embedTraitementController.heurs
+            for i in embedTraitementController.heurs
             {
-                    let prise = HeurPrise()
-                   // prise.heur = i
-                   // traitement.estPrisA?.adding(prise)
+                let prise = HeurPrise(context: CoreDataManager.context)
+                prise.heur = i
                 
-            }*/
+                traitement.addToEstPrisA(prise)
+                prise.addToPriseDuTraitement(traitement)
+                
+                
+            }
             
-            
+          
             
             //scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
             
@@ -124,7 +129,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func scheduleNotification(nom: String)
+    func scheduleNotification(nom: String, hour: Int, minute: Int)
     {
         
         //add atachment
@@ -146,8 +151,8 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         notif.attachments = [attachment]
         
         var dateInfo = DateComponents()
-        dateInfo.hour = 18
-        dateInfo.minute = 05
+        dateInfo.hour = hour
+        dateInfo.minute = minute
         
         let notifiTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
         

@@ -124,6 +124,17 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
             self.dateDebut.text = formatter.string(for: traitement.dateDebut)
             self.dateFin.text = formatter.string(for: traitement.dateFin)
             
+             if let heurs = traitement.estPrisA
+            {
+                for heursPrise in heurs
+                {
+                    if let h = heursPrise as? HeurPrise
+                    {
+                        self.heurs.append(h.heur!)
+                    }
+                }
+            }
+            
         }
     }
 
@@ -195,6 +206,51 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
         cell.hourLabel.text = hourFormatter.string(for: self.heurs[indexPath.row])
         return cell
     }
+    /*
+    //MARK: data management
+    
+    /// delete a hour prise fromcollection according to its index
+    ///
+    /// - Precondition: Index must be into bound of collection
+    /// - Parameter priseWithIndex : index of traitement to delete
+    /// - Returns: true if deletion succeded, else false
+    func delete(priseWithIndex  index : Int)-> Bool
+     {
+     let context = CoreDataManager.context
+     let prise = self.heurs[index]
+     
+     do{
+    
+     self.heurs.remove(at: index)
+     return true
+     }
+     catch let error as NSError
+     {
+     DialogBoxHelper.alert(view: self,error: error)
+     return false
+     }
+     
+     }
+    */
+    
+    //MARK: data source prtocol
+     // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            self.priseTableView.beginUpdates()
+            heurs.remove(at: indexPath.row)
+            self.priseTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+         
+            self.priseTableView.endUpdates()
+            
+        }
+    }
+    
     
     
 
