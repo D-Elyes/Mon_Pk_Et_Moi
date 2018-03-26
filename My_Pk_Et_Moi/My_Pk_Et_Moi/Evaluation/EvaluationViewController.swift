@@ -11,20 +11,11 @@ import CoreData
 
 class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
-    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = {
-        let request : NSFetchRequest<Evaluation> = Evaluation.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evaluation.concerneRdv.date),ascending:true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
+    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = Evaluation.getAllEvaluation()
     
     @IBOutlet weak var evaluationsTable: UITableView!
     
     @IBOutlet var evaluationPresenter: EvaluationPresenter!
-    
-    //var indexPathForShow: IndexPath? = nil
-    //@IBOutlet var sportPresenter: SportPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +65,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.evaluationsTable.dequeueReusableCell(withIdentifier: "evaluationCell", for: indexPath) as! EvaluationTableViewCell
         let evaluation = self.evaluationFetched.object(at: indexPath)
-        self.evaluationPresenter.configure(theCell: cell, forEvaluation: evaluation)
+        self.evaluationPresenter.configureEvaluation(theCell: cell, forEvaluation: evaluation)
         return cell
     }
     

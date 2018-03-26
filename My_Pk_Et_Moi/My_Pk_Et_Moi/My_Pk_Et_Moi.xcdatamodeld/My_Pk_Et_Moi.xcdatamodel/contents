@@ -12,7 +12,7 @@
     <entity name="Etat" representedClassName="Etat" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reponse" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="correspondreJourEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="contenirEtat" inverseEntity="JourEvaluation" syncable="YES"/>
+        <relationship name="correspondreJourEvaluation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="JourEvaluation" inverseName="contenirEtat" inverseEntity="JourEvaluation" syncable="YES"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES" codeGenerationType="class">
         <relationship name="concerneRdv" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Rdv" inverseName="concerneEvaluation" inverseEntity="Rdv" syncable="YES"/>
@@ -22,7 +22,7 @@
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
         <attribute name="evenement" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="appartientAEva" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="contenirEvenement" inverseEntity="Evaluation" syncable="YES"/>
+        <relationship name="appartientAEva" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="contenirEvenement" inverseEntity="Evaluation" syncable="YES"/>
     </entity>
     <entity name="HeurPrise" representedClassName="HeurPrise" syncable="YES" codeGenerationType="class">
         <attribute name="heur" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -31,7 +31,7 @@
     <entity name="JourEvaluation" representedClassName="JourEvaluation" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contenirEtat" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Etat" inverseName="correspondreJourEvaluation" inverseEntity="Etat" syncable="YES"/>
-        <relationship name="correspondreEvaluation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="contenirJourEvaluation" inverseEntity="Evaluation" syncable="YES"/>
+        <relationship name="correspondreEvaluation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Evaluation" inverseName="contenirJourEvaluation" inverseEntity="Evaluation" syncable="YES"/>
     </entity>
     <entity name="JourSemaine" representedClassName="JourSemaine" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
