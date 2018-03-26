@@ -55,6 +55,9 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             
             traitement.dateFin = dateFin as NSDate
             dateFormatter.dateFormat = "HH:mm"
+            let calendar = Calendar.current
+            var heur : Int
+            var minute : Int
             //let priseA = traitement.mutableSetValue(forKey: #keyPath(Heurprise.priseDuTraitement))
             
             for i in embedTraitementController.heurs
@@ -65,8 +68,16 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 traitement.addToEstPrisA(prise)
                 prise.addToPriseDuTraitement(traitement)
                 
+                let comp = calendar.dateComponents([.hour,.minute], from: i as Date)
+                heur = comp.hour!
+                minute = comp.minute!
+                
+                scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!, hour: heur, minute: minute)
+                
                 
             }
+            
+            
             
           
             
