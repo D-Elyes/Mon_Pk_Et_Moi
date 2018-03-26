@@ -35,7 +35,6 @@ class EmbedSportViewController: UIViewController, UITextFieldDelegate, UIPickerV
         super.viewDidLoad()
 
         self.nomSport.delegate = self
-        self.objectif.delegate = self
         
         pickerView.delegate = self
         pickerView.dataSource = self

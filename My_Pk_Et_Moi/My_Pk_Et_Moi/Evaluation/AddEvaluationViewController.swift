@@ -70,24 +70,43 @@ class AddEvaluationViewController: UIViewController {
             return
         }
         
-        // create a new jourEvaluation Managed Object
-        let jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
-        jourAvantRdv.jour = String(components.day!) + " jour"
-        jourAvantRdv.addToCorrespondreEvaluation(self.evaluation!)
-        self.evaluation?.addToContenirJourEvaluation(jourAvantRdv)
+        // check if the day before rdv is already created
+        var jourAvantRdv : JourEvaluation? = nil
+        var possedeJour : Bool = false
+        if let jours = evaluation?.contenirJourEvaluation{
+            for jour in jours{
+                if let j = jour as? JourEvaluation{
+                    if j.jour == String(components.day!) + " jour"{
+                        possedeJour = true
+                        jourAvantRdv = j
+                    }
+                }
+            }
+        }
+        
+        
+        //set value of new day
+        if possedeJour == false {
+            // create a new jourEvaluation Managed Object
+            jourAvantRdv = JourEvaluation(context: CoreDataManager.context)
+            jourAvantRdv?.jour = String(components.day!) + " jour"
+            jourAvantRdv?.correspondreEvaluation = self.evaluation
+            self.evaluation?.addToContenirJourEvaluation(jourAvantRdv!)
+            
+        }
         
         var resEtat : String = ""
         if self.on.isOn == true {resEtat = "On"}
         else if self.off.isOn == true {resEtat = "Off"}
         else {resEtat = "Dyskenesies"}
-
+        
         // Add result
         // create each new Resultat Managed Object
         let etat = Etat(context: CoreDataManager.context)
         etat.reponse = resEtat
         etat.heure = heure
-        etat.addToCorrespondreJourEvaluation(jourAvantRdv)
-        jourAvantRdv.addToContenirEtat(etat)
+        etat.correspondreJourEvaluation = jourAvantRdv
+        jourAvantRdv?.addToContenirEtat(etat)
         
         // Add Event
         // create each new Evenement Managed Object
@@ -98,25 +117,31 @@ class AddEvaluationViewController: UIViewController {
         let somnolence = Evenement(context: CoreDataManager.context)
         
         if self.chute.isOn == true {
-            chute.evenement = ""
+            chute.evenement = "Chute"
             self.evaluation?.addToContenirEvenement(chute)
+            chute.appartientAEva = self.evaluation
         }
         if self.clic_bolus.isOn == true {
-            clic_bolus.evenement = ""
+            clic_bolus.evenement = "Clic / bolus d'Apokinon"
             self.evaluation?.addToContenirEvenement(clic_bolus)
+            clic_bolus.appartientAEva = self.evaluation
         }
         if self.hallucination.isOn == true {
-            hallucination.evenement = ""
+            hallucination.evenement = "Hallucination"
             self.evaluation?.addToContenirEvenement(hallucination)
+            hallucination.appartientAEva = self.evaluation
         }
         if self.prise_dispersible.isOn == true {
-            prise_dispersible.evenement = ""
+            prise_dispersible.evenement = "Prise de dispersible"
             self.evaluation?.addToContenirEvenement(prise_dispersible)
+            prise_dispersible.appartientAEva = self.evaluation
         }
         if self.somnolence.isOn == true {
-            somnolence.evenement = ""
+            somnolence.evenement = "Somnolence"
             self.evaluation?.addToContenirEvenement(somnolence)
+            somnolence.appartientAEva = self.evaluation
         }
+
         
          self.dismiss(animated: true, completion: nil)
     }

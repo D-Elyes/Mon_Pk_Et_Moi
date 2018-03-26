@@ -27,7 +27,6 @@ class ShowSportViewController: UIViewController {
         if let sportTmp = self.sport{
             self.nomLabel.text = sportTmp.nom
             self.typeLabel.text = sportTmp.type
-            self.objLabel.text = sportTmp.objectif
             self.heureLabel.text = sportTmp.heure
             
             //insert into labeljour all days

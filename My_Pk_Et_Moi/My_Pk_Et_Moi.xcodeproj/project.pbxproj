@@ -19,13 +19,21 @@
 		3F3B578F2058470D006BFDC4 /* EditSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */; };
 		3F6E6B81205D960F004168EB /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E6B80205D960F004168EB /* EvaluationViewController.swift */; };
 		3F6E6B83205D9671004168EB /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E6B82205D9671004168EB /* EvaluationTableViewCell.swift */; };
+		3F734A7820695FAC005E65DC /* MedecinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F734A7720695FAC005E65DC /* MedecinViewController.swift */; };
+		3F734A7A20695FC1005E65DC /* MedecinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F734A7920695FC1005E65DC /* MedecinTableViewCell.swift */; };
+		3F734A7C20696285005E65DC /* Medecin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F734A7B20696285005E65DC /* Medecin.swift */; };
+		3F734A7E20696415005E65DC /* MedecinPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F734A7D20696415005E65DC /* MedecinPresenter.swift */; };
 		3F7587F7205AD3A200D7C95B /* RdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587F6205AD3A200D7C95B /* RdvViewController.swift */; };
 		3F7587F9205ADC1000D7C95B /* RdvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */; };
 		3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */; };
 		3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788A6D205927A200D0263D /* EmbedSportViewController.swift */; };
+		3F7CB6A820641D4F0090E3E7 /* EtatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */; };
+		3F7CB6AC20641F020090E3E7 /* ShowEtatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */; };
 		3F8411D120606B1E00364264 /* Rdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8411D020606B1E00364264 /* Rdv.swift */; };
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
 		3FB3C2DD205DBCB600A93591 /* AddEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */; };
+		3FBB77D120665F75004B85C0 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB77D020665F75004B85C0 /* Evaluation.swift */; };
+		3FBB77D320665F86004B85C0 /* Activite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB77D220665F86004B85C0 /* Activite.swift */; };
 		3FBB9D6B205ECF630065EA52 /* EvaluationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */; };
 		3FCE02FC20617A1C004D0F86 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */; };
 		3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE16082056C88300DFC11F /* CoreDataManager.swift */; };
@@ -80,14 +88,22 @@
 		3F3B578E2058470D006BFDC4 /* EditSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSportViewController.swift; sourceTree = "<group>"; };
 		3F6E6B80205D960F004168EB /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		3F6E6B82205D9671004168EB /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		3F734A7720695FAC005E65DC /* MedecinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedecinViewController.swift; sourceTree = "<group>"; };
+		3F734A7920695FC1005E65DC /* MedecinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedecinTableViewCell.swift; sourceTree = "<group>"; };
+		3F734A7B20696285005E65DC /* Medecin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medecin.swift; sourceTree = "<group>"; };
+		3F734A7D20696415005E65DC /* MedecinPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedecinPresenter.swift; sourceTree = "<group>"; };
 		3F7587F6205AD3A200D7C95B /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
 		3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvTableViewCell.swift; sourceTree = "<group>"; };
 		3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addRdvViewController.swift; sourceTree = "<group>"; };
 		3F788A6D205927A200D0263D /* EmbedSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedSportViewController.swift; sourceTree = "<group>"; };
+		3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtatTableViewCell.swift; sourceTree = "<group>"; };
+		3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowEtatViewController.swift; path = ../ShowEtatViewController.swift; sourceTree = "<group>"; };
 		3F8411D020606B1E00364264 /* Rdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rdv.swift; sourceTree = "<group>"; };
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
 		3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvaluationViewController.swift; sourceTree = "<group>"; };
-		3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationPresenter.swift; sourceTree = "<group>"; };
+		3FBB77D020665F75004B85C0 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
+		3FBB77D220665F86004B85C0 /* Activite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activite.swift; sourceTree = "<group>"; };
+		3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EvaluationPresenter.swift; path = Evaluation/EvaluationPresenter.swift; sourceTree = "<group>"; };
 		3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		3FDE16082056C88300DFC11F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3FDE160A2056CC5600DFC11F /* SportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPresenter.swift; sourceTree = "<group>"; };
@@ -154,10 +170,32 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		3F734A75206953FF005E65DC /* Traitement */ = {
+			isa = PBXGroup;
+			children = (
+				C7156C662065EACA009069D5 /* HourTableViewCell.swift */,
+				C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */,
+				C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */,
+				C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */,
+				C727FBD420575617006C3AE6 /* TraitementTableViewCell.swift */,
+				C7DC3856205705F00084CF14 /* TraitementViewController.swift */,
+				C70C1C66205C9CEE007FFF12 /* EditTraitementViewController.swift */,
+			);
+			name = Traitement;
+			sourceTree = "<group>";
+		};
+		3F734A7620695F82005E65DC /* Medecin */ = {
+			isa = PBXGroup;
+			children = (
+				3F734A7720695FAC005E65DC /* MedecinViewController.swift */,
+				3F734A7920695FC1005E65DC /* MedecinTableViewCell.swift */,
+			);
+			name = Medecin;
+			sourceTree = "<group>";
+		};
 		3F7587F3205AD23100D7C95B /* Sport */ = {
 			isa = PBXGroup;
 			children = (
-				3FDE160A2056CC5600DFC11F /* SportPresenter.swift */,
 				3F06E7E52050563800644A17 /* SportViewController.swift */,
 				3F06E7E72050582A00644A17 /* SportTableViewCell.swift */,
 				3FDE160C2056ED3100DFC11F /* ShowSportViewController.swift */,
@@ -171,7 +209,6 @@
 		3F7587F5205AD2BC00D7C95B /* Rendez-vous */ = {
 			isa = PBXGroup;
 			children = (
-				3FE8E089205C267D00943E72 /* RdvPresenter.swift */,
 				3F7587F6205AD3A200D7C95B /* RdvViewController.swift */,
 				3F7587F8205ADC1000D7C95B /* RdvTableViewCell.swift */,
 				3F7587FA205ADF7700D7C95B /* addRdvViewController.swift */,
@@ -183,6 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				3F8411D020606B1E00364264 /* Rdv.swift */,
+				3FBB77D220665F86004B85C0 /* Activite.swift */,
+				3FBB77D020665F75004B85C0 /* Evaluation.swift */,
+				3F734A7B20696285005E65DC /* Medecin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,14 +230,39 @@
 		3F843014205D5069002D1A78 /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
-				3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */,
 				3F6E6B80205D960F004168EB /* EvaluationViewController.swift */,
 				3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */,
 				3F397A942062C664003C8A67 /* ShowEvaluationViewController.swift */,
 				3F6E6B82205D9671004168EB /* EvaluationTableViewCell.swift */,
 				3F397A982062CDFA003C8A67 /* JourEvaluationTableViewCell.swift */,
+				3F7CB6A720641D4F0090E3E7 /* EtatTableViewCell.swift */,
+				3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */,
 			);
 			path = Evaluation;
+			sourceTree = "<group>";
+		};
+		3FBB77CF20665ECA004B85C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F734A7620695F82005E65DC /* Medecin */,
+				3F734A75206953FF005E65DC /* Traitement */,
+				3F7587F3205AD23100D7C95B /* Sport */,
+				3F843014205D5069002D1A78 /* Evaluation */,
+				3F7587F5205AD2BC00D7C95B /* Rendez-vous */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3FBB77D5206668E8004B85C0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */,
+				3FDE160A2056CC5600DFC11F /* SportPresenter.swift */,
+				3FBB9D6A205ECF630065EA52 /* EvaluationPresenter.swift */,
+				3FE8E089205C267D00943E72 /* RdvPresenter.swift */,
+				3F734A7D20696415005E65DC /* MedecinPresenter.swift */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		3FDE16072056C83000DFC11F /* helpers */ = {
@@ -232,27 +297,18 @@
 		BDD222062045B57000B247D1 /* My_Pk_Et_Moi */ = {
 			isa = PBXGroup;
 			children = (
+				3F8411D220606FF800364264 /* Model */,
+				3FBB77CF20665ECA004B85C0 /* Controller */,
+				3FBB77D5206668E8004B85C0 /* Presenter */,
 				3FDE16072056C83000DFC11F /* helpers */,
 				0B01097C204DA14100D785EA /* image */,
-				3F8411D220606FF800364264 /* Model */,
-				3F7587F5205AD2BC00D7C95B /* Rendez-vous */,
-				3F843014205D5069002D1A78 /* Evaluation */,
-				3F7587F3205AD23100D7C95B /* Sport */,
 				BDD222072045B57000B247D1 /* AppDelegate.swift */,
 				BDD222092045B57000B247D1 /* ViewController.swift */,
-				C7156C662065EACA009069D5 /* HourTableViewCell.swift */,
 				BDD2220B2045B57100B247D1 /* Main.storyboard */,
-				C71080F9205C7AF200AF2C14 /* EmbedTratiementViewController.swift */,
-				C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */,
-				C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */,
-				C727FBD420575617006C3AE6 /* TraitementTableViewCell.swift */,
 				BDD222112045B57100B247D1 /* Assets.xcassets */,
 				BDD222132045B57100B247D1 /* LaunchScreen.storyboard */,
 				BDD222162045B57100B247D1 /* Info.plist */,
-				C7DC3856205705F00084CF14 /* TraitementViewController.swift */,
 				C76B4C28206684A0003802A7 /* My_Pk_Et_Moi.xcdatamodeld */,
-				C70C1C66205C9CEE007FFF12 /* EditTraitementViewController.swift */,
-				C715EAA7205BFF6E00D960BF /* TraitementPresenter.swift */,
 			);
 			path = My_Pk_Et_Moi;
 			sourceTree = "<group>";
@@ -417,12 +473,16 @@
 			files = (
 				C715EAA8205BFF6E00D960BF /* TraitementPresenter.swift in Sources */,
 				C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */,
+				3F734A7820695FAC005E65DC /* MedecinViewController.swift in Sources */,
+				3F734A7C20696285005E65DC /* Medecin.swift in Sources */,
 				3FB3C2DD205DBCB600A93591 /* AddEvaluationViewController.swift in Sources */,
 				3F6E6B81205D960F004168EB /* EvaluationViewController.swift in Sources */,
 				3F3B578F2058470D006BFDC4 /* EditSportViewController.swift in Sources */,
 				3F397A992062CDFA003C8A67 /* JourEvaluationTableViewCell.swift in Sources */,
 				BDD2220A2045B57000B247D1 /* ViewController.swift in Sources */,
 				3F8411D120606B1E00364264 /* Rdv.swift in Sources */,
+				3F7CB6AC20641F020090E3E7 /* ShowEtatViewController.swift in Sources */,
+				3F734A7A20695FC1005E65DC /* MedecinTableViewCell.swift in Sources */,
 				3FBB9D6B205ECF630065EA52 /* EvaluationPresenter.swift in Sources */,
 				BDD222082045B57000B247D1 /* AppDelegate.swift in Sources */,
 				C70C1C67205C9CEE007FFF12 /* EditTraitementViewController.swift in Sources */,
@@ -434,14 +494,18 @@
 				C727FBD520575617006C3AE6 /* TraitementTableViewCell.swift in Sources */,
 				3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */,
 				3F7587FB205ADF7700D7C95B /* addRdvViewController.swift in Sources */,
+				3F7CB6A820641D4F0090E3E7 /* EtatTableViewCell.swift in Sources */,
+				3FBB77D120665F75004B85C0 /* Evaluation.swift in Sources */,
 				3F06E7E62050563800644A17 /* SportViewController.swift in Sources */,
 				3FDE160D2056ED3100DFC11F /* ShowSportViewController.swift in Sources */,
+				3F734A7E20696415005E65DC /* MedecinPresenter.swift in Sources */,
 				3F6E6B83205D9671004168EB /* EvaluationTableViewCell.swift in Sources */,
 				3F397A952062C664003C8A67 /* ShowEvaluationViewController.swift in Sources */,
 				3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */,
 				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,
 				3F7587F7205AD3A200D7C95B /* RdvViewController.swift in Sources */,
 				3FCE02FC20617A1C004D0F86 /* DialogBoxHelper.swift in Sources */,
+				3FBB77D320665F86004B85C0 /* Activite.swift in Sources */,
 				3FDE160B2056CC5600DFC11F /* SportPresenter.swift in Sources */,
 				3F788A6E205927A200D0263D /* EmbedSportViewController.swift in Sources */,
 				3FE8E08A205C267D00943E72 /* RdvPresenter.swift in Sources */,
