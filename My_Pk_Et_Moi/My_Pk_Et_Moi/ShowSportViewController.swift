@@ -23,7 +23,7 @@ class ShowSportViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        //Si personne n'est pas vide
+        //if persone is not empty
         if let sportTmp = self.sport{
             self.nomLabel.text = sportTmp.nom
             self.typeLabel.text = sportTmp.type

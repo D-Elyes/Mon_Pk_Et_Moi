@@ -19,10 +19,12 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
         return fetchResultController
     }()
     
+    //Handle presentation of cell in the table view
     @IBOutlet var medecinPresenter: MedecinPresenter!
     
     var pickerView = UIPickerView()
     
+    //Medecins contains all sepeciality
     let medecins : [String] = ["Psychiatre","Neurologue","Gériatre","Neurochirurgien","Gastro-entérologue","Urologue","Ophtalmologiste","ORL-phoniatre","Rhumatologue","Pneumologue","Cardiologue","Chirurgien-dentiste"]
     
     @IBOutlet weak var medecinTable: UITableView!
@@ -133,8 +135,8 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    // MARK: - Handle add button medecin
     @IBAction func addMedecin(_ sender: Any) {
-        
 
         let nomMedecin : String = self.nomTf.text ?? ""
         let speMedecin : String = self.specialiteTf.text ?? ""
