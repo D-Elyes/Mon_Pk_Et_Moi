@@ -15,7 +15,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
-    let medecins = ["Neurologue", "Dentiste"] // requete pour avoir tout les medecins
+    let medecins = Medecin.getAllSpeciality()
     
     @IBOutlet weak var datePick: UIDatePicker!
     @IBOutlet weak var lieuTextF: UITextField!
