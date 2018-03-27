@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class EvaluationPresenter: NSObject {
     fileprivate var dateRdv : NSDate?
@@ -91,6 +92,15 @@ class EvaluationPresenter: NSObject {
         guard let cell = theCell else { return }
         cell.heureLabel.text = self.heureEtat
         cell.etatLabel.text = self.etatRep
+        if self.etatRep == "On"{
+            cell.etatLabel.backgroundColor = UIColor.green
+        }
+        else if self.etatRep == "Off"{
+            cell.etatLabel.backgroundColor = UIColor.red
+        }
+        else{
+            cell.etatLabel.backgroundColor = UIColor.yellow
+        }
     }
     
     func configureEvenement(theCell : EtatTableViewCell?, forEvenement: Evenement?){

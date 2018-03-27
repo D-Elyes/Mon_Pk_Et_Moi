@@ -39,7 +39,10 @@ class ajoutSportViewController: UIViewController{
         dateFormatter.dateFormat = "hh mm"
         let heureSport = dateFormatter.string(from: embedSportViewController.heure.date)
         
-        guard (nomSport != "" ) || (typeSport != "" ) else { return }
+        guard (nomSport != "" ) || (typeSport != "" ) else {
+            DialogBoxHelper.alert(view: self, withTitle: "Champs manquants", andMessage: "Formulaire incomplet")
+            return
+        }
         // create a new Sports Managed Object
         let sport = Activite(context: CoreDataManager.context)
         // then modify it according to values

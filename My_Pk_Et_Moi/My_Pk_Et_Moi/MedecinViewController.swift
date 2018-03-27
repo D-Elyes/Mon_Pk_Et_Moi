@@ -98,11 +98,17 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func addMedecin(_ sender: Any) {
+        
+
         let nomMedecin : String = self.nomTf.text ?? ""
         let speMedecin : String = self.specialiteTf.text ?? ""
         let telMedecin : String = self.telephoneTf.text ?? ""
         
-        guard (nomMedecin != "" ) || (speMedecin != "" ) || (telMedecin != "" ) else { return }
+        
+        guard (nomMedecin != "" ) || (speMedecin != "" ) || (telMedecin != "" ) else {
+            DialogBoxHelper.alert(view: self, withTitle: "Champs manquants", andMessage: "Formulaire incomplet")
+            return
+        }
         // create a new Sports Managed Object
         let medecin = Medecin(context: CoreDataManager.context)
         // then modify it according to values

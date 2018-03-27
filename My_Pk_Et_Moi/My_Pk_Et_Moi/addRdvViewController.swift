@@ -56,6 +56,8 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let lieuRdv : String = self.lieuTextF.text ?? ""
         let medecinRdv : String = self.medTextF.text ?? ""
         
+        
+        
         let dateRdv = self.datePick.date
         
         let dateFormatterHeure = DateFormatter()
@@ -63,7 +65,11 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         dateFormatterHeure.dateFormat = "hh:mm"
         let heureRdv = dateFormatterHeure.string(from: self.heurePick.date)
         
-        guard (lieuRdv != "" ) || (medecinRdv != "" ) else { return }
+        guard (lieuRdv != "" ) || (medecinRdv != "" ) else {
+            DialogBoxHelper.alert(view: self, withTitle: "Champs manquants", andMessage: "Formulaire incomplet")
+            return
+        }
+        
         // create a new Rdv Managed Object
         let rdv = Rdv(context: CoreDataManager.context)
         // then modify it according to values
