@@ -16,6 +16,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     var indexPathForShow: IndexPath? = nil
     
     @IBOutlet var sportPresenter: SportPresenter!
+    
     @IBOutlet weak var sportsTable: UITableView!
     
     override func viewDidLoad() {
@@ -41,8 +42,9 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.sportsTable.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.sportsTable.endUpdates()
         CoreDataManager.save()
+        self.sportsTable.endUpdates()
+ 
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
