@@ -55,6 +55,9 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             
             traitement.dateFin = dateFin as NSDate
             dateFormatter.dateFormat = "HH:mm"
+            let calendar = Calendar.current
+            var heur : Int
+            var minute : Int
             //let priseA = traitement.mutableSetValue(forKey: #keyPath(Heurprise.priseDuTraitement))
             
             for i in embedTraitementController.heurs
@@ -65,8 +68,16 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 traitement.addToEstPrisA(prise)
                 prise.addToPriseDuTraitement(traitement)
                 
+                let comp = calendar.dateComponents([.hour,.minute], from: i as Date)
+                heur = comp.hour!
+                minute = comp.minute!
+                
+                scheduleNotification(hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heur de prendre \(embedTraitementController.nomMedicTextField.text!)")
+                
                 
             }
+            
+            
             
           
             
@@ -129,24 +140,31 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func scheduleNotification(nom: String, hour: Int, minute: Int)
+    func scheduleNotification(hour: Int, minute: Int, image : String, ext : String, title : String, subtitle : String, body : String)
     {
         
         //add atachment
-        let myimage = "medication-capsule"
-        guard let imageUrl = Bundle.main.url(forResource: myimage, withExtension: "png" ) else {
+        
+        guard let imageUrl = Bundle.main.url(forResource: image, withExtension: ext ) else {
            
             return
         }
         
+        let identifier : String = UUID().uuidString
         var attachment: UNNotificationAttachment
         
-        attachment = try! UNNotificationAttachment(identifier: "medicNoification", url: imageUrl, options: .none)
+        
+        
+        attachment = try! UNNotificationAttachment(identifier: identifier, url: imageUrl, options: .none)
         
         let notif = UNMutableNotificationContent()
-        notif.title = "Rappel medicament"
-        notif.subtitle = "Reprise de medicament"
-        notif.body = "C'est l'heur de prendre \(nom)"
+        notif.title = title
+        notif.subtitle = subtitle
+        notif.body = body
+        notif.categoryIdentifier = AppDelegate.Notification.Category.traitement
+        notif.userInfo = ["Redirection" : "Traitement"]
+        //let dateFinMedic = ["fin" : dateFin]
+       // notif.userInfo = dateFinMedic
         
         notif.attachments = [attachment]
         
@@ -154,11 +172,14 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         dateInfo.hour = hour
         dateInfo.minute = minute
         
-        let notifiTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+        //let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let notifTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
         
-        let request = UNNotificationRequest(identifier: "medicNoification", content: notif, trigger: notifiTrigger)
+        let request = UNNotificationRequest(identifier: identifier, content: notif, trigger: notifTrigger)
         
         let center = UNUserNotificationCenter.current()
+        
+        
         
         center.add(request) { (error : Error?) in
                 if let theError = error
