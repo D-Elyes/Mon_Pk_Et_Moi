@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MedecinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class MedecinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
     fileprivate lazy var medecinFetched : NSFetchedResultsController<Medecin> = Medecin.getAllMedecin()
     
@@ -59,6 +59,12 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
         default:
             break
         }
+    }
+    
+    // MARK: - TextField Delegate
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     

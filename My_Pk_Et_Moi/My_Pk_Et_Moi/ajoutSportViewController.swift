@@ -92,6 +92,7 @@ class ajoutSportViewController: UIViewController{
             sport.addToContenirJour(dimanche)
             dimanche.contenirActivite = sport
         }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
