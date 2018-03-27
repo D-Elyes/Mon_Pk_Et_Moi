@@ -11,7 +11,14 @@ import CoreData
 
 class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
-    fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = Activite.getAllActivity()
+    fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
+    let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+    request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
+    let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+    fetchResultController.delegate = self
+    return fetchResultController
+    }()
+
     
     var indexPathForShow: IndexPath? = nil
     
@@ -23,6 +30,7 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         do{
             try self.sportsFetched.performFetch()
+        
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
@@ -39,13 +47,16 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - NSFetchResultController delegate protocol
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+         print("******************Saved ***************")
         self.sportsTable.beginUpdates()
     }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        CoreDataManager.save()
         self.sportsTable.endUpdates()
- 
+        CoreDataManager.save()
+        print("******************Saved ***************")
     }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
@@ -109,6 +120,10 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         return[delete]
     }
     
+    // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
     
 

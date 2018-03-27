@@ -41,7 +41,8 @@ class EmbedSportViewController: UIViewController, UITextFieldDelegate, UIPickerV
 
         typeTextF.inputView = pickerView
         typeTextF.textAlignment = .center
-        typeTextF.placeholder = "Selection Type"
+        typeTextF.text = typeSports[0]
+       
         
         // Do any additional setup after loading the view.
     }

@@ -1,4 +1,4 @@
-//
+ //
 //  TraitementViewController.swift
 //  My_Pk_Et_Moi
 //
@@ -60,14 +60,14 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     //MARK: - Traitement data management
     
     /// save data
-    func save()
+    /*func save()
     {
         //get context into application delegate
         if let error = CoreDataManager.save()
         {
             DialogBoxHelper.alert(view: self, error: error)
         }
-    }
+    }*/
     
     /*
     /// Create a new Tratiement add it to the collection and save it
