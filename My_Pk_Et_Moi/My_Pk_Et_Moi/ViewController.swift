@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 
 class ViewController: UIViewController {
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {(granted, error) in
         })
+        
+        
     }
     
     

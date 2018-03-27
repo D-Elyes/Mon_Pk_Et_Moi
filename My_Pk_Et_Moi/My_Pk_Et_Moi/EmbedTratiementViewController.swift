@@ -66,6 +66,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
         let field = UITextField()
         field.inputView = hourPicker
         alert.addTextField()
+        
         //{(textField : UITextField) in
                /* textField.inputView = self.hourPicker
                 textField.text = self.hourFormatter.string(from: self.hourPicker.date)
