@@ -12,11 +12,11 @@ import CoreData
 class SportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     fileprivate lazy var sportsFetched : NSFetchedResultsController<Activite> = {
-    let request : NSFetchRequest<Activite> = Activite.fetchRequest()
-    request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
-    let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-    fetchResultController.delegate = self
-    return fetchResultController
+        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Activite.nom),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
     }()
 
     
@@ -47,14 +47,13 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - NSFetchResultController delegate protocol
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-         print("******************Saved ***************")
-        self.sportsTable.beginUpdates()
+                 self.sportsTable.beginUpdates()
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.sportsTable.endUpdates()
         CoreDataManager.save()
-        print("******************Saved ***************")
+        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -67,6 +66,13 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let newIndexPath = newIndexPath{
                 self.sportsTable.insertRows(at: [newIndexPath], with: .fade)
             }
+        case .update:
+            if let indexPath = indexPath, let cell = self.sportsTable.cellForRow(at: indexPath) as? SportTableViewCell
+            {
+                let sport = self.sportsFetched.object(at: indexPath)
+                self.sportPresenter.configure(theCell: cell, forSport:   sport)
+            }
+
         default:
             break
         }
@@ -82,17 +88,29 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == self.segueShowSportId{
-            if let indexPath = self.sportsTable.indexPathForSelectedRow{
+        if segue.identifier == self.segueShowSportId
+        {
+            
+            if let indexPath = self.sportsTable.indexPathForSelectedRow
+            {
                 let ShowSportViewController = segue.destination as! ShowSportViewController
                 ShowSportViewController.sport = self.sportsFetched.object(at: indexPath)
                 self.sportsTable.deselectRow(at: indexPath, animated: true)
             }
+            else if let indexPath = self.indexPathForShow
+            {
+                let ShowSportViewController = segue.destination as! ShowSportViewController
+                ShowSportViewController.sport = self.sportsFetched.object(at: indexPath)
+                self.sportsTable.deselectRow(at: indexPath, animated: true)
+                indexPathForShow = nil
+            }
         }
         if segue.identifier == self.segueEditSportId{
             if let indexPath = self.indexPathForShow{
+                
                 let editSportViewController = segue.destination as! EditSportViewController
                 editSportViewController.sport = self.sportsFetched.object(at: indexPath)
+                
             }
         }
     }
@@ -111,18 +129,27 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = self.sportsTable.dequeueReusableCell(withIdentifier: "sportCell", for: indexPath) as! SportTableViewCell
         let sport = self.sportsFetched.object(at: indexPath)
         self.sportPresenter.configure(theCell: cell, forSport: sport)
+        cell.accessoryType = .detailButton
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Effacer", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        return[delete]
+        edit.backgroundColor = UIColor.blue
+        return[delete,edit]
     }
     
     // tell if a particular row can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueShowSportId, sender: self)
     }
 
     
@@ -138,4 +165,11 @@ class SportViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.performSegue(withIdentifier: self.segueEditSportId, sender: self)
         self.sportsTable.setEditing(false, animated: true)
     }
+    
+    @IBAction func unwindToSportListAfterEditingSport(segue: UIStoryboardSegue)
+    {
+        // self.save()
+        //self.traitementTableView.reloadData()
+    }
+
 }

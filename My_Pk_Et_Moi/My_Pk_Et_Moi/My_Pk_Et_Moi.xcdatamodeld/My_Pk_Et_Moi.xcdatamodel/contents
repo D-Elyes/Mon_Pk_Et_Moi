@@ -4,7 +4,6 @@
         <attribute name="atteint" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="heure" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="objectif" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contenirJour" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JourSemaine" inverseName="contenirActivite" inverseEntity="JourSemaine" syncable="YES"/>
         <relationship name="possedRappel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RappelActivite" inverseName="contenirActivite" inverseEntity="RappelActivite" syncable="YES"/>
@@ -79,7 +78,7 @@
         <relationship name="estPrisA" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeurPrise" inverseName="priseDuTraitement" inverseEntity="HeurPrise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activite" positionX="153" positionY="-90" width="128" height="148"/>
+        <element name="Activite" positionX="153" positionY="-90" width="128" height="133"/>
         <element name="Etat" positionX="-126" positionY="522" width="128" height="88"/>
         <element name="Evaluation" positionX="90" positionY="401" width="128" height="103"/>
         <element name="Evenement" positionX="-180" positionY="378" width="128" height="73"/>

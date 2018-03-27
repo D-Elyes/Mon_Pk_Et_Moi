@@ -49,6 +49,7 @@ class ajoutSportViewController: UIViewController{
         sport.nom = nomSport
         sport.type = typeSport
         sport.heure = heureSport
+     
         
         // Add days
         // create each new JourSemaine Managed Object
@@ -112,6 +113,20 @@ class ajoutSportViewController: UIViewController{
             embedController.sport = nil
         }
     }*/
+    
+    let segueEmbedId = "embedFromNewSportSegue"
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == self.segueEmbedId
+        {
+            let embedController = segue.destination as! EmbedSportViewController
+            embedController.sport = nil
+        }
+        
+    }
     
 
 }

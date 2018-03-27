@@ -72,7 +72,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 heur = comp.hour!
                 minute = comp.minute!
                 
-                scheduleNotification(hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heur de prendre \(embedTraitementController.nomMedicTextField.text!)")
+                scheduleNotification(hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heure de prendre \(embedTraitementController.nomMedicTextField.text!)")
                 
                 
             }

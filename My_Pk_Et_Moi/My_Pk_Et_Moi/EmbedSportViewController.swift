@@ -32,9 +32,13 @@ class EmbedSportViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        
         self.nomSport.delegate = self
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -42,6 +46,61 @@ class EmbedSportViewController: UIViewController, UITextFieldDelegate, UIPickerV
         typeTextF.inputView = pickerView
         typeTextF.textAlignment = .center
         typeTextF.text = typeSports[0]
+        
+        
+        if let sport = self.sport
+
+        {
+            nomSport.text = sport.nom
+            typeTextF.text = sport.type
+            
+            heure.date = formatter.date(from: (sport.heure)!)!
+            if let jours = sport.contenirJour{
+                for jour in jours{
+                   if let j = jour as? JourSemaine
+                   {
+                        if(j.jour == "Lundi")
+                        {
+                            lundi.setOn(true, animated: true)
+                        }
+                        else if (j.jour == "Mardi")
+                        {
+                            mardi.setOn(true, animated: true)
+
+                        }
+                        else if (j.jour == "Mercredi")
+                        {
+                            mercredi.setOn(true, animated: true)
+
+                    }
+                        else if (j.jour == "Jeudi")
+                        {
+                            jeudi.setOn(true, animated: true)
+
+                    }
+                        else if (j.jour == "Vendredi")
+                        {
+                            vendredi.setOn(true, animated: true)
+
+                    }
+                        else if (j.jour == "Samedi")
+                        {
+                            samedi.setOn(true, animated: true)
+
+                    }
+                        else if (j.jour == "Dimanche")
+                        {
+                            dimanche.setOn(true, animated: true)
+
+                    }
+
+                    
+                    
+                }
+            }
+        }
+            
+    }
        
         
         // Do any additional setup after loading the view.
