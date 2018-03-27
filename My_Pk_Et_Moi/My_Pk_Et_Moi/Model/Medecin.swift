@@ -18,22 +18,4 @@ extension Medecin{
         return fetchResultController
     }
     
-    static func getAllSpeciality() -> [String]{
-        var medecins : [Medecin] = []
-        var specialite : [String] = []
-        let request : NSFetchRequest<Medecin> = Medecin.fetchRequest()
-        //let medecinFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Medecin")
-        do{
-            try medecins = CoreDataManager.context.fetch(request)
-        }
-        catch{
-        }
-        if medecins.count > 0{
-            for i in medecins{
-                specialite.append(i.specialite!)
-            }
-        }
-        return specialite
-    }
-    
 }
