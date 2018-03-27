@@ -9,11 +9,15 @@
 import UIKit
 import CoreData
 
-class MedecinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
+class MedecinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     fileprivate lazy var medecinFetched : NSFetchedResultsController<Medecin> = Medecin.getAllMedecin()
     
     @IBOutlet var medecinPresenter: MedecinPresenter!
+    
+    var pickerView = UIPickerView()
+    
+    let medecins : [String] = ["Psychiatre","Neurologue","Gériatre","Neurochirurgien","Gastro-entérologue","Urologue","Ophtalmologiste","ORL-phoniatre","Rhumatologue","Pneumologue","Cardiologue","Chirurgien-dentiste"]
     
     @IBOutlet weak var medecinTable: UITableView!
     
@@ -26,6 +30,13 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         do{
             try self.medecinFetched.performFetch()
+            
+            specialiteTf.inputView = pickerView
+            specialiteTf.textAlignment = .center
+            specialiteTf.placeholder = "Selection spécialité"
+            
+            pickerView.delegate = self
+            pickerView.dataSource = self
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
@@ -94,6 +105,24 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let medecin = self.medecinFetched.object(at: indexPath)
         CoreDataManager.context.delete(medecin)
+    }
+    
+    // MARK: - PickerView Delegate
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        return 1
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return medecins.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return medecins[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        specialiteTf.text = medecins[row]
+        specialiteTf.resignFirstResponder()
     }
     
     
