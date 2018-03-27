@@ -31,6 +31,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         medTextF.inputView = pickerView
         medTextF.textAlignment = .center
         medTextF.placeholder = "Selection medecin"
+        medTextF.text = medecins[0]
         
         
         pickerView.delegate = self

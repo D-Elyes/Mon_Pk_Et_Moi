@@ -34,6 +34,7 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
             specialiteTf.inputView = pickerView
             specialiteTf.textAlignment = .center
             specialiteTf.placeholder = "Selection spécialité"
+            specialiteTf.text = medecins[0]
             
             pickerView.delegate = self
             pickerView.dataSource = self
