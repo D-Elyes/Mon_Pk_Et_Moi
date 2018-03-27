@@ -31,6 +31,7 @@
 		3F7CB6AC20641F020090E3E7 /* ShowEtatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */; };
 		3F8411D120606B1E00364264 /* Rdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8411D020606B1E00364264 /* Rdv.swift */; };
 		3F89DAB92054165F008D09CB /* ajoutSportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */; };
+		3FA70EC4206A4FAC0014AD66 /* telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA70EC3206A4FAC0014AD66 /* telephone.png */; };
 		3FB3C2DD205DBCB600A93591 /* AddEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */; };
 		3FBB77D120665F75004B85C0 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB77D020665F75004B85C0 /* Evaluation.swift */; };
 		3FBB77D320665F86004B85C0 /* Activite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB77D220665F86004B85C0 /* Activite.swift */; };
@@ -100,6 +101,7 @@
 		3F7CB6AB20641F020090E3E7 /* ShowEtatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowEtatViewController.swift; path = ../ShowEtatViewController.swift; sourceTree = "<group>"; };
 		3F8411D020606B1E00364264 /* Rdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rdv.swift; sourceTree = "<group>"; };
 		3F89DAB82054165F008D09CB /* ajoutSportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ajoutSportViewController.swift; sourceTree = "<group>"; };
+		3FA70EC3206A4FAC0014AD66 /* telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telephone.png; sourceTree = "<group>"; };
 		3FB3C2DC205DBCB600A93591 /* AddEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvaluationViewController.swift; sourceTree = "<group>"; };
 		3FBB77D020665F75004B85C0 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		3FBB77D220665F86004B85C0 /* Activite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activite.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		0B01097C204DA14100D785EA /* image */ = {
 			isa = PBXGroup;
 			children = (
+				3FA70EC3206A4FAC0014AD66 /* telephone.png */,
 				0B010989204DA56E00D785EA /* evaluation.png */,
 				0B010987204DA4F200D785EA /* weightlifting.png */,
 				0B010985204DA49300D785EA /* medication-capsule.png */,
@@ -439,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA70EC4206A4FAC0014AD66 /* telephone.png in Resources */,
 				0B010986204DA49300D785EA /* medication-capsule.png in Resources */,
 				0B01098A204DA56E00D785EA /* evaluation.png in Resources */,
 				BDD222152045B57100B247D1 /* LaunchScreen.storyboard in Resources */,
