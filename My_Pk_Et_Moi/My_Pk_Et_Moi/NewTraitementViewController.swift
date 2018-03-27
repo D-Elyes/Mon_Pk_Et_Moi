@@ -72,7 +72,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 heur = comp.hour!
                 minute = comp.minute!
                 
-                scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!, hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heur de prendre \(embedTraitementController.nomMedicTextField.text!)", dateFin : embedTraitementController.datePickerFin.date)
+                scheduleNotification(hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heur de prendre \(embedTraitementController.nomMedicTextField.text!)")
                 
                 
             }
@@ -140,7 +140,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func scheduleNotification(nom: String, hour: Int, minute: Int, image : String, ext : String, title : String, subtitle : String, body : String, dateFin : Date)
+    func scheduleNotification(hour: Int, minute: Int, image : String, ext : String, title : String, subtitle : String, body : String)
     {
         
         //add atachment
