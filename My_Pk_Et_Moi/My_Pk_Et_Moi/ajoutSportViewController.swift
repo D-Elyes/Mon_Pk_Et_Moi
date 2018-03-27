@@ -10,11 +10,6 @@ import UIKit
 import CoreData
 
 class ajoutSportViewController: UIViewController{
-
-    // Mark : - Formulaire ajout sport : cancel/save
-    @IBAction func cancelBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +21,10 @@ class ajoutSportViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    // Mark : - Formulaire ajout sport : cancel/save
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func saveAction(_ sender: Any) {
         guard let embedSportViewController = self.childViewControllers[0] as? EmbedSportViewController

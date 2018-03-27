@@ -34,13 +34,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        //get the context
-      //  let context = CoreDataManager.context
-        
-        //create request associated to Medicament entity
-        //let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
         do
         {
           //  try self.medicaments = context.fetch(request)
@@ -57,48 +51,6 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Traitement data management
-    
-    /// save data
-    /*func save()
-    {
-        //get context into application delegate
-        if let error = CoreDataManager.save()
-        {
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-    }*/
-    
-    /*
-    /// Create a new Tratiement add it to the collection and save it
-    ///
-    /// - Parameter name: name of medicament to be added
-    func saveNewTraitement(withName name: String, withDose dose: Int16, withDateDebut dateDebut: NSDate, withDateFin dateFin: NSDate, withQtteParJour qtteParJour: Int16, withNbrjourParSemaine nbrJourParSemaine: Int16 )
-    {
-        //get the context
-        let context = CoreDataManager.context
-        //create a Medicament managedObject
-        let traitement = Traitement(context: context)
-        
-        //modify the medicament
-       // Traitement.nomMedicament = name
-       // Traitement.dose = dose
-        traitement.dateDebut = dateDebut
-        traitement.dateFIn = dateFin
-        
-        
-        do
-        {
-            try context.save()
-            self.medicaments.append(traitement)
-        }
-        catch let error as NSError
-        {
-            DialogBoxHelper.alert(view: self,error: error)
-            return
-        }
-    }*/
-  
     
     // MARK: - TableView data source protocol -
     
@@ -119,14 +71,6 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         
         let traitement = self.traitementFetched.object(at: indexPath)
         self.TraitementPresenter.configure(theCell: cell, forTraitement:  traitement)
-       //self.TraitementPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
-        
-        //cell.medicNameLabel.text = self.names[indexPath.row]
-        /*cell.medicNameLabel.text = self.medicaments[indexPath.row].nomMedicament
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy" //the format of the date that will be displayed
-        cell.startDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateDebut)
-        cell.endDateLabel.text = formatter.string(for: self.medicaments[indexPath.row].dateFIn)*/
         cell.accessoryType = .detailButton
         
         return cell
@@ -144,12 +88,6 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     {
         let traitement = self.traitementFetched.object(at: indexPath)
         CoreDataManager.context.delete(traitement)
-        //self.traitementTableView.beginUpdates()
-        /*if self.delete(medicamentWithIndex: indexPath.row)
-        {
-            self.traitementTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        }
-        self.traitementTableView.endUpdates()*/
     }
     
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
@@ -167,51 +105,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
         return [delete,edit]
     }
     
-    /// delete a medicament fromcollection according to its index
-    ///
-    /// - Precondition: Index must be into bound of collection
-    /// - Parameter traitementWithIndex: index of traitement to delete
-    /// - Returns: true if deletion succeded, else false
-    /*func delete(medicamentWithIndex index : Int)-> Bool
-    {
-        let context = CoreDataManager.context
-        let medicament = self.medicaments[index]
-        context.delete(medicament)
-        do{
-            try context.save()
-            self.medicaments.remove(at: index)
-            return true
-        }
-        catch let error as NSError
-        {
-            DialogBoxHelper.alert(view: self,error: error)
-            return false
-        }
-        
-    }
-    */
    
-    
-    // MARK: - helper methote -
-    
-   
-    /// get context of core data initialized in application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: main error message
-    ///   - userInfo: additional information user want to display
-    /// - Returns: context of Coredata
-   /* func getContext(errorMsg: String, userInfo: String = "could not retrieve data context" ) -> NSManagedObjectContext?
-    {
-        //get context of persistent data
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else
-        {
-            DialogBoxHelper.alert(view: self,withTitle: errorMsg, andMessage: userInfo)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-        
-    }*/
   
     // MARK: - TableView Delegate protocol
     
@@ -296,35 +190,6 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
-    
-   // @IBAction func unwindToTratiementListAfterSavingNewTraitement(segue: UIStoryboardSegue)
-   //{
-    
-           
-        /*let newTraitementController = segue.source as! NewTraitementViewController
-        let embedTraitementController = newTraitementController.childViewControllers[0] as! EmbedTratiementViewController
-        let nomMedic =  embedTraitementController.nomMedicTextField.text!
-        
-        
-        let dose = Int16(embedTraitementController.doseTextField!.text!)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        guard let dateDebut = dateFormatter.date(from: embedTraitementController.dateDebut.text!) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
-        }
-        
-        guard let dateFin = dateFormatter.date(from: embedTraitementController.dateFin.text!) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
-        }
-        
-        
-        let nbParJour = Int16(embedTraitementController.qtteParJourTextField!.text!)
-        let nbJourParSemaine = Int16(embedTraitementController.jourParSemaineTextField!.text!)
-        
-        self.saveNewTraitement(withName: nomMedic, withDose: dose!, withDateDebut: dateDebut as NSDate, withDateFin: dateFin as NSDate, withQtteParJour: nbParJour!, withNbrjourParSemaine: nbJourParSemaine!)
-        
-        self.traitementTableView.reloadData()*/
-   // }
     
     @IBAction func unwindToTratiementListAfterEditingTraitement(segue: UIStoryboardSegue)
      {

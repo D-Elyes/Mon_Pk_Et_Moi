@@ -19,9 +19,23 @@ class ShowEtatViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var evenementTable: UITableView!
     
-    fileprivate lazy var etatFetched : NSFetchedResultsController<Etat> = Evaluation.getAllEtat(evaluation: self.evaluation!)
+    fileprivate lazy var etatFetched : NSFetchedResultsController<Etat> = {
+        let request : NSFetchRequest<Etat> = Etat.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Etat.heure),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        request.predicate = NSPredicate(format: "correspondreJourEvaluation.correspondreEvaluation == %@", self.evaluation!)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
-    fileprivate lazy var evenementFetched : NSFetchedResultsController<Evenement> = Evaluation.getAllEvenement(evaluation : self.evaluation!)
+    fileprivate lazy var evenementFetched : NSFetchedResultsController<Evenement> = {
+        let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evenement.evenement),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        request.predicate = NSPredicate(format: "appartientAEva == %@", self.evaluation!)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
 
     
     override func viewDidLoad() {

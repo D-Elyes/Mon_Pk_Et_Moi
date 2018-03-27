@@ -37,6 +37,7 @@ class AddEvaluationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Handle save button
     @IBAction func saveAction(_ sender: Any) {
         
         //get the number of days between the current date and the date of the Rdv into jourRestant

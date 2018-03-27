@@ -14,7 +14,6 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
     
     
     @IBOutlet weak var priseTableView: UITableView!
-    
    
     @IBOutlet weak var nomMedicTextField: UITextField!
     
@@ -38,7 +37,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
     
     var heurs: [NSDate] = []
 
-    
+    // MARK: - Handle add button
     @IBAction func ajouterprise(_ sender: Any) {
         
          let hourPicker  = UIDatePicker()
@@ -66,11 +65,6 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
         let field = UITextField()
         field.inputView = hourPicker
         alert.addTextField()
-        
-        //{(textField : UITextField) in
-               /* textField.inputView = self.hourPicker
-                textField.text = self.hourFormatter.string(from: self.hourPicker.date)
-        }*/
         alert.textFields?.first?.inputView = hourPicker
         alert.textFields?.first?.text = self.hourFormatter.string(from: hourPicker.date)
         
@@ -176,8 +170,6 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
     {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        //formatter.dateStyle = DateFormatter.Style.long
-        //formatter.timeStyle = DateFormatter.Style.none
         
         
         dateFin.text = formatter.string(from: sender.date)
@@ -207,34 +199,8 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
         cell.hourLabel.text = hourFormatter.string(for: self.heurs[indexPath.row])
         return cell
     }
-    /*
-    //MARK: data management
     
-    /// delete a hour prise fromcollection according to its index
-    ///
-    /// - Precondition: Index must be into bound of collection
-    /// - Parameter priseWithIndex : index of traitement to delete
-    /// - Returns: true if deletion succeded, else false
-    func delete(priseWithIndex  index : Int)-> Bool
-     {
-     let context = CoreDataManager.context
-     let prise = self.heurs[index]
-     
-     do{
-    
-     self.heurs.remove(at: index)
-     return true
-     }
-     catch let error as NSError
-     {
-     DialogBoxHelper.alert(view: self,error: error)
-     return false
-     }
-     
-     }
-    */
-    
-    //MARK: data source prtocol
+    //MARK: data source protocol
      // tell if a particular row can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

@@ -11,9 +11,12 @@ import UserNotifications
 
 class NewTraitementViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: - Cancel and save new Traitement
+    @IBAction func cancelActionButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func saveActionButton(_ sender: Any) {
-        
         guard let embedTraitementController = self.childViewControllers[0] as? EmbedTratiementViewController else {return}
         
         if embedTraitementController.nomMedicTextField.text?.isEmpty ?? true || embedTraitementController.doseTextField.text?.isEmpty ?? true || embedTraitementController.dateDebut.text?.isEmpty ?? true || embedTraitementController.dateFin.text?.isEmpty ?? true
@@ -58,7 +61,6 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
             let calendar = Calendar.current
             var heur : Int
             var minute : Int
-            //let priseA = traitement.mutableSetValue(forKey: #keyPath(Heurprise.priseDuTraitement))
             
             for i in embedTraitementController.heurs
             {
@@ -77,15 +79,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 
             }
             
-            
-            
-          
-            
-            //scheduleNotification(nom: embedTraitementController.nomMedicTextField.text!)
-            
-            
-            
-            let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succée", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Opération reussite!", message: "Nouveau traitement ajouté avec succes", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
                 (_)in
                 self.dismiss(animated: true, completion: nil)
@@ -108,11 +102,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Mark : - Cancel and save new Traitiement
     
-    @IBAction func cancelActionButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     
     
@@ -163,23 +153,18 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
         notif.body = body
         notif.categoryIdentifier = AppDelegate.Notification.Category.traitement
         notif.userInfo = ["Redirection" : "Traitement"]
-        //let dateFinMedic = ["fin" : dateFin]
-       // notif.userInfo = dateFinMedic
         
         notif.attachments = [attachment]
         
         var dateInfo = DateComponents()
         dateInfo.hour = hour
         dateInfo.minute = minute
-        
-        //let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+
         let notifTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
         
         let request = UNNotificationRequest(identifier: identifier, content: notif, trigger: notifTrigger)
         
         let center = UNUserNotificationCenter.current()
-        
-        
         
         center.add(request) { (error : Error?) in
                 if let theError = error
@@ -187,7 +172,6 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                     print(theError.localizedDescription)
             }
         }
-      //  UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in    })
     }
     
  

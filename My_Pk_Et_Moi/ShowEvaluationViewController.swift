@@ -17,7 +17,14 @@ class ShowEvaluationViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet var jourEvaluationPresenter: EvaluationPresenter!
     
     
-    fileprivate lazy var joursEvaluationFetched : NSFetchedResultsController<JourEvaluation> = Evaluation.getAllJourEvaluation(evaluation: self.evaluation!)
+    fileprivate lazy var joursEvaluationFetched : NSFetchedResultsController<JourEvaluation> = {
+        let request : NSFetchRequest<JourEvaluation> = JourEvaluation.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(JourEvaluation.jour),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        request.predicate = NSPredicate(format: "correspondreEvaluation == %@", self.evaluation!)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
 
     @IBOutlet weak var joursEvaluationTable: UITableView!
 

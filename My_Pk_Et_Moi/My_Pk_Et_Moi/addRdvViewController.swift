@@ -46,7 +46,7 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     
-    // Mark : - Formulaire ajout sport : cancel/save
+    // Mark : - Form add Rdv : cancel/save
 
     @IBAction func cancelBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
