@@ -11,7 +11,13 @@ import CoreData
 
 class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
-    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = Evaluation.getAllEvaluation()
+    fileprivate lazy var evaluationFetched : NSFetchedResultsController<Evaluation> = {
+        let request : NSFetchRequest<Evaluation> = Evaluation.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Evaluation.concerneRdv.date),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     @IBOutlet weak var evaluationsTable: UITableView!
     

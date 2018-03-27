@@ -11,7 +11,13 @@ import CoreData
 
 class RdvViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
-    fileprivate lazy var rdvFetched : NSFetchedResultsController<Rdv> = Rdv.getAllRdv()
+    fileprivate lazy var rdvFetched : NSFetchedResultsController<Rdv> = {
+        let request : NSFetchRequest<Rdv> = Rdv.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Rdv.date),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     @IBOutlet var rdvPresenter: RdvPresenter!
     var indexPathForShow: IndexPath? = nil

@@ -11,7 +11,13 @@ import CoreData
 
 class MedecinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    fileprivate lazy var medecinFetched : NSFetchedResultsController<Medecin> = Medecin.getAllMedecin()
+    fileprivate lazy var medecinFetched : NSFetchedResultsController<Medecin> = {
+        let request : NSFetchRequest<Medecin> = Medecin.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Medecin.nom),ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     @IBOutlet var medecinPresenter: MedecinPresenter!
     
