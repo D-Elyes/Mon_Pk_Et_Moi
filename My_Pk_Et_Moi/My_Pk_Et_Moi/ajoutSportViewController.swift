@@ -35,7 +35,7 @@ class ajoutSportViewController: UIViewController{
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "fr_FR")
-        dateFormatter.dateFormat = "hh mm"
+        dateFormatter.dateFormat = "HH:mm"
         let heureSport = dateFormatter.string(from: embedSportViewController.heure.date)
         
         guard (nomSport != "" ) || (typeSport != "" ) else {
@@ -60,41 +60,53 @@ class ajoutSportViewController: UIViewController{
         let samedi = JourSemaine(context: CoreDataManager.context)
         let dimanche = JourSemaine(context: CoreDataManager.context)
         
+        
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour,.minute], from: embedSportViewController.heure.date)
         if embedSportViewController.lundi.isOn == true {
             lundi.jour = "Lundi"
             sport.addToContenirJour(lundi)
             lundi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!,weekDay: 2, day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.mardi.isOn == true {
             mardi.jour = "Mardi"
             sport.addToContenirJour(mardi)
             mardi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!,weekDay: 3, day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.mercredi.isOn == true {
             mercredi.jour = "Mercredi"
             sport.addToContenirJour(mercredi)
             mercredi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!, weekDay: 4,day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.jeudi.isOn == true {
             jeudi.jour = "Jeudi"
             sport.addToContenirJour(jeudi)
             jeudi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!, weekDay: 5,day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.vendredi.isOn == true {
             vendredi.jour = "Vendredi"
             sport.addToContenirJour(vendredi)
             vendredi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!, weekDay: 6,day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.samedi.isOn == true {
             samedi.jour = "Samedi"
             sport.addToContenirJour(samedi)
             samedi.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!, weekDay: 7,day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
         if embedSportViewController.dimanche.isOn == true {
             dimanche.jour = "Dimanche"
             sport.addToContenirJour(dimanche)
             dimanche.contenirActivite = sport
+            NotificationsSchedule.scheduleNotification(hour: comp.hour!, minute: comp.minute!, weekDay: 1,day : nil,month: nil, image: "weightlifting", ext: "png", title: "Rappel Activite", subtitle: "Repirse d'uneactivite", body: "il est temps de faire \(embedSportViewController.nomSport.text!)",category: NotificationsSchedule.Notification.Category.sport, repeated: true)
         }
+       
+        
         
         self.dismiss(animated: true, completion: nil)
     }

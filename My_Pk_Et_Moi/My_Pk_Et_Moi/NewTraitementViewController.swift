@@ -74,7 +74,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
                 heur = comp.hour!
                 minute = comp.minute!
                 
-                scheduleNotification(hour: heur, minute: minute,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heure de prendre \(embedTraitementController.nomMedicTextField.text!)")
+                NotificationsSchedule.scheduleNotification(hour: heur, minute: minute,weekDay: nil, day: nil,month: nil,image: "medication-capsule", ext: "png",title: "Rappel medicament",subtitle: "Prise de medicament",body: "C'est l'heure de prendre \(embedTraitementController.nomMedicTextField.text!)", category: NotificationsSchedule.Notification.Category.traitement, repeated:  true)
                 
                 
             }
@@ -130,49 +130,7 @@ class NewTraitementViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func scheduleNotification(hour: Int, minute: Int, image : String, ext : String, title : String, subtitle : String, body : String)
-    {
-        
-        //add atachment
-        
-        guard let imageUrl = Bundle.main.url(forResource: image, withExtension: ext ) else {
-           
-            return
-        }
-        
-        let identifier : String = UUID().uuidString
-        var attachment: UNNotificationAttachment
-        
-        
-        
-        attachment = try! UNNotificationAttachment(identifier: identifier, url: imageUrl, options: .none)
-        
-        let notif = UNMutableNotificationContent()
-        notif.title = title
-        notif.subtitle = subtitle
-        notif.body = body
-        notif.categoryIdentifier = AppDelegate.Notification.Category.traitement
-        notif.userInfo = ["Redirection" : "Traitement"]
-        
-        notif.attachments = [attachment]
-        
-        var dateInfo = DateComponents()
-        dateInfo.hour = hour
-        dateInfo.minute = minute
-
-        let notifTrigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: identifier, content: notif, trigger: notifTrigger)
-        
-        let center = UNUserNotificationCenter.current()
-        
-        center.add(request) { (error : Error?) in
-                if let theError = error
-                {
-                    print(theError.localizedDescription)
-            }
-        }
-    }
+    
     
  
 

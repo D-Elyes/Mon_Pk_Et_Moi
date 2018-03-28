@@ -83,7 +83,8 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         medecin.specialite = medecinRdv
         rdv.concerneMedecin? = medecin
         medecin.addToAvoirRdv(rdv)
-        
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.day,.month], from: dateRdv)
         //Create an evaluation if the Rdv is with a neurologue
         if medecinRdv == "Neurologue"{
             // create a new Evalaution Managed Object
@@ -92,11 +93,13 @@ class addRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             evaluation.concerneRdv?.date = dateRdv as NSDate
             evaluation.concerneRdv?.heure = heureRdv
             evaluation.concerneRdv = rdv
+            NotificationsSchedule.scheduleNotification(hour: 4, minute: 05,weekDay: nil, day: (comp.day!-6),month : comp.month, image: "evaluation", ext: "png", title: "Rappel d'evaluation", subtitle: "Faire les evaluation", body: "Commencer à remplir la fiche d'evaluation à partir de demain", category: NotificationsSchedule.Notification.Category.rdv, repeated: false)
             self.dismiss(animated: true, completion: nil)
+            
         }
-        else{
+      
+        NotificationsSchedule.scheduleNotification(hour: 10, minute: 00,weekDay: nil, day: (comp.day!-1),month : comp.month, image: "medical-notes-symbol-of-a-list-paper-on-a-clipboard", ext: "png", title: "Rappel de rendez-vous", subtitle: "Rendez-vous proche", body: "Demain vous avez un rendez-vous", category: NotificationsSchedule.Notification.Category.rdv, repeated: false)
             self.dismiss(animated: true, completion: nil)
-        }
     }
     
     // MARK: - TextField Delegate

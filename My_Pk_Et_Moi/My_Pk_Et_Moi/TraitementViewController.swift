@@ -84,12 +84,22 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     //MARK: - Action Handler
     
+    /// this handle the remove of a traitement
+    ///
+    /// - Parameters:
+    ///   - action: the action
+    ///   - indexPath: the index of the traitement to remove
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
     {
         let traitement = self.traitementFetched.object(at: indexPath)
         CoreDataManager.context.delete(traitement)
     }
     
+    /// This method handle the edition of traitement
+    ///
+    /// - Parameters:
+    ///   - action: the action
+    ///   - indexPath: the index of the traitement to remove
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void
     {
         self.indexPathForShow = indexPath
@@ -193,8 +203,7 @@ class TraitementViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func unwindToTratiementListAfterEditingTraitement(segue: UIStoryboardSegue)
      {
-       // self.save()
-        //self.traitementTableView.reloadData()
+       
     }
         
     

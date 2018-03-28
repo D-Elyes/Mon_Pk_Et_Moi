@@ -56,6 +56,7 @@
 		C727FBD720575D79006C3AE6 /* ShowTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */; };
 		C73496B4205984BA00DB8DC3 /* NewTraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */; };
 		C76B4C2A206684A0003802A7 /* My_Pk_Et_Moi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C76B4C28206684A0003802A7 /* My_Pk_Et_Moi.xcdatamodeld */; };
+		C79B8370206B0BD6006971FD /* NotificationsSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79B836F206B0BD6006971FD /* NotificationsSchedule.swift */; };
 		C7DC3857205705F00084CF14 /* TraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC3856205705F00084CF14 /* TraitementViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,7 @@
 		C727FBD620575D79006C3AE6 /* ShowTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTraitementViewController.swift; sourceTree = "<group>"; };
 		C73496B3205984BA00DB8DC3 /* NewTraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTraitementViewController.swift; sourceTree = "<group>"; };
 		C76B4C29206684A0003802A7 /* My_Pk_Et_Moi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = My_Pk_Et_Moi.xcdatamodel; sourceTree = "<group>"; };
+		C79B836F206B0BD6006971FD /* NotificationsSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSchedule.swift; sourceTree = "<group>"; };
 		C7DC3856205705F00084CF14 /* TraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,6 +275,7 @@
 			children = (
 				3FDE16082056C88300DFC11F /* CoreDataManager.swift */,
 				3FCE02FB20617A1C004D0F86 /* DialogBoxHelper.swift */,
+				C79B836F206B0BD6006971FD /* NotificationsSchedule.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				3FDE160D2056ED3100DFC11F /* ShowSportViewController.swift in Sources */,
 				3F734A7E20696415005E65DC /* MedecinPresenter.swift in Sources */,
 				3F6E6B83205D9671004168EB /* EvaluationTableViewCell.swift in Sources */,
+				C79B8370206B0BD6006971FD /* NotificationsSchedule.swift in Sources */,
 				3F397A952062C664003C8A67 /* ShowEvaluationViewController.swift in Sources */,
 				3FDE16092056C88300DFC11F /* CoreDataManager.swift in Sources */,
 				3F06E7E82050582A00644A17 /* SportTableViewCell.swift in Sources */,

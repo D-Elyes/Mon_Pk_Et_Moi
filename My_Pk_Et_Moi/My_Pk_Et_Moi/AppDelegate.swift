@@ -16,23 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     
-    struct Notification
-    {
-        struct Category
-        {
-            static let traitement = "traitement"
-            static let sport = "sport"
-            static let evaluation = "evaluation"
-        }
-        
-        struct Action
-        {
-            static let showDetails = "showDetails"
-            static let unsubscribe = "unsubscribe"
-        }
-        
-        
-    }
+   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -125,25 +109,39 @@ extension AppDelegate: UNUserNotificationCenterDelegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier
         {
-            case Notification.Action.showDetails:
+            case NotificationsSchedule.Notification.Action.showDetails:
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let navigationController = self.window?.rootViewController as? UINavigationController
-                        if response.notification.request.content.categoryIdentifier == Notification.Category.traitement
+                        if response.notification.request.content.categoryIdentifier == NotificationsSchedule.Notification.Category.traitement
                         {
                             let destinationController = storyboard.instantiateViewController(withIdentifier: "Traitement") as? TraitementViewController
                             navigationController?.pushViewController(destinationController!, animated: false)
-                             //self.redirectToPage(userInfo: response.notification.request.content.userInfo as [AnyHashable : AnyObject] )
                             
+                           
                         }
-            
-            case Notification.Action.unsubscribe:
+                        else if response.notification.request.content.categoryIdentifier == NotificationsSchedule.Notification.Category.sport
+                        {
+                            let destinationController = storyboard.instantiateViewController(withIdentifier: "Sport") as? SportViewController
+                            navigationController?.pushViewController(destinationController!, animated: false)
+                        }
+                        else if response.notification.request.content.categoryIdentifier == NotificationsSchedule.Notification.Category.rdv
+                        {
+                            let destinationController = storyboard.instantiateViewController(withIdentifier: "Rdv") as? RdvViewController
+                            navigationController?.pushViewController(destinationController!, animated: false)
+                        }
+                        else if response.notification.request.content.categoryIdentifier == NotificationsSchedule.Notification.Category.evaluation
+                        {
+                            let destinationController = storyboard.instantiateViewController(withIdentifier: "Evaluation") as? EvaluationViewController
+                            navigationController?.pushViewController(destinationController!, animated: false)
+                        }
+            case NotificationsSchedule.Notification.Action.unsubscribe:
                 let center = UNUserNotificationCenter.current()
                 center.removePendingNotificationRequests(withIdentifiers: [response.notification.request.identifier])
                
             
             
         default:
-            return
+            break
         }
         
         completionHandler()
@@ -154,13 +152,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate
         
        
         
-        let actionShowDetails = UNNotificationAction(identifier: Notification.Action.showDetails, title: "Show Details", options: [.foreground])
+        let actionShowDetails = UNNotificationAction(identifier: NotificationsSchedule.Notification.Action.showDetails, title: "Show Details", options: [.foreground])
         
-        let actionUnsubscribe = UNNotificationAction(identifier: Notification.Action.unsubscribe, title: "Unsubscribe", options: [.destructive, .authenticationRequired])
+        let actionUnsubscribe = UNNotificationAction(identifier: NotificationsSchedule.Notification.Action.unsubscribe, title: "Unsubscribe", options: [.destructive, .authenticationRequired])
         
-        let category = UNNotificationCategory(identifier: Notification.Category.traitement,actions: [actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+        let traitement = UNNotificationCategory(identifier: NotificationsSchedule.Notification.Category.traitement,actions: [actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
         
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+         let sport = UNNotificationCategory(identifier: NotificationsSchedule.Notification.Category.sport,actions: [actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+        
+         let rdv = UNNotificationCategory(identifier: NotificationsSchedule.Notification.Category.rdv,actions: [actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+        
+         let evaluation = UNNotificationCategory(identifier: NotificationsSchedule.Notification.Category.evaluation,actions: [actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([traitement,sport,rdv,evaluation])
     }
 }
 

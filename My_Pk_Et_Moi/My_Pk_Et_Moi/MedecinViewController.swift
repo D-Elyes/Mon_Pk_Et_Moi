@@ -59,9 +59,11 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: - NSFetchResultController delegate protocol
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.medecinTable.beginUpdates()
     }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.medecinTable.endUpdates()
         CoreDataManager.save()
@@ -136,6 +138,7 @@ class MedecinViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     // MARK: - Handle add button medecin
+    
     @IBAction func addMedecin(_ sender: Any) {
 
         let nomMedecin : String = self.nomTf.text ?? ""

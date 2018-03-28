@@ -38,6 +38,7 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
     var heurs: [NSDate] = []
 
     // MARK: - Handle add button
+    
     @IBAction func ajouterprise(_ sender: Any) {
         
          let hourPicker  = UIDatePicker()
@@ -175,6 +176,9 @@ class EmbedTratiementViewController: UIViewController, UITextFieldDelegate, UITa
         dateFin.text = formatter.string(from: sender.date)
     }
     
+    /// this methode is called when the value of the datepicked is changed
+    ///
+    /// - Parameter sender: the targeted datePicker
     func hourPickedValueChanged(sender: UIDatePicker)
     {
         
